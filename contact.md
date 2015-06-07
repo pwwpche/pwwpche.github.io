@@ -1,10 +1,14 @@
 ---
 layout: default
-title: Contact Long Haul
+title: Contact pwwpche
 ---
 
 <div id="contact">
+
   <h1 class="pageTitle">Contact Me</h1>
+  	<div class="contactContent">
+		<p> Don't contact me ! </p>
+	</div>
   <form action="http://formspree.io/your@mail.com">
     <label for="name">Name</label>    
     <input type="text" id="name" name="name" class="full-width"><br>
