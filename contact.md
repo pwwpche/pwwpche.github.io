@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Contact pwwpche
+permalink: /contact/
 ---
 
 <div id="contact">
@@ -8,8 +9,10 @@ title: Contact pwwpche
   <h1 class="pageTitle">Contact Me</h1>
   	<div class="contactContent">
 		<p> Don't contact me ! </p>
+		<p> Or...whatever... </p>
+		<p> Do it if you want... </p>
 	</div>
-  <form action="http://formspree.io/your@mail.com">
+  <form action="http://formspree.io/pwwpche@gmail.com">
     <label for="name">Name</label>    
     <input type="text" id="name" name="name" class="full-width"><br>
     <label for="email">Email Address</label>
