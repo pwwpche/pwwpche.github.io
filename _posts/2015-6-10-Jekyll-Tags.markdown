@@ -106,5 +106,17 @@ post.html:
 <div class="postNav clearfix">
 {% endhighlight %}
 
+
+最后，在日志的YAML段加上想要的tag
+{% highlight html %}
+---
+layout: post
+title:  "为Jekyll添加Tag功能"
+date:   2015-6-10
+tags:
+- jekyll
+- tag
+---
+{% endhighlight %}
 All done.
 [TIJ]: http://charliepark.org/tags-in-jekyll/
