@@ -1,0 +1,13 @@
+<div class="tags">
+   <div class="container">
+   <h5>Tags</h5>
+		  <li class="archive_list">
+			<ul class="archive_list">
+			  {% for tag in page.tags %}
+			  <a class="tag_list_link" href="/tag/{{ tag }}">{{ tag }}</a></li>
+			  {% endfor %}
+			</ul>
+		  </li>
+   </div>
+</div><!-- end .footer -->
+
