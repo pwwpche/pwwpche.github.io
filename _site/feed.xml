@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PWWPCHE</title>
+    <description>No description here</description>
+    <link>https://github.com/pwwpche/</link>
+    <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 09 Jul 2015 12:34:25 +0800</pubDate>
+    <lastBuildDate>Thu, 09 Jul 2015 12:34:25 +0800</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Some Interesting Visiting order of FindBugs 0.5.2</title>
+        <description>&lt;h3&gt;This is the answer to the question yesterday.&lt;/h3&gt;
+
+&lt;p&gt;FindBugs has a really complex program structure...much more complex than any program I&amp;#39;ve ever wrote (to be honest, I&amp;#39;ve not written too much code LOL).&lt;/p&gt;
+
+&lt;h4&gt;Here is the architecture:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;BytecodeScanningDetector.visitClassContext()&lt;/li&gt;
+&lt;li&gt;-&amp;gt; JavaClass.accept(Visitor v) [1]&lt;/li&gt;
+&lt;li&gt;-&amp;gt; PreorderVisitor.visitJavaClass(JavaClass obj)[2]&lt;/li&gt;
+&lt;li&gt;-&amp;gt; Code.accept(Visitor v)&lt;/li&gt;
+&lt;li&gt;-&amp;gt; PreorderVisitor.visitCode(Code obj)&lt;/li&gt;
+&lt;li&gt;-&amp;gt; BetterVisitor.visitCode(Code obj)&lt;/li&gt;
+&lt;li&gt;-&amp;gt; DismantleByteCode.visit(Code obj)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;[1]Visitor v is of class edu.umd.cs.findbugs.FindSpinLoop&lt;br&gt;
+FindSpinLoop(contains no visitJavaClass()) extends 
+=&amp;gt;BytecodeScanningDetector(contains no visitJavaClass())  extends
+=&amp;gt;=&amp;gt;DismantleBytecode(contains no visitJavaClass())  extends 
+=&amp;gt;=&amp;gt;=&amp;gt;PreorderVisitor(contains visitJavaClass()) 
+so, moving through the chain of extends, we can finally approach the visitJavaClass() method. &lt;/p&gt;
+
+&lt;p&gt;[2] Assume that we are visiting some Code&lt;/p&gt;
+
+&lt;h4&gt;[3]Hmmm...This is interesting...&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Remember that Code.accept() called visitCode(), which FindSpinLoop doesn&amp;#39;t have, and which PreorderVisitor does have. &lt;/li&gt;
+&lt;li&gt;But PreorderVisitor called super.visitCode(), and its super class, BetterVisitor, called visit(Code obj), which both BetterVisitor and FindSpinLoop have. &lt;/li&gt;
+&lt;li&gt;In this situation, Java decides that the most concrete class, FindSpinLoop, should be called. &lt;/li&gt;
+&lt;li&gt;FindSpinLoop called super.visit(Code obj), which BytecodeScanningDetector doesn&amp;#39;t have, and DismantleByteCode has. &lt;/li&gt;
+&lt;li&gt;So finally, DismantleByteCode.visit(Code obj) is called. &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;What a lovely structure...I&amp;#39;m not serious...And here is a simple code snippet to illustrate this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyInterface&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AbstractTest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyInterface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;no&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;me in abstractTest&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;me2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;me2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;no&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;me2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ConcreteTest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;AbstractTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;me3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;no&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Concrete Me3()&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;me2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;no&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Concrete Me2()&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyTest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;no&quot;&gt;ConcreteTest&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ConcreteTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;MyInterface&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myInterface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;myInterface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Result of the program:&lt;br&gt;
+me in abstractTest&lt;br&gt;
+Concrete Me2()&lt;/p&gt;
+</description>
+        
+          <description>&lt;h3&gt;This is the answer to the question yesterday.&lt;/h3&gt;
+
+&lt;p&gt;FindBugs has a really complex program structure...much more complex than any program I&amp;#39;ve ever wrote (to be honest, I&amp;#39;ve not written too much code LOL).&lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 09 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Some%20Interesting%20Visiting%20order%20of%20FindBugs%200.5.2/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Some%20Interesting%20Visiting%20order%20of%20FindBugs%200.5.2/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Daily Report - 7.8</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午看了一下BCEL的一个example的源码，大概搞懂了如何用BCEL创建一个java class&lt;/li&gt;
+&lt;li&gt;顺便理解了new后为什么要有dup，但是没完全搞懂&lt;/li&gt;
+&lt;li&gt;中午打酱油&lt;/li&gt;
+&lt;li&gt;下午把FindBugs 3.0的源码跑起来了，学长提醒说旧版和新版架构可能有很大差别，建议看新版。粗看了一下架构区别不是很大，还是用了Visitor模式。需要以后再确定一下&lt;/li&gt;
+&lt;li&gt;傍晚自己写了一个最简单的java程序，javap -c 反汇编后看了一下，照着写出了BCEL生成相应java class的程序，跑起来了。&lt;/li&gt;
+&lt;li&gt;临走前发现一个问题。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;可以开始尝试搭一个简单的FindBugs架构了？（问题是现在还没学如何利用FindBugs的Visitor机制）&lt;/li&gt;
+&lt;li&gt;所以要学学Visitor机制&lt;/li&gt;
+&lt;li&gt;重看FindBugs论文和XFindBugs论文&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;问题&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;JVM的运行机制，栈上的东西是用完了自动pop吗？为何要先dup再invokeVirtual？  （Possible Explanation:http://stackoverflow.com/questions/12438567/java-bytecode-dup）&lt;/li&gt;
+&lt;li&gt;BCEL的Visitor机制是怎么用的？什么时候要用visitor模式？&lt;/li&gt;
+&lt;li&gt;JVM的操作数栈和局部变量栈是如何协同工作的？&lt;/li&gt;
+&lt;li&gt;为何FindBugs里面BetterVisitor直接跳到了DismantleByteCode?&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午看了一下BCEL的一个example的源码，大概搞懂了如何用BCEL创建一个java class&lt;/li&gt;
+&lt;li&gt;顺便理解了new后为什么要有dup，但是没完全搞懂&lt;/li&gt;
+&lt;li&gt;中午打酱油&lt;/li&gt;
+&lt;li&gt;下午把FindBugs 3.0的源码跑起来了，学长提醒说旧版和新版架构可能有很大差别，建议看新版。粗看了一下架构区别不是很大，还是用了Visitor模式。需要以后再确定一下&lt;/li&gt;
+&lt;li&gt;傍晚自己写了一个最简单的java程序，javap -c 反汇编后看了一下，照着写出了BCEL生成相应java class的程序，跑起来了。&lt;/li&gt;
+&lt;li&gt;临走前发现一个问题。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;可以开始尝试搭一个简单的FindBugs架构了？（问题是现在还没学如何利用FindBugs的Visitor机制）&lt;/li&gt;
+&lt;li&gt;所以要学学Visitor机制&lt;/li&gt;
+&lt;li&gt;重看FindBugs论文和XFindBugs论文&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Wed, 08 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/c.Daily%20Report/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/c.Daily%20Report/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Rough program logic of FindBugs 0.5.2</title>
+        <description>&lt;h3&gt;Rough running sequence of FindBugs 0.5.2:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;FindBugs.examineClass()&lt;/li&gt;
+&lt;li&gt;BytecodeScanningDetector.visitClassContext()&lt;/li&gt;
+&lt;li&gt;JavaClass.accept()&lt;/li&gt;
+&lt;li&gt;PreorderVisitor.visitJavaClass()&lt;/li&gt;
+&lt;li&gt;PreorderVisitor.visitMethod()&lt;/li&gt;
+&lt;li&gt;PreorderVisitor.visitCode()&lt;/li&gt;
+&lt;li&gt;BetterVisitor.visitCode()&lt;/li&gt;
+&lt;li&gt;DismantleBytecode.visit()&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;More Question:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Why BetterVisitor can call DismantleByteCode?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Posible explanation&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;DismantleByteCode extends BetterVisitor&lt;/li&gt;
+&lt;li&gt;DismantleByteCode is abstract&lt;/li&gt;
+&lt;li&gt;Or, explanation is not hiding here(in extend and abstract)?
+(Maybe refer to BCEL manual, PDF highlighted part)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;Rough running sequence of FindBugs 0.5.2:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;FindBugs.examineClass()&lt;/li&gt;
+&lt;li&gt;BytecodeScanningDetector.visitClassContext()&lt;/li&gt;
+&lt;li&gt;JavaClass.accept()&lt;/li&gt;
+&lt;li&gt;PreorderVisitor.visitJavaClass()&lt;/li&gt;
+&lt;li&gt;PreorderVisitor.visitMethod()&lt;/li&gt;
+&lt;li&gt;PreorderVisitor.visitCode()&lt;/li&gt;
+&lt;li&gt;BetterVisitor.visitCode()&lt;/li&gt;
+&lt;li&gt;DismantleBytecode.visit()&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Wed, 08 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/b.FindBugs%20Structure/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.FindBugs%20Structure/</guid>
+        
+        <category>Lab</category>
+        
+        <category>FindBugs</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Visitor Pattern</title>
+        <description>&lt;h2&gt;Components&lt;/h2&gt;
+
+&lt;h3&gt;Utility&lt;/h3&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;-Controller&lt;/dt&gt;
+  &lt;dd&gt;* Provide method for visitors&lt;/dd&gt;
+  &lt;dt&gt;-Visitor&lt;/dt&gt;
+  &lt;dd&gt;* Provide interface to all visiting methods&lt;/dd&gt;
+  
+  &lt;dt&gt;-VisitorImpl&lt;/dt&gt;
+  &lt;dd&gt;* Define visiting methods to different element
+as well as what visitor will do with this element&lt;/dd&gt;
+&lt;/dl&gt;
+                    
+
+&lt;h3&gt;Data Type:&lt;/h3&gt;
+
+&lt;dl&gt;
+    &lt;dt&gt;-Element&lt;/dt&gt;
+    &lt;dt&gt;-ElementImpl&lt;/dt&gt;
+    &lt;dd&gt;* Just accept visit from visitor of the base class&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;h2&gt;Program Sequence&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;main(): controller.showTo(visitorImpl)&lt;/li&gt;
+&lt;li&gt;controller.showTo(): element.accept(visitor)&lt;/li&gt;
+&lt;li&gt;_sys: get element type&lt;/li&gt;
+&lt;li&gt;elementImpl.accept(): visitor.visit(this)&lt;/li&gt;
+&lt;li&gt;sysget: visitor type&lt;/li&gt;
+&lt;li&gt;visitor.visit(): visitor.visit(ElementImpl element)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Code:&lt;/h2&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Wheel&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Engine&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;engine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Car&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Wheel&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;         * accept(ICarElementVisitor) in Wheel implements&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;         * accept(ICarElementVisitor) in ICarElement, so the call&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;         * to accept is bound at run time. This can be considered&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;         * the first dispatch. However, the decision to call&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;         * visit(Wheel) (as opposed to visit(Engine) etc.) can be&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;         * made during compile time since &amp;#39;this&amp;#39; is known at compile&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;         * time to be a Wheel. Moreover, each implementation of&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;         * ICarElementVisitor implements the visit(Wheel), which is&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;         * another decision that is made at run time. This can be&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;         * considered the second dispatch.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;         */&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Engine&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Body&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Car&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elements&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;elements&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;front left&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;front right&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;back left&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;back right&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Engine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;    
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elements&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;    
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CarElementPrintVisitor&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Wheel&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;      
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Visiting &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; wheel&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Engine&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;engine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Visiting engine&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Visiting body&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+ 
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Car&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;      
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Visiting car&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CarElementDoVisitor&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Wheel&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Kicking my &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; wheel&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Engine&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;engine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Starting my engine&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Moving my body&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Car&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Starting my car&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;VisitorDemo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;CarElementPrintVisitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;CarElementDoVisitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</description>
+        
+          <description>&lt;h2&gt;Components&lt;/h2&gt;
+
+&lt;h3&gt;Utility&lt;/h3&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;-Controller&lt;/dt&gt;
+  &lt;dd&gt;* Provide method for visitors&lt;/dd&gt;
+  &lt;dt&gt;-Visitor&lt;/dt&gt;
+  &lt;dd&gt;* Provide interface to all visiting methods&lt;/dd&gt;
+  
+  &lt;dt&gt;-VisitorImpl&lt;/dt&gt;
+  &lt;dd&gt;* Define visiting methods to different element
+as well as what visitor will do with this element&lt;/dd&gt;
+&lt;/dl&gt;
+                    
+
+&lt;h3&gt;Data Type:&lt;/h3&gt;
+
+&lt;dl&gt;
+    &lt;dt&gt;-Element&lt;/dt&gt;
+    &lt;dt&gt;-ElementImpl&lt;/dt&gt;
+    &lt;dd&gt;* Just accept visit from visitor of the base class&lt;/dd&gt;
+&lt;/dl&gt;
+</description>
+        
+        <pubDate>Wed, 08 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Visitor%20Pattern/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Visitor%20Pattern/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Visitor</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Daily Report - 7.7</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午把FindBugs 0.5.2配起来了，能单步调试了，在FindBugs.java里面的main加断点，把bcel的包导进去，配置application，参数里面加上要分析的jar就行了。&lt;/li&gt;
+&lt;li&gt;中午看了BCEL，发现不是个简单的东西...把pdf弄下来，简单过了一遍。&lt;/li&gt;
+&lt;li&gt;下午好困。&lt;/li&gt;
+&lt;li&gt;傍晚的时候走了一半FindBugs的单步调试，大概知道了程序运行流程，Detectors就是它的Bug Detector，根据文件名可以大概判断出这个Detector能查出什么样的bug。&lt;/li&gt;
+&lt;li&gt;临走前过了一个Mutex的Detector的全部流程，发现和ICS Lab3 Simulator 有点像，都是一个个字节码扫过来的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;BCEL写一个小程序跑跑看&lt;/li&gt;
+&lt;li&gt;FindBugs接着学，接着试试单步调试&lt;/li&gt;
+&lt;li&gt;弄明白Visitor设计模式&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午把FindBugs 0.5.2配起来了，能单步调试了，在FindBugs.java里面的main加断点，把bcel的包导进去，配置application，参数里面加上要分析的jar就行了。&lt;/li&gt;
+&lt;li&gt;中午看了BCEL，发现不是个简单的东西...把pdf弄下来，简单过了一遍。&lt;/li&gt;
+&lt;li&gt;下午好困。&lt;/li&gt;
+&lt;li&gt;傍晚的时候走了一半FindBugs的单步调试，大概知道了程序运行流程，Detectors就是它的Bug Detector，根据文件名可以大概判断出这个Detector能查出什么样的bug。&lt;/li&gt;
+&lt;li&gt;临走前过了一个Mutex的Detector的全部流程，发现和ICS Lab3 Simulator 有点像，都是一个个字节码扫过来的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;BCEL写一个小程序跑跑看&lt;/li&gt;
+&lt;li&gt;FindBugs接着学，接着试试单步调试&lt;/li&gt;
+&lt;li&gt;弄明白Visitor设计模式&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Tue, 07 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/b.Daily%20Report/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.Daily%20Report/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>配置FindBugs 0.5.2</title>
+        <description>&lt;p&gt;配了一天没反应后，终于把FindBugs 0.5.2的源码跑起来了。GUI似乎版本过旧，IDEA不认。弄了一下后跑起来命令行版的了。&lt;/p&gt;
+
+&lt;p&gt;找了他们在Google Code上的Repository，导入到Github里，然后一个个找他们commit的东西，直到找到0.5.2的commit，似乎是（81d5139885ae6a2f462eb16f5a842873371fafa9）&lt;/p&gt;
+
+&lt;p&gt;然后clone下来（还是用zip吧），IDEA新建一个Java项目，把源码扔进去。&lt;/p&gt;
+
+&lt;p&gt;下载Java JDK5，扔到IDEA的SDK里，Language Level也改成5(似乎是为了支持generic)&lt;/p&gt;
+
+&lt;p&gt;把BCEL的包导进去，把他们弄的包名Ctrl+Shift+R全都替换成findbugs，然后Deprecated那里选择bcel的Deprecated&lt;/p&gt;
+
+&lt;p&gt;把一堆没实现的method都实现好&lt;/p&gt;
+
+&lt;p&gt;然后没了。&lt;/p&gt;
+</description>
+        
+          <description>&lt;p&gt;配了一天没反应后，终于把FindBugs 0.5.2的源码跑起来了。GUI似乎版本过旧，IDEA不认。弄了一下后跑起来命令行版的了。&lt;/p&gt;
+</description>
+        
+        <pubDate>Tue, 07 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.FindBugs%20configuration/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.FindBugs%20configuration/</guid>
+        
+        <category>FindBugs</category>
+        
+        <category>Lab</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>日了狗了</title>
+        <description>&lt;p&gt;对于程序猿来说，谷歌的搜索结果还是很不错的。但是...有两个站实在不想说什么。直接放出来。&lt;/p&gt;
+
+&lt;h4&gt;manong5.com&lt;/h4&gt;
+
+&lt;p&gt;全都搬人家的东西，别的人好歹还给个下载链接，这个站...打完验证码过半分钟从来就没加载过，合着就把人家的软件信息弄下来了，这个很机智嘛，自己服务器节省压力还能刷流量...每次看到直接关网页，先已加入host 0.0.0.0套餐。&lt;/p&gt;
+
+&lt;h4&gt;4byte.cn&lt;/h4&gt;
+
+&lt;p&gt;我搜问题时，这个站总是排名很前面，大概和我搜关键词的方法有关。但是。。。&lt;/p&gt;
+
+&lt;h4&gt;你靠百度翻译机翻stackoverflow是什么鬼&lt;/h4&gt;
+
+&lt;p&gt;看中文简直不忍直视...不仅毁心情还浪费时间，还有你这排版...不想说啥了&lt;/p&gt;
+
+&lt;p&gt;总之看到这两个站，我第一反应就是：&lt;/p&gt;
+
+&lt;h3&gt;日了狗了&lt;/h3&gt;
+
+&lt;p&gt;以上。&lt;/p&gt;
+</description>
+        
+          <description>&lt;p&gt;对于程序猿来说，谷歌的搜索结果还是很不错的。但是...有两个站实在不想说什么。直接放出来。&lt;/p&gt;
+</description>
+        
+        <pubDate>Sat, 13 Jun 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/worst-site/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/worst-site/</guid>
+        
+        <category>fml</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>为Jekyll添加Tag功能</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;折腾了一天配置jekyll后，终于部署在github上了，并且本地的jekyll也能跑起来了。于是就想加点功能什么的...&lt;/p&gt;
+
+&lt;p&gt;Windows上配置jekyll稍微有点蛋疼，蛋疼的问题不是装不上软件，而是...我大天朝的局域网...下个东西简直太慢了，而且还老断线。（其实ubuntu也一样，最慢的一部是gem install jekyll，连了4次才下下来第一个包，其他几次全都提示连接s3.amazonws超时...）&lt;/p&gt;
+
+&lt;p&gt;Jekyll的确是个轻量级的blog系统，不需要会ruby开发，只要gem install好后弄个模板，写写html代码就行了。但是收纳星人看着没法归档的日志不太爽，于是就狗哥了一下如何给jekyll加tag。&lt;/p&gt;
+
+&lt;p&gt;采用了&lt;a href=&quot;http://charliepark.org/tags-in-jekyll/&quot;&gt;Tags-in-jekyll&lt;/a&gt;文中的代码（我真的是低级搬运工啊...），把tag&lt;em&gt;gen.rb放到&lt;/em&gt;plugins/下,在为tag页面写一个通用的模板tag&lt;em&gt;index.html放到&lt;/em&gt;layout/下就行了。代码如下：&lt;/p&gt;
+
+&lt;p&gt;tag_gen.rb:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# tag_gen.rb&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Code grabbed from http://charliepark.org/tags-in-jekyll/&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Jekyll&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TagIndex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Page&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@site&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@base&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;index.html&amp;#39;&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_yaml&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;_layouts&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;tag_index.html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;tag&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;tag_title_prefix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;tag_title_prefix&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Posts Tagged &amp;amp;ldquo;&amp;#39;&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;tag_title_suffix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;tag_title_suffix&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;amp;rdquo;&amp;#39;&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag_title_prefix&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag_title_suffix&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TagGenerator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Generator&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;safe&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layouts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key?&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;tag_index&amp;#39;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;tag_dir&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;tag&amp;#39;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;write_tag_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;write_tag_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;TagIndex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layouts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site_payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pages&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;tag_index.html:&lt;/p&gt;
+
+&lt;p&gt;将代码中的&amp;quot;{.%&amp;quot;和&amp;quot;{.{&amp;quot;中的&amp;quot;.&amp;quot;全部去掉。&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;---
+layout: default
+---
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;post_title&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;为Jekyll添加Tag功能&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+  {.% for post in site.posts %}
+  {.% for tag in post.tags %}
+  {.% if tag == page.tag %}
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;archive_list&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;time&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;color:#666;font-size:11px;&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;datetime=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;{.{post.date | date: &amp;quot;%Y-%m-%d&amp;quot;}}&amp;#39;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{.{post.date | date: &amp;quot;%m/%d/%y&amp;quot;}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/time&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;archive_list_article_link&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;{.{post.url}}&amp;#39;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{.{post.title}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+  {.% endif %}
+  {.% endfor %}
+  {.% endfor %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;最后，为了让文章里也能显示tag标签，对_layouts\post.html做了一点修改,给tag加了一个小div&lt;/p&gt;
+
+&lt;p&gt;post.html:&lt;/p&gt;
+
+&lt;p&gt;同上，去掉&amp;quot;.&amp;quot;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;{.{content}}
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Begins after content --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;container&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;h5&amp;gt;&lt;/span&gt;Tags&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h5&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;archive_list&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;archive_list&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+          {.% for tag in page.tags %}
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tag_list_link&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/tag/{.{ tag }}&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{.{ tag }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+          {.% endfor %}
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- end .tags --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Ends before postNav --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;postNav clearfix&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;最后，在日志的YAML段加上想要的tag&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;---
+layout: post
+title:  &amp;quot;为Jekyll添加Tag功能&amp;quot;
+date:   2015-6-10
+tags:
+- jekyll
+- tag
+---&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;All done.&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;折腾了一天配置jekyll后，终于部署在github上了，并且本地的jekyll也能跑起来了。于是就想加点功能什么的...&lt;/p&gt;
+</description>
+        
+        <pubDate>Wed, 10 Jun 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/Jekyll-Tags/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/Jekyll-Tags/</guid>
+        
+        <category>jekyll</category>
+        
+        <category>tag</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Welcome</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;Welcome to my humble little site!&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;
+今天起入住github了...站还没弄好，折腾jekyll弄了一天...&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;Welcome to my humble little site!&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;
+今天起入住github了...站还没弄好，折腾jekyll弄了一天...&lt;/p&gt;
+</description>
+        
+        <pubDate>Sun, 07 Jun 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/welcome/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/welcome/</guid>
+        
+        <category>jekyll</category>
+        
+        <category>hello</category>
+        
+        
+      </item>
+      
+    
+  </channel>
+</rss>
