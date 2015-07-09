@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "Daily Report - 7.9"
+date:   2015-7-9
+tags:
+- Lab
+- Report
+---
+
+### 完成的任务
+* 上午解决了昨天的一个问题，BetterVisitor调用DismantleByteCode的过程弄清楚了
+* 中午困困困
+* 下午先粗看了一边FindBugs的论文，没有多大收获
+* 又整理了一遍FindBugs的运行流程，跑了一个EQUAL_NO_HASHCODE的例子，感觉比昨天更清楚它的架构了
+* 傍晚看了一下XFindBugs的论文，顺便找到了学长的XFindBugs源码，感觉工作量似乎没有那么大，不排除这是个flag
+* 不需要自己实现FindBugs架构了，太复杂而且没意义，FindBugs自己支持Plugin扩展
+* MB今天效率有点低
+	
+### 需要做的
+* 重读FindBugs和XFindBugs对于BugPattern部分的说明，这个在后面会是重点要解决的问题
+* 自己写一个小Plugin，放到FindBugs 3.0里面跑起来
+* 是否需要理解Java JVM和ByteCode？因为现在对这一部分完全不了解，可以看看FindBugs原先的Detector都是怎么做的。
