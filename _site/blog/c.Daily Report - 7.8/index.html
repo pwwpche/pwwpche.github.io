@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>Daily Report - 7.9</title>
+    <title>Daily Report - 7.8</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
@@ -20,7 +20,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
-    <link rel="canonical" href="https://github.com/pwwpche/blog/b.Daily%20Report/">
+    <link rel="canonical" href="https://github.com/pwwpche/blog/c.Daily%20Report%20-%207.8/">
 
     <!-- Modernizr -->
     <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
@@ -74,27 +74,35 @@ ga('send', 'pageview');
       <div class="container">
          <div class="post">
   
-  <h1 class="postTitle">Daily Report - 7.9</h1>
-  <p class="meta">July 09, 2015 | <span class="time">0</span> Minute Read</p>
+  <h1 class="postTitle">Daily Report - 7.8</h1>
+  <p class="meta">July 08, 2015 | <span class="time">0</span> Minute Read</p>
   
   <h3>完成的任务</h3>
 
 <ul>
-<li>上午解决了昨天的一个问题，BetterVisitor调用DismantleByteCode的过程弄清楚了</li>
-<li>中午困困困</li>
-<li>下午先粗看了一边FindBugs的论文，没有多大收获</li>
-<li>又整理了一遍FindBugs的运行流程，跑了一个EQUAL<em>NO</em>HASHCODE的例子，感觉比昨天更清楚它的架构了</li>
-<li>傍晚看了一下XFindBugs的论文，顺便找到了学长的XFindBugs源码，感觉工作量似乎没有那么大，不排除这是个flag</li>
-<li>不需要自己实现FindBugs架构了，太复杂而且没意义，FindBugs自己支持Plugin扩展</li>
-<li>MB今天效率有点低</li>
+<li>上午看了一下BCEL的一个example的源码，大概搞懂了如何用BCEL创建一个java class</li>
+<li>顺便理解了new后为什么要有dup，但是没完全搞懂</li>
+<li>中午打酱油</li>
+<li>下午把FindBugs 3.0的源码跑起来了，学长提醒说旧版和新版架构可能有很大差别，建议看新版。粗看了一下架构区别不是很大，还是用了Visitor模式。需要以后再确定一下</li>
+<li>傍晚自己写了一个最简单的java程序，javap -c 反汇编后看了一下，照着写出了BCEL生成相应java class的程序，跑起来了。</li>
+<li>临走前发现一个问题。</li>
 </ul>
 
 <h3>需要做的</h3>
 
 <ul>
-<li>重读FindBugs和XFindBugs对于BugPattern部分的说明，这个在后面会是重点要解决的问题</li>
-<li>自己写一个小Plugin，放到FindBugs 3.0里面跑起来</li>
-<li>是否需要理解Java JVM和ByteCode？因为现在对这一部分完全不了解，可以看看FindBugs原先的Detector都是怎么做的。</li>
+<li>可以开始尝试搭一个简单的FindBugs架构了？（问题是现在还没学如何利用FindBugs的Visitor机制）</li>
+<li>所以要学学Visitor机制</li>
+<li>重看FindBugs论文和XFindBugs论文</li>
+</ul>
+
+<h3>问题</h3>
+
+<ul>
+<li>JVM的运行机制，栈上的东西是用完了自动pop吗？为何要先dup再invokeVirtual？  （Possible Explanation:http://stackoverflow.com/questions/12438567/java-bytecode-dup）</li>
+<li>BCEL的Visitor机制是怎么用的？什么时候要用visitor模式？</li>
+<li>JVM的操作数栈和局部变量栈是如何协同工作的？</li>
+<li>为何FindBugs里面BetterVisitor直接跳到了DismantleByteCode?</li>
 </ul>
 
 
@@ -116,10 +124,14 @@ ga('send', 'pageview');
   <!-- POST NAVIGATION -->
   <div class="postNav clearfix">
      
-      <a class="prev" href="/blog/a.Some%20Interesting%20Visiting%20order%20of%20FindBugs%200.5.2%20-%20Copy/"><span>&laquo;&nbsp;Some Interesting Visiting order of FindBugs 0.5.2</span>
+      <a class="prev" href="/blog/b.FindBugs%20Structure/"><span>&laquo;&nbsp;Rough program logic of FindBugs 0.5.2</span>
       
     </a>
       
+      
+      <a class="next" href="/blog/a.Some%20Interesting%20Visiting%20order%20of%20FindBugs%200.5.2%20-%20Copy/"><span>Some Interesting Visiting order of FindBugs 0.5.2&nbsp;&raquo;</span>
+       
+      </a>
      
   </div>
 </div>
