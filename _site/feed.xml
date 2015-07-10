@@ -5,9 +5,135 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 10 Jul 2015 10:29:32 +0800</pubDate>
-    <lastBuildDate>Fri, 10 Jul 2015 10:29:32 +0800</lastBuildDate>
+    <pubDate>Fri, 10 Jul 2015 16:52:14 +0800</pubDate>
+    <lastBuildDate>Fri, 10 Jul 2015 16:52:14 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Daily Report - 7.10</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午先重读了一边FindBugs和XFindBugs的论文BugPattern部分，这次读懂的多了些&lt;/li&gt;
+&lt;li&gt;中午出去了&lt;/li&gt;
+&lt;li&gt;下午跑了一个FindBugs3的plugin,照着教程写出来了，也能加载了&lt;/li&gt;
+&lt;li&gt;傍晚看了一下如何自己写FindBugs的plugin的文章，感觉似乎不是很难...好多东西FindBugs的框架都搭好了&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;看20个FindBugs自己的bug detector源码，也看下XFindBugs的源码，熟悉一下FindBugs里面都是怎么用detector，怎么检验bytecode的&lt;/li&gt;
+&lt;li&gt;找几篇关于scala bytecode 的文章读一下&lt;/li&gt;
+&lt;li&gt;着手准备看scala bugpattern，先到StackOverflow上和Scala Issue Tracker上找一些bug的描述&lt;/li&gt;
+&lt;li&gt;看INSANE，开始写起来自己的CFG&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午先重读了一边FindBugs和XFindBugs的论文BugPattern部分，这次读懂的多了些&lt;/li&gt;
+&lt;li&gt;中午出去了&lt;/li&gt;
+&lt;li&gt;下午跑了一个FindBugs3的plugin,照着教程写出来了，也能加载了&lt;/li&gt;
+&lt;li&gt;傍晚看了一下如何自己写FindBugs的plugin的文章，感觉似乎不是很难...好多东西FindBugs的框架都搭好了&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;看20个FindBugs自己的bug detector源码，也看下XFindBugs的源码，熟悉一下FindBugs里面都是怎么用detector，怎么检验bytecode的&lt;/li&gt;
+&lt;li&gt;找几篇关于scala bytecode 的文章读一下&lt;/li&gt;
+&lt;li&gt;着手准备看scala bugpattern，先到StackOverflow上和Scala Issue Tracker上找一些bug的描述&lt;/li&gt;
+&lt;li&gt;看INSANE，开始写起来自己的CFG&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Fri, 10 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/c.Daily%20Report%20-%207.10/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/c.Daily%20Report%20-%207.10/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Use plugin to add detector to FindBugs</title>
+        <description>&lt;p&gt;Tutorial here:&lt;br&gt;
+https://code.google.com/p/findbugs/wiki/DetectorPluginTutorial&lt;/p&gt;
+
+&lt;p&gt;Well, the directory in which the plugins should be placed isn&amp;#39;t clear. &lt;/p&gt;
+
+&lt;p&gt;Spectate code here[in &amp;quot;edu.umd.cs.findbugs.PluginLoader&amp;quot;]:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;installStandardPlugins&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;homeDir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DetectorFactoryCollection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getFindBugsHome&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;homeDir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;home&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;homeDir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;loadPlugins&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;home&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Add a breakpoint at line2, and make sure what is the directory that FindBugs is searching in. &lt;/p&gt;
+</description>
+        
+          <description>&lt;p&gt;Tutorial here:&lt;br&gt;
+https://code.google.com/p/findbugs/wiki/DetectorPluginTutorial&lt;/p&gt;
+</description>
+        
+        <pubDate>Fri, 10 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/b.Use%20plugin%20to%20add%20detectors%20to%20FindBugs/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.Use%20plugin%20to%20add%20detectors%20to%20FindBugs/</guid>
+        
+        <category>Lab</category>
+        
+        <category>FindBugs</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>TODO List - 7.10</title>
+        <description>&lt;ol&gt;
+&lt;li&gt;熟悉FindBugs加插件的方法(In Progress)&lt;/li&gt;
+&lt;li&gt;熟悉Scala，可以写写今年软工方向程序优化的大作业&lt;/li&gt;
+&lt;li&gt;Scala字节码，可能需要熟悉BCEL&lt;/li&gt;
+&lt;li&gt;Scala BugPattern(非常重要),靠StackOverflow, Scala Issue Tracker, ...&lt;br&gt;
+分析具体的程序(老师给的源码)，这部分时间最长&lt;br&gt;
+要注意False Positive的问题，FindBugs3里面有Suppressor，看看怎么用&lt;/li&gt;
+&lt;li&gt;写代码，这都是后面的事了&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        
+          <description>&lt;ol&gt;
+&lt;li&gt;熟悉FindBugs加插件的方法(In Progress)&lt;/li&gt;
+&lt;li&gt;熟悉Scala，可以写写今年软工方向程序优化的大作业&lt;/li&gt;
+&lt;li&gt;Scala字节码，可能需要熟悉BCEL&lt;/li&gt;
+&lt;li&gt;Scala BugPattern(非常重要),靠StackOverflow, Scala Issue Tracker, ...&lt;br&gt;
+分析具体的程序(老师给的源码)，这部分时间最长&lt;br&gt;
+要注意False Positive的问题，FindBugs3里面有Suppressor，看看怎么用&lt;/li&gt;
+&lt;li&gt;写代码，这都是后面的事了&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        
+        <pubDate>Fri, 10 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.TODO%20List%20-%207.10/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.TODO%20List%20-%207.10/</guid>
+        
+        <category>Lab</category>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -55,8 +181,8 @@
 </description>
         
         <pubDate>Thu, 09 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.9/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.9/</guid>
+        <link>https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.9%20-%20Copy%20-%20Copy/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.9%20-%20Copy%20-%20Copy/</guid>
         
         <category>Lab</category>
         
@@ -554,191 +680,6 @@ as well as what visitor will do with this element&lt;/dd&gt;
         <category>FindBugs</category>
         
         <category>Lab</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>日了狗了</title>
-        <description>&lt;p&gt;对于程序猿来说，谷歌的搜索结果还是很不错的。但是...有两个站实在不想说什么。直接放出来。&lt;/p&gt;
-
-&lt;h4&gt;manong5.com&lt;/h4&gt;
-
-&lt;p&gt;全都搬人家的东西，别的人好歹还给个下载链接，这个站...打完验证码过半分钟从来就没加载过，合着就把人家的软件信息弄下来了，这个很机智嘛，自己服务器节省压力还能刷流量...每次看到直接关网页，先已加入host 0.0.0.0套餐。&lt;/p&gt;
-
-&lt;h4&gt;4byte.cn&lt;/h4&gt;
-
-&lt;p&gt;我搜问题时，这个站总是排名很前面，大概和我搜关键词的方法有关。但是。。。&lt;/p&gt;
-
-&lt;h4&gt;你靠百度翻译机翻stackoverflow是什么鬼&lt;/h4&gt;
-
-&lt;p&gt;看中文简直不忍直视...不仅毁心情还浪费时间，还有你这排版...不想说啥了&lt;/p&gt;
-
-&lt;p&gt;总之看到这两个站，我第一反应就是：&lt;/p&gt;
-
-&lt;h3&gt;日了狗了&lt;/h3&gt;
-
-&lt;p&gt;以上。&lt;/p&gt;
-</description>
-        
-          <description>&lt;p&gt;对于程序猿来说，谷歌的搜索结果还是很不错的。但是...有两个站实在不想说什么。直接放出来。&lt;/p&gt;
-</description>
-        
-        <pubDate>Sat, 13 Jun 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/worst-site/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/worst-site/</guid>
-        
-        <category>fml</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>为Jekyll添加Tag功能</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;折腾了一天配置jekyll后，终于部署在github上了，并且本地的jekyll也能跑起来了。于是就想加点功能什么的...&lt;/p&gt;
-
-&lt;p&gt;Windows上配置jekyll稍微有点蛋疼，蛋疼的问题不是装不上软件，而是...我大天朝的局域网...下个东西简直太慢了，而且还老断线。（其实ubuntu也一样，最慢的一部是gem install jekyll，连了4次才下下来第一个包，其他几次全都提示连接s3.amazonws超时...）&lt;/p&gt;
-
-&lt;p&gt;Jekyll的确是个轻量级的blog系统，不需要会ruby开发，只要gem install好后弄个模板，写写html代码就行了。但是收纳星人看着没法归档的日志不太爽，于是就狗哥了一下如何给jekyll加tag。&lt;/p&gt;
-
-&lt;p&gt;采用了&lt;a href=&quot;http://charliepark.org/tags-in-jekyll/&quot;&gt;Tags-in-jekyll&lt;/a&gt;文中的代码（我真的是低级搬运工啊...），把tag&lt;em&gt;gen.rb放到&lt;/em&gt;plugins/下,在为tag页面写一个通用的模板tag&lt;em&gt;index.html放到&lt;/em&gt;layout/下就行了。代码如下：&lt;/p&gt;
-
-&lt;p&gt;tag_gen.rb:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# tag_gen.rb&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Code grabbed from http://charliepark.org/tags-in-jekyll/&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Jekyll&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TagIndex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Page&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@site&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@base&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;index.html&amp;#39;&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_yaml&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;_layouts&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;tag_index.html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;tag&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;tag_title_prefix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;tag_title_prefix&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Posts Tagged &amp;amp;ldquo;&amp;#39;&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;tag_title_suffix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;tag_title_suffix&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;amp;rdquo;&amp;#39;&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag_title_prefix&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag_title_suffix&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TagGenerator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Generator&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;safe&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layouts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key?&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;tag_index&amp;#39;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;tag_dir&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;tag&amp;#39;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;write_tag_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;write_tag_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;TagIndex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layouts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site_payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pages&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;tag_index.html:&lt;/p&gt;
-
-&lt;p&gt;将代码中的&amp;quot;{.%&amp;quot;和&amp;quot;{.{&amp;quot;中的&amp;quot;.&amp;quot;全部去掉。&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;---
-layout: default
----
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;post_title&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;为Jekyll添加Tag功能&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
-  {.% for post in site.posts %}
-  {.% for tag in post.tags %}
-  {.% if tag == page.tag %}
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;archive_list&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;time&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;color:#666;font-size:11px;&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;datetime=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;{.{post.date | date: &amp;quot;%Y-%m-%d&amp;quot;}}&amp;#39;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{.{post.date | date: &amp;quot;%m/%d/%y&amp;quot;}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/time&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;archive_list_article_link&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;{.{post.url}}&amp;#39;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{.{post.title}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-  {.% endif %}
-  {.% endfor %}
-  {.% endfor %}
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;最后，为了让文章里也能显示tag标签，对_layouts\post.html做了一点修改,给tag加了一个小div&lt;/p&gt;
-
-&lt;p&gt;post.html:&lt;/p&gt;
-
-&lt;p&gt;同上，去掉&amp;quot;.&amp;quot;&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;{.{content}}
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Begins after content --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;container&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h5&amp;gt;&lt;/span&gt;Tags&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h5&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;archive_list&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;archive_list&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-          {.% for tag in page.tags %}
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tag_list_link&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/tag/{.{ tag }}&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{.{ tag }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-          {.% endfor %}
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- end .tags --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Ends before postNav --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;postNav clearfix&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;最后，在日志的YAML段加上想要的tag&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;---
-layout: post
-title:  &amp;quot;为Jekyll添加Tag功能&amp;quot;
-date:   2015-6-10
-tags:
-- jekyll
-- tag
----&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;All done.&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;折腾了一天配置jekyll后，终于部署在github上了，并且本地的jekyll也能跑起来了。于是就想加点功能什么的...&lt;/p&gt;
-</description>
-        
-        <pubDate>Wed, 10 Jun 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/Jekyll-Tags/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/Jekyll-Tags/</guid>
-        
-        <category>jekyll</category>
-        
-        <category>tag</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Welcome</title>
-        <description>&lt;p class=&quot;intro&quot;&gt;Welcome to my humble little site!&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;
-今天起入住github了...站还没弄好，折腾jekyll弄了一天...&lt;/p&gt;
-</description>
-        
-          <description>&lt;p class=&quot;intro&quot;&gt;Welcome to my humble little site!&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;
-今天起入住github了...站还没弄好，折腾jekyll弄了一天...&lt;/p&gt;
-</description>
-        
-        <pubDate>Sun, 07 Jun 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/welcome/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/welcome/</guid>
-        
-        <category>jekyll</category>
-        
-        <category>hello</category>
         
         
       </item>

@@ -1,0 +1,28 @@
+---
+layout: post
+title:  "Use plugin to add detector to FindBugs"
+date:   2015-7-10
+tags:
+- Lab
+- FindBugs
+---
+
+Tutorial here:<br>
+https://code.google.com/p/findbugs/wiki/DetectorPluginTutorial
+
+Well, the directory in which the plugins should be placed isn't clear. 
+
+Spectate code here[in "edu.umd.cs.findbugs.PluginLoader"]:
+
+{% highlight java %}
+    static void installStandardPlugins() {
+        String homeDir = DetectorFactoryCollection.getFindBugsHome();
+        if (homeDir == null) {
+            return;
+        }
+        File home = new File(homeDir);
+        loadPlugins(home);
+    }
+{% endhighlight %}
+
+Add a breakpoint at line2, and make sure what is the directory that FindBugs is searching in. 
