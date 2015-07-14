@@ -79,11 +79,11 @@ ga('send', 'pageview');
   
   <h4>Detector Workflow:</h4>
 
-<p>visit(JavaClass)
-    visit(Method)
-        visit(Code)
-            sawCode(int)
-visitAfter(JavaClass)</p>
+<p>visit(JavaClass)<br>
+----&gt;visit(Method)<br>
+----&gt;----&gt;visit(Code)<br>
+----&gt;----&gt;----&gt;sawCode(int)<br>
+visitAfter(JavaClass)<br></p>
 
 <h4>TOS:</h4>
 
@@ -93,56 +93,62 @@ visitAfter(JavaClass)</p>
 
 <h5>CloneIdiom :</h5>
 
-<p>Line 158, redundent if comparement, but this is not bug.<br>
-get current class name and params
-    &quot;clone&quot;.equals(getMethodName())
-    getMethodSig().startsWith(&quot;()&quot;)
-get subclass
-    subtypes2.isSubtype(getClassDescriptor(), cloneDescriptor)
-get class interface
-    String[] interface<em>names = obj.getInterfaceNames();
-     for (String interface</em>name : interface<em>names) {
-        if (&quot;java.lang.Cloneable&quot;.equals(interface</em>name)) {}
-    }</p>
-
-<p>get call method and params:
-    seen == INVOKESPECIAL &amp;&amp; &quot;java/util/HashMap&quot;.equals(getClassConstantOperand()) &amp;&amp; 
-        &quot;clone&quot;.equals(getNameConstantOperand()) &amp;&amp; 
-        &quot;([BII)V&quot;.equals(getMethodDescriptorOperand().getSignature())
-    =&gt;void HashMap.clone(Byte[] , int, int)</p>
-
+<p>Line 158, redundent if comparement, but this is not bug.    <br>
+get current class name and params<br></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&quot;clone&quot;.equals(getMethodName())
+getMethodSig().startsWith(&quot;()&quot;)
+</code></pre></div>
+<p>get subclass<br></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">subtypes2.isSubtype(getClassDescriptor(), cloneDescriptor)
+</code></pre></div>
+<p>get class interface</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">String[] interface_names = obj.getInterfaceNames();
+ for (String interface_name : interface_names) {
+    if (&quot;java.lang.Cloneable&quot;.equals(interface_name)) {}
+}
+</code></pre></div>
+<p>get call method and params:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">seen == INVOKESPECIAL &amp;&amp; &quot;java/util/HashMap&quot;.equals(getClassConstantOperand()) &amp;&amp; 
+    &quot;clone&quot;.equals(getNameConstantOperand()) &amp;&amp; 
+    &quot;([BII)V&quot;.equals(getMethodDescriptorOperand().getSignature())
+=&gt;void HashMap.clone(Byte[] , int, int)
+</code></pre></div>
 <h5>BadUseOfReturnValue :</h5>
 
-<p>&quot;()Ljava/lang/String;&quot; ==&gt; String f();<br>
-&quot;(ILjava/lang/Class;)J&quot; ==&gt; long f(int i, Class c);<br>
-&quot;([B)V&quot; ==&gt; void String(byte[] bytes);<br>
-Reference: JNI Type Signatures(https://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/types.html)</p>
+<ul>
+<li>&quot;()Ljava/lang/String;&quot; ==&gt; String f();<br></li>
+<li>&quot;(ILjava/lang/Class;)J&quot; ==&gt; long f(int i, Class c);<br></li>
+<li>&quot;([B)V&quot; ==&gt; void String(byte[] bytes);<br></li>
+</ul>
+
+<p>Reference: <a href="https://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/types.html">JNI Type Signatures</a></p>
 
 <h5>DumbMethod</h5>
 
 <ul>
-<li>What is @SuppressedWarnings?
-get stack value
- Item lengthArg = stack.getStackItem(0);
+<li><p>What is @SuppressedWarnings?
+get stack value</p>
+
+<p>Item lengthArg = stack.getStackItem(0);
  if(lengthArg instanceOf Number){}
- ()</li>
+ ()</p></li>
 </ul>
 
 <h5>DroppedException</h5>
 
-<p>get exception table
-    obj.getExceptionTable()</p>
-
+<p>get exception table</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">obj.getExceptionTable()
+</code></pre></div>
 <h5>AJTestInfiniteLoop</h5>
 
-<p>test whether the call has infinite loop
-    cg.hasCircle(method,method)</p>
-
+<p>test whether the call has infinite loop</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cg.hasCircle(method,method)
+</code></pre></div>
 <h5>AJTestAdviceScope</h5>
 
-<p>get arguments count
-    this.getMethod().getArgumentTypes().length</p>
-
+<p>get arguments count</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">this.getMethod().getArgumentTypes().length
+</code></pre></div>
 <h5>AJTestMultipleClassDeclaration</h5>
 
 <p>Not quite sure what is he doing...</p>

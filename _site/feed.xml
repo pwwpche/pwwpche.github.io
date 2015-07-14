@@ -5,9 +5,68 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 13 Jul 2015 16:00:12 +0800</pubDate>
-    <lastBuildDate>Mon, 13 Jul 2015 16:00:12 +0800</lastBuildDate>
+    <pubDate>Tue, 14 Jul 2015 16:57:10 +0800</pubDate>
+    <lastBuildDate>Tue, 14 Jul 2015 16:57:10 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Daily Report - 7.14</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午先看Compiling Scala for JVM, 看了20多页，感觉似乎前面都在讲scala的特性如何翻译成Java的实现，不知道有没有用&lt;/li&gt;
+&lt;li&gt;中午尼玛又困死了&lt;/li&gt;
+&lt;li&gt;下午先看了看Emitting Scala class file via ASM，也不知道是干嘛用的，而且似乎更加没有用&lt;/li&gt;
+&lt;li&gt;win7安了scala，写了个Helloworld，用scalac编译后javap反汇编，似乎可以用，后面可以用来分析大一点的程序&lt;/li&gt;
+&lt;li&gt;傍晚找了找scala的bug汇总，发现issue tracker绝逼不是好东西，一没有代码，二乱的要死找不到重点&lt;/li&gt;
+&lt;li&gt;StackOverflow似乎也不太好找...&lt;/li&gt;
+&lt;li&gt;Bug Pattern可以在github里找，commit里面如果有bug 或者fix的话一般就是有bug修复了，可以看这里面的代码&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;应该主要关注XFindBugs的bug detector源码了&lt;/li&gt;
+&lt;li&gt;可以写写scala的代码了，把书带过来，coursera上有作业可以做&lt;/li&gt;
+&lt;li&gt;scala的特性还是不熟悉啊...要继续学习&lt;/li&gt;
+&lt;li&gt;是先找bug pattern，用写程序来分析pattern的bytecode，还是先学scala的bytecode如何生成，再找bug pattern呢？&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午先看Compiling Scala for JVM, 看了20多页，感觉似乎前面都在讲scala的特性如何翻译成Java的实现，不知道有没有用&lt;/li&gt;
+&lt;li&gt;中午尼玛又困死了&lt;/li&gt;
+&lt;li&gt;下午先看了看Emitting Scala class file via ASM，也不知道是干嘛用的，而且似乎更加没有用&lt;/li&gt;
+&lt;li&gt;win7安了scala，写了个Helloworld，用scalac编译后javap反汇编，似乎可以用，后面可以用来分析大一点的程序&lt;/li&gt;
+&lt;li&gt;傍晚找了找scala的bug汇总，发现issue tracker绝逼不是好东西，一没有代码，二乱的要死找不到重点&lt;/li&gt;
+&lt;li&gt;StackOverflow似乎也不太好找...&lt;/li&gt;
+&lt;li&gt;Bug Pattern可以在github里找，commit里面如果有bug 或者fix的话一般就是有bug修复了，可以看这里面的代码&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;应该主要关注XFindBugs的bug detector源码了&lt;/li&gt;
+&lt;li&gt;可以写写scala的代码了，把书带过来，coursera上有作业可以做&lt;/li&gt;
+&lt;li&gt;scala的特性还是不熟悉啊...要继续学习&lt;/li&gt;
+&lt;li&gt;是先找bug pattern，用写程序来分析pattern的bytecode，还是先学scala的bytecode如何生成，再找bug pattern呢？&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Tue, 14 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.14/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.14/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -67,11 +126,11 @@
         <title>Some understandings about Detectors in FindBugs	</title>
         <description>&lt;h4&gt;Detector Workflow:&lt;/h4&gt;
 
-&lt;p&gt;visit(JavaClass)
-    visit(Method)
-        visit(Code)
-            sawCode(int)
-visitAfter(JavaClass)&lt;/p&gt;
+&lt;p&gt;visit(JavaClass)&lt;br&gt;
+----&amp;gt;visit(Method)&lt;br&gt;
+----&amp;gt;----&amp;gt;visit(Code)&lt;br&gt;
+----&amp;gt;----&amp;gt;----&amp;gt;sawCode(int)&lt;br&gt;
+visitAfter(JavaClass)&lt;br&gt;&lt;/p&gt;
 
 &lt;h4&gt;TOS:&lt;/h4&gt;
 
@@ -81,56 +140,62 @@ visitAfter(JavaClass)&lt;/p&gt;
 
 &lt;h5&gt;CloneIdiom :&lt;/h5&gt;
 
-&lt;p&gt;Line 158, redundent if comparement, but this is not bug.&lt;br&gt;
-get current class name and params
-    &amp;quot;clone&amp;quot;.equals(getMethodName())
-    getMethodSig().startsWith(&amp;quot;()&amp;quot;)
-get subclass
-    subtypes2.isSubtype(getClassDescriptor(), cloneDescriptor)
-get class interface
-    String[] interface&lt;em&gt;names = obj.getInterfaceNames();
-     for (String interface&lt;/em&gt;name : interface&lt;em&gt;names) {
-        if (&amp;quot;java.lang.Cloneable&amp;quot;.equals(interface&lt;/em&gt;name)) {}
-    }&lt;/p&gt;
-
-&lt;p&gt;get call method and params:
-    seen == INVOKESPECIAL &amp;amp;&amp;amp; &amp;quot;java/util/HashMap&amp;quot;.equals(getClassConstantOperand()) &amp;amp;&amp;amp; 
-        &amp;quot;clone&amp;quot;.equals(getNameConstantOperand()) &amp;amp;&amp;amp; 
-        &amp;quot;([BII)V&amp;quot;.equals(getMethodDescriptorOperand().getSignature())
-    =&amp;gt;void HashMap.clone(Byte[] , int, int)&lt;/p&gt;
-
+&lt;p&gt;Line 158, redundent if comparement, but this is not bug.    &lt;br&gt;
+get current class name and params&lt;br&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&amp;quot;clone&amp;quot;.equals(getMethodName())
+getMethodSig().startsWith(&amp;quot;()&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;get subclass&lt;br&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;subtypes2.isSubtype(getClassDescriptor(), cloneDescriptor)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;get class interface&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;String[] interface_names = obj.getInterfaceNames();
+ for (String interface_name : interface_names) {
+    if (&amp;quot;java.lang.Cloneable&amp;quot;.equals(interface_name)) {}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;get call method and params:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;seen == INVOKESPECIAL &amp;amp;&amp;amp; &amp;quot;java/util/HashMap&amp;quot;.equals(getClassConstantOperand()) &amp;amp;&amp;amp; 
+    &amp;quot;clone&amp;quot;.equals(getNameConstantOperand()) &amp;amp;&amp;amp; 
+    &amp;quot;([BII)V&amp;quot;.equals(getMethodDescriptorOperand().getSignature())
+=&amp;gt;void HashMap.clone(Byte[] , int, int)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h5&gt;BadUseOfReturnValue :&lt;/h5&gt;
 
-&lt;p&gt;&amp;quot;()Ljava/lang/String;&amp;quot; ==&amp;gt; String f();&lt;br&gt;
-&amp;quot;(ILjava/lang/Class;)J&amp;quot; ==&amp;gt; long f(int i, Class c);&lt;br&gt;
-&amp;quot;([B)V&amp;quot; ==&amp;gt; void String(byte[] bytes);&lt;br&gt;
-Reference: JNI Type Signatures(https://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/types.html)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;()Ljava/lang/String;&amp;quot; ==&amp;gt; String f();&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&amp;quot;(ILjava/lang/Class;)J&amp;quot; ==&amp;gt; long f(int i, Class c);&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&amp;quot;([B)V&amp;quot; ==&amp;gt; void String(byte[] bytes);&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Reference: &lt;a href=&quot;https://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/types.html&quot;&gt;JNI Type Signatures&lt;/a&gt;&lt;/p&gt;
 
 &lt;h5&gt;DumbMethod&lt;/h5&gt;
 
 &lt;ul&gt;
-&lt;li&gt;What is @SuppressedWarnings?
-get stack value
- Item lengthArg = stack.getStackItem(0);
+&lt;li&gt;&lt;p&gt;What is @SuppressedWarnings?
+get stack value&lt;/p&gt;
+
+&lt;p&gt;Item lengthArg = stack.getStackItem(0);
  if(lengthArg instanceOf Number){}
- ()&lt;/li&gt;
+ ()&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h5&gt;DroppedException&lt;/h5&gt;
 
-&lt;p&gt;get exception table
-    obj.getExceptionTable()&lt;/p&gt;
-
+&lt;p&gt;get exception table&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;obj.getExceptionTable()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h5&gt;AJTestInfiniteLoop&lt;/h5&gt;
 
-&lt;p&gt;test whether the call has infinite loop
-    cg.hasCircle(method,method)&lt;/p&gt;
-
+&lt;p&gt;test whether the call has infinite loop&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;cg.hasCircle(method,method)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h5&gt;AJTestAdviceScope&lt;/h5&gt;
 
-&lt;p&gt;get arguments count
-    this.getMethod().getArgumentTypes().length&lt;/p&gt;
-
+&lt;p&gt;get arguments count&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;this.getMethod().getArgumentTypes().length
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h5&gt;AJTestMultipleClassDeclaration&lt;/h5&gt;
 
 &lt;p&gt;Not quite sure what is he doing...&lt;/p&gt;
@@ -138,11 +203,11 @@ get stack value
         
           <description>&lt;h4&gt;Detector Workflow:&lt;/h4&gt;
 
-&lt;p&gt;visit(JavaClass)
-    visit(Method)
-        visit(Code)
-            sawCode(int)
-visitAfter(JavaClass)&lt;/p&gt;
+&lt;p&gt;visit(JavaClass)&lt;br&gt;
+----&amp;gt;visit(Method)&lt;br&gt;
+----&amp;gt;----&amp;gt;visit(Code)&lt;br&gt;
+----&amp;gt;----&amp;gt;----&amp;gt;sawCode(int)&lt;br&gt;
+visitAfter(JavaClass)&lt;br&gt;&lt;/p&gt;
 </description>
         
         <pubDate>Mon, 13 Jul 2015 00:00:00 +0800</pubDate>
@@ -552,196 +617,6 @@ Concrete Me2()&lt;/p&gt;
         <category>Lab</category>
         
         <category>FindBugs</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Visitor Pattern</title>
-        <description>&lt;h2&gt;Components&lt;/h2&gt;
-
-&lt;h3&gt;Utility&lt;/h3&gt;
-
-&lt;dl&gt;
-  &lt;dt&gt;-Controller&lt;/dt&gt;
-  &lt;dd&gt;* Provide method for visitors&lt;/dd&gt;
-  &lt;dt&gt;-Visitor&lt;/dt&gt;
-  &lt;dd&gt;* Provide interface to all visiting methods&lt;/dd&gt;
-  
-  &lt;dt&gt;-VisitorImpl&lt;/dt&gt;
-  &lt;dd&gt;* Define visiting methods to different element
-as well as what visitor will do with this element&lt;/dd&gt;
-&lt;/dl&gt;
-                    
-
-&lt;h3&gt;Data Type:&lt;/h3&gt;
-
-&lt;dl&gt;
-    &lt;dt&gt;-Element&lt;/dt&gt;
-    &lt;dt&gt;-ElementImpl&lt;/dt&gt;
-    &lt;dd&gt;* Just accept visit from visitor of the base class&lt;/dd&gt;
-&lt;/dl&gt;
-
-&lt;h2&gt;Program Sequence&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;main(): controller.showTo(visitorImpl)&lt;/li&gt;
-&lt;li&gt;controller.showTo(): element.accept(visitor)&lt;/li&gt;
-&lt;li&gt;_sys: get element type&lt;/li&gt;
-&lt;li&gt;elementImpl.accept(): visitor.visit(this)&lt;/li&gt;
-&lt;li&gt;sysget: visitor type&lt;/li&gt;
-&lt;li&gt;visitor.visit(): visitor.visit(ElementImpl element)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2&gt;Code:&lt;/h2&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Wheel&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Engine&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;engine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Car&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Wheel&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;         * accept(ICarElementVisitor) in Wheel implements&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;         * accept(ICarElementVisitor) in ICarElement, so the call&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;         * to accept is bound at run time. This can be considered&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;         * the first dispatch. However, the decision to call&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;         * visit(Wheel) (as opposed to visit(Engine) etc.) can be&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;         * made during compile time since &amp;#39;this&amp;#39; is known at compile&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;         * time to be a Wheel. Moreover, each implementation of&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;         * ICarElementVisitor implements the visit(Wheel), which is&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;         * another decision that is made at run time. This can be&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;         * considered the second dispatch.&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;         */&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Engine&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Body&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Car&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elements&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;elements&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;front left&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;front right&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;back left&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;back right&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Engine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;    
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elements&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;visitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;    
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CarElementPrintVisitor&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Wheel&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;      
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Visiting &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; wheel&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Engine&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;engine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Visiting engine&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Visiting body&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
- 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Car&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;      
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Visiting car&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CarElementDoVisitor&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ICarElementVisitor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Wheel&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Kicking my &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; wheel&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Engine&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;engine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Starting my engine&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Moving my body&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;visit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Car&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Starting my car&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;VisitorDemo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;ICarElement&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;CarElementPrintVisitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;CarElementDoVisitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-</description>
-        
-          <description>&lt;h2&gt;Components&lt;/h2&gt;
-
-&lt;h3&gt;Utility&lt;/h3&gt;
-
-&lt;dl&gt;
-  &lt;dt&gt;-Controller&lt;/dt&gt;
-  &lt;dd&gt;* Provide method for visitors&lt;/dd&gt;
-  &lt;dt&gt;-Visitor&lt;/dt&gt;
-  &lt;dd&gt;* Provide interface to all visiting methods&lt;/dd&gt;
-  
-  &lt;dt&gt;-VisitorImpl&lt;/dt&gt;
-  &lt;dd&gt;* Define visiting methods to different element
-as well as what visitor will do with this element&lt;/dd&gt;
-&lt;/dl&gt;
-                    
-
-&lt;h3&gt;Data Type:&lt;/h3&gt;
-
-&lt;dl&gt;
-    &lt;dt&gt;-Element&lt;/dt&gt;
-    &lt;dt&gt;-ElementImpl&lt;/dt&gt;
-    &lt;dd&gt;* Just accept visit from visitor of the base class&lt;/dd&gt;
-&lt;/dl&gt;
-</description>
-        
-        <pubDate>Wed, 08 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.Visitor%20Pattern/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Visitor%20Pattern/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Visitor</category>
         
         
       </item>

@@ -1,0 +1,24 @@
+---
+layout: post
+title:  "Daily Report - 7.14"
+date:   2015-7-14
+tags:
+- Lab
+- Report
+---
+
+### 完成的任务
+* 上午先看Compiling Scala for JVM, 看了20多页，感觉似乎前面都在讲scala的特性如何翻译成Java的实现，不知道有没有用
+* 中午尼玛又困死了
+* 下午先看了看Emitting Scala class file via ASM，也不知道是干嘛用的，而且似乎更加没有用
+* win7安了scala，写了个Helloworld，用scalac编译后javap反汇编，似乎可以用，后面可以用来分析大一点的程序
+* 傍晚找了找scala的bug汇总，发现issue tracker绝逼不是好东西，一没有代码，二乱的要死找不到重点
+* StackOverflow似乎也不太好找...
+* Bug Pattern可以在github里找，commit里面如果有bug 或者fix的话一般就是有bug修复了，可以看这里面的代码
+	
+### 需要做的
+* 应该主要关注XFindBugs的bug detector源码了
+* 可以写写scala的代码了，把书带过来，coursera上有作业可以做
+* scala的特性还是不熟悉啊...要继续学习
+* 是先找bug pattern，用写程序来分析pattern的bytecode，还是先学scala的bytecode如何生成，再找bug pattern呢？
+
