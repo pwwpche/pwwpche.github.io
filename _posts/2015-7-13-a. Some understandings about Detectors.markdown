@@ -1,0 +1,67 @@
+---
+layout: post
+title:  "Some understandings about Detectors in FindBugs	"
+date:   2015-7-13
+tags:
+- Lab
+- FindBugs
+---
+
+####Detector Workflow:
+visit(JavaClass)
+	visit(Method)
+		visit(Code)
+			sawCode(int)
+visitAfter(JavaClass)
+
+####TOS:
+Top Of Stack
+
+####Detectors
+#####CloneIdiom :
+Line 158, redundent if comparement, but this is not bug.	
+get current class name and params
+	"clone".equals(getMethodName())
+	getMethodSig().startsWith("()")
+get subclass
+	subtypes2.isSubtype(getClassDescriptor(), cloneDescriptor)
+get class interface
+	String[] interface_names = obj.getInterfaceNames();
+	 for (String interface_name : interface_names) {
+		if ("java.lang.Cloneable".equals(interface_name)) {}
+	}
+	
+get call method and params:
+	seen == INVOKESPECIAL && "java/util/HashMap".equals(getClassConstantOperand()) && 
+		"clone".equals(getNameConstantOperand()) && 
+		"([BII)V".equals(getMethodDescriptorOperand().getSignature())
+	=>void HashMap.clone(Byte[] , int, int)
+
+#####BadUseOfReturnValue :
+"()Ljava/lang/String;" ==> String f();<br>
+"(ILjava/lang/Class;)J" ==> long f(int i, Class c);<br>
+"([B)V" ==> void String(byte[] bytes);<br>
+Reference: JNI Type Signatures(https://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/types.html)
+
+#####DumbMethod 
+* What is @SuppressedWarnings?
+get stack value
+	 Item lengthArg = stack.getStackItem(0);
+	 if(lengthArg instanceOf Number){}
+	 ()
+
+	 
+#####DroppedException 
+get exception table
+	obj.getExceptionTable()
+	
+#####AJTestInfiniteLoop 
+test whether the call has infinite loop
+	cg.hasCircle(method,method)
+	
+#####AJTestAdviceScope 
+get arguments count
+	this.getMethod().getArgumentTypes().length
+
+#####AJTestMultipleClassDeclaration 
+Not quite sure what is he doing...

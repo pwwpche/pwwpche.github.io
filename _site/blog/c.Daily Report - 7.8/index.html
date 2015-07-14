@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Daily Report - 7.8</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="PWWPCHE" href="https://github.com/pwwpche/feed.xml" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    <link rel="canonical" href="https://github.com/pwwpche/blog/c.Daily%20Report%20-%207.8/">
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
+
+     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+ 
+</head>
+
+
+<body>
+
+    <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="/">PWWPCHE</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 
+                 <li class="element first  ">
+                     <a href="/index.html">Home</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/articles">Articles</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/about">About</a>
+                 </li> 
+                 
+                 <li class="element   last">
+                     <a href="/contact">Contact</a>
+                 </li> 
+                 
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+
+
+   <div class="content">
+      <div class="container">
+         <div class="post">
+  
+  <h1 class="postTitle">Daily Report - 7.8</h1>
+  <p class="meta">July 08, 2015 | <span class="time">0</span> Minute Read</p>
+  
+  <h3>完成的任务</h3>
+
+<ul>
+<li>上午看了一下BCEL的一个example的源码，大概搞懂了如何用BCEL创建一个java class</li>
+<li>顺便理解了new后为什么要有dup，但是没完全搞懂</li>
+<li>中午打酱油</li>
+<li>下午把FindBugs 3.0的源码跑起来了，学长提醒说旧版和新版架构可能有很大差别，建议看新版。粗看了一下架构区别不是很大，还是用了Visitor模式。需要以后再确定一下</li>
+<li>傍晚自己写了一个最简单的java程序，javap -c 反汇编后看了一下，照着写出了BCEL生成相应java class的程序，跑起来了。</li>
+<li>临走前发现一个问题。</li>
+</ul>
+
+<h3>需要做的</h3>
+
+<ul>
+<li>可以开始尝试搭一个简单的FindBugs架构了？（问题是现在还没学如何利用FindBugs的Visitor机制）</li>
+<li>所以要学学Visitor机制</li>
+<li>重看FindBugs论文和XFindBugs论文</li>
+</ul>
+
+<h3>问题</h3>
+
+<ul>
+<li>JVM的运行机制，栈上的东西是用完了自动pop吗？为何要先dup再invokeVirtual？  （Possible Explanation:http://stackoverflow.com/questions/12438567/java-bytecode-dup）</li>
+<li>BCEL的Visitor机制是怎么用的？什么时候要用visitor模式？</li>
+<li>JVM的操作数栈和局部变量栈是如何协同工作的？</li>
+<li>为何FindBugs里面BetterVisitor直接跳到了DismantleByteCode?</li>
+</ul>
+
+
+  <div class="tags">
+   <div class="container">
+   <h5>Tags</h5>
+		  <li class="archive_list">
+			<ul class="archive_list">
+			  
+			  <a class="tag_list_link" href="/tag/Lab">Lab</a></li>
+			  
+			  <a class="tag_list_link" href="/tag/Report">Report</a></li>
+			  
+			</ul>
+		  </li>
+	   </div>
+	</div><!-- end .tags -->
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+     
+      <a class="prev" href="/blog/b.FindBugs%20Structure/"><span>&laquo;&nbsp;Rough program logic of FindBugs 0.5.2</span>
+      
+    </a>
+      
+      
+      <a class="next" href="/blog/a.Some%20Interesting%20Visiting%20order%20of%20FindBugs%200.5.2%20-%20Copy/"><span>Some Interesting Visiting order of FindBugs 0.5.2&nbsp;&raquo;</span>
+       
+      </a>
+     
+  </div>
+</div>
+
+		 
+      </div>
+   </div><!-- end .content -->
+
+   <div class="footer">
+   <div class="container">
+      <p class="copy">&copy; 2015 <a href="http://pwwpche.github.io">pwwpche</a> Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
+
+      <div class="footer-links"> 
+         <ul class="noList"> 
+            
+         </ul>
+      </div>
+   </div>
+</div><!-- end .footer -->
+
+
+   <!-- Add jQuery and other scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src=""><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+
+
+</body>
+
+</html>

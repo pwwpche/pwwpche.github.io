@@ -1,0 +1,20 @@
+---
+layout: post
+title:  "Daily Report - 7.13"
+date:   2015-7-13
+tags:
+- Lab
+- Report
+---
+
+### 完成的任务
+* 上午看了两个FindBugs3的Detector，总结了一点获取参数、方法名等的方法。
+* 中午酱油again
+* 下午找了找scala bytecode的文章，大部分太短没什么用，有个比较长的，150多页，而且一堆公式，感觉会爆炸
+* 傍晚看了点XFindBugs的源码，大部分都挺简单，但是看懂的话需要AspectJ生成bytecode的知识，所以不少没看懂
+	
+### 需要做的
+* 继续看FindBugs和XFindBugs的bug detector源码
+* 看下Compiling Scala for the JVM是否有用
+* 看INSANE，开始写起来自己的CFG
+* 感觉Scala生成Bytecode需要自己动手javap，明天试一下。
