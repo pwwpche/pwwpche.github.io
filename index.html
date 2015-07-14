@@ -1,24 +1,145 @@
----
-layout: default
----
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
-<div class="home" id="home">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title></title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="PWWPCHE" href="https://github.com/pwwpche/feed.xml" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    <link rel="canonical" href="https://github.com/pwwpche/">
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
+
+     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+ 
+</head>
+
+
+<body>
+
+    <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="/">PWWPCHE</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 
+                 <li class="element first current ">
+                     <a href="/index.html">Home</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/articles">Articles</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/about">About</a>
+                 </li> 
+                 
+                 <li class="element   last">
+                     <a href="/contact">Contact</a>
+                 </li> 
+                 
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+
+
+   <div class="content">
+      <div class="container">
+         <div class="home" id="home">
   <ul class="posts noList">
-    {% for post in paginator.posts %}
+    
       <li>
-        <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
-        <h3><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
-        <p class="description">{% if post.description %}{{ post.description | strip_html | strip_newlines | truncate: 50 }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 50 }}{% endif %}</p>
+        <span class="date">July 14, 2015</span>
+        <h3><a class="post-link" href="/blog/a.Daily%20Report%20-%207.14/">Daily Report - 7.14</a></h3>
+        <p class="description">完成的任务上午先看Compiling Scala for JVM, 看了20多页，感觉似乎前面...</p>
       </li>
-    {% endfor %}
+    
+      <li>
+        <span class="date">July 13, 2015</span>
+        <h3><a class="post-link" href="/blog/b.Daily%20Report%20-%207.13/">Daily Report - 7.13</a></h3>
+        <p class="description">完成的任务上午看了两个FindBugs3的Detector，总结了一点获取参数、方法名等的方法...</p>
+      </li>
+    
+      <li>
+        <span class="date">July 13, 2015</span>
+        <h3><a class="post-link" href="/blog/a.%20Some%20understandings%20about%20Detectors/">Some understandings about Detectors in FindBugs	</a></h3>
+        <p class="description">Detector Workflow:visit(JavaClass)----&gt;visit...</p>
+      </li>
+    
+      <li>
+        <span class="date">July 10, 2015</span>
+        <h3><a class="post-link" href="/blog/c.Daily%20Report%20-%207.10/">Daily Report - 7.10</a></h3>
+        <p class="description">完成的任务上午先重读了一边FindBugs和XFindBugs的论文BugPattern部分，...</p>
+      </li>
+    
+      <li>
+        <span class="date">July 10, 2015</span>
+        <h3><a class="post-link" href="/blog/b.Use%20plugin%20to%20add%20detectors%20to%20FindBugs/">Use plugin to add detector to FindBugs</a></h3>
+        <p class="description">Tutorial here:https://code.google.com/p/findbug...</p>
+      </li>
+    
   </ul>
   <!-- Pagination links -->
   <div class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous button__outline">Newer Posts</a> 
-    {% endif %}
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="next button__outline">Older Posts</a>
-    {% endif %}
+    
+    
+      <a href="/blog/page2/" class="next button__outline">Older Posts</a>
+    
   </div>
 </div>
+
+		 
+      </div>
+   </div><!-- end .content -->
+
+   <div class="footer">
+   <div class="container">
+      <p class="copy">&copy; 2015 <a href="http://pwwpche.github.io">pwwpche</a> Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
+
+      <div class="footer-links"> 
+         <ul class="noList"> 
+            
+         </ul>
+      </div>
+   </div>
+</div><!-- end .footer -->
+
+
+   <!-- Add jQuery and other scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src=""><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+
+
+</body>
+
+</html>
