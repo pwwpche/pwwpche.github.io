@@ -5,9 +5,56 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 15 Jul 2015 17:17:09 +0800</pubDate>
-    <lastBuildDate>Wed, 15 Jul 2015 17:17:09 +0800</lastBuildDate>
+    <pubDate>Thu, 16 Jul 2015 18:32:01 +0800</pubDate>
+    <lastBuildDate>Thu, 16 Jul 2015 18:32:01 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Daily Report - 7.16</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午看Scala的公开课，搞不懂Curry Function是啥东西&lt;/li&gt;
+&lt;li&gt;中午和下午接着看，高阶函数那里懂一些了，开始做作业&lt;/li&gt;
+&lt;li&gt;傍晚的时候Homework2做完了&lt;/li&gt;
+&lt;li&gt;找到一篇介绍scala compile的ppt，但是东西比较早（09年的了）&lt;/li&gt;
+&lt;li&gt;Week3的视频没有英语字幕，课程是用法语讲的...gg&lt;/li&gt;
+&lt;li&gt;找到了现在所有scala的比较出名的开源库（收藏夹里）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;做Coursera Homework3&lt;/li&gt;
+&lt;li&gt;看Compile Scala for JVM 的论文&lt;/li&gt;
+&lt;li&gt;试试看能不能从github里面挖commit里的bug&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午看Scala的公开课，搞不懂Curry Function是啥东西&lt;/li&gt;
+&lt;li&gt;中午和下午接着看，高阶函数那里懂一些了，开始做作业&lt;/li&gt;
+&lt;li&gt;傍晚的时候Homework2做完了&lt;/li&gt;
+&lt;li&gt;找到一篇介绍scala compile的ppt，但是东西比较早（09年的了）&lt;/li&gt;
+&lt;li&gt;Week3的视频没有英语字幕，课程是用法语讲的...gg&lt;/li&gt;
+&lt;li&gt;找到了现在所有scala的比较出名的开源库（收藏夹里）&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Thu, 16 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.16/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.16/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -554,70 +601,6 @@ Concrete Me2()&lt;/p&gt;
         <category>Lab</category>
         
         <category>FindBugs</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 7.8</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午看了一下BCEL的一个example的源码，大概搞懂了如何用BCEL创建一个java class&lt;/li&gt;
-&lt;li&gt;顺便理解了new后为什么要有dup，但是没完全搞懂&lt;/li&gt;
-&lt;li&gt;中午打酱油&lt;/li&gt;
-&lt;li&gt;下午把FindBugs 3.0的源码跑起来了，学长提醒说旧版和新版架构可能有很大差别，建议看新版。粗看了一下架构区别不是很大，还是用了Visitor模式。需要以后再确定一下&lt;/li&gt;
-&lt;li&gt;傍晚自己写了一个最简单的java程序，javap -c 反汇编后看了一下，照着写出了BCEL生成相应java class的程序，跑起来了。&lt;/li&gt;
-&lt;li&gt;临走前发现一个问题。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;可以开始尝试搭一个简单的FindBugs架构了？（问题是现在还没学如何利用FindBugs的Visitor机制）&lt;/li&gt;
-&lt;li&gt;所以要学学Visitor机制&lt;/li&gt;
-&lt;li&gt;重看FindBugs论文和XFindBugs论文&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;问题&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;JVM的运行机制，栈上的东西是用完了自动pop吗？为何要先dup再invokeVirtual？  （Possible Explanation:http://stackoverflow.com/questions/12438567/java-bytecode-dup）&lt;/li&gt;
-&lt;li&gt;BCEL的Visitor机制是怎么用的？什么时候要用visitor模式？&lt;/li&gt;
-&lt;li&gt;JVM的操作数栈和局部变量栈是如何协同工作的？&lt;/li&gt;
-&lt;li&gt;为何FindBugs里面BetterVisitor直接跳到了DismantleByteCode?&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午看了一下BCEL的一个example的源码，大概搞懂了如何用BCEL创建一个java class&lt;/li&gt;
-&lt;li&gt;顺便理解了new后为什么要有dup，但是没完全搞懂&lt;/li&gt;
-&lt;li&gt;中午打酱油&lt;/li&gt;
-&lt;li&gt;下午把FindBugs 3.0的源码跑起来了，学长提醒说旧版和新版架构可能有很大差别，建议看新版。粗看了一下架构区别不是很大，还是用了Visitor模式。需要以后再确定一下&lt;/li&gt;
-&lt;li&gt;傍晚自己写了一个最简单的java程序，javap -c 反汇编后看了一下，照着写出了BCEL生成相应java class的程序，跑起来了。&lt;/li&gt;
-&lt;li&gt;临走前发现一个问题。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;可以开始尝试搭一个简单的FindBugs架构了？（问题是现在还没学如何利用FindBugs的Visitor机制）&lt;/li&gt;
-&lt;li&gt;所以要学学Visitor机制&lt;/li&gt;
-&lt;li&gt;重看FindBugs论文和XFindBugs论文&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Wed, 08 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/c.Daily%20Report%20-%207.8/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/c.Daily%20Report%20-%207.8/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
         
         
       </item>
