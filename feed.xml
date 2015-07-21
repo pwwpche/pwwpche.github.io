@@ -5,9 +5,53 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Jul 2015 17:47:55 +0800</pubDate>
-    <lastBuildDate>Mon, 20 Jul 2015 17:47:55 +0800</lastBuildDate>
+    <pubDate>Tue, 21 Jul 2015 17:04:00 +0800</pubDate>
+    <lastBuildDate>Tue, 21 Jul 2015 17:04:00 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Daily Report - 7.21</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;看完了scala的Type Matching&lt;/li&gt;
+&lt;li&gt;python爬虫做好并行了，为了一个pool.map弄了半个小时...&lt;/li&gt;
+&lt;li&gt;加了一点keyword，&lt;/li&gt;
+&lt;li&gt;筛选commit message的时候可以采用评分机制，具体每个词多少得分要看经验&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;学Scala的lazy机制&lt;/li&gt;
+&lt;li&gt;看完awesome-scala里所有database库的commit message&lt;/li&gt;
+&lt;li&gt;看的时候把相应的scala代码也看懂&lt;/li&gt;
+&lt;li&gt;做Homework 4&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;看完了scala的Type Matching&lt;/li&gt;
+&lt;li&gt;python爬虫做好并行了，为了一个pool.map弄了半个小时...&lt;/li&gt;
+&lt;li&gt;加了一点keyword，&lt;/li&gt;
+&lt;li&gt;筛选commit message的时候可以采用评分机制，具体每个词多少得分要看经验&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Tue, 21 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.21/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.21/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -58,7 +102,7 @@
       
       <item>
         <title>Some keywords about commit messages</title>
-        <description>&lt;h4&gt;Potential bug pattern&lt;/h4&gt;
+        <description>&lt;h3&gt;Potential bug pattern&lt;/h3&gt;
 
 &lt;p&gt;deserialize&lt;br&gt;
 https://github.com/avibryant/simmer/commit/fde08bac6e13d8c5dd96291bac217d15808dbc62&lt;/p&gt;
@@ -72,41 +116,78 @@ https://github.com/scala-js/scala-js-dom/commit/4b4a9ba1ba5755ac9ffccdf57835e4df
 &lt;p&gt;runtime reflection &lt;br&gt;
 https://github.com/scala/scala/commit/06e7e342d1e27097df0b9d0b31a322fd1cf0a34e&lt;/p&gt;
 
-&lt;h4&gt;filter list&lt;/h4&gt;
+&lt;p&gt;bound check&lt;br&gt;
+https://github.com/twitter/algebird/commit/4987db1f5e55e5d47d37a8ab58a8edf49542ed0f&lt;/p&gt;
 
-&lt;h5&gt;Negative: (including space)&lt;/h5&gt;
+&lt;p&gt;make serializable (improve?)&lt;br&gt;
+https://github.com/twitter/algebird/commit/deedb2ab5e7f27cdf357797fe8df21a98df7e665&lt;/p&gt;
+
+&lt;p&gt;asInstanceOf is a bad habit&lt;br&gt;
+https://github.com/adamretter/Shadoop/commit/2094397e367c9895f1c3e033f80c3fa673895211&lt;/p&gt;
+
+&lt;p&gt;unintended Lazy captures&lt;br&gt;
+https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868056ac04&lt;/p&gt;
+
+&lt;h3&gt;filter word list&lt;/h3&gt;
+
+&lt;h4&gt;Negative:&lt;/h4&gt;
+
+&lt;h5&gt;-10&lt;/h5&gt;
 
 &lt;ul&gt;
-&lt;li&gt;|format |&lt;/li&gt;
-&lt;li&gt;|typo |&lt;/li&gt;
-&lt;li&gt;|doc |&lt;/li&gt;
-&lt;li&gt;|document |&lt;/li&gt;
-&lt;li&gt;|README |&lt;/li&gt;
-&lt;li&gt;|version |&lt;/li&gt;
-&lt;li&gt;|.md |&lt;/li&gt;
+&lt;li&gt;typo&lt;/li&gt;
+&lt;li&gt;doc&lt;/li&gt;
+&lt;li&gt;document&lt;/li&gt;
+&lt;li&gt;documentation&lt;/li&gt;
+&lt;li&gt;README&lt;/li&gt;
+&lt;li&gt;version&lt;/li&gt;
+&lt;li&gt;.md&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5&gt;Suspect:&lt;/h5&gt;
+&lt;h5&gt;-5&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;dependencies&lt;/li&gt;
+&lt;li&gt;dependency&lt;/li&gt;
+&lt;li&gt;comment&lt;/li&gt;
+&lt;li&gt;sbt&lt;/li&gt;
+&lt;li&gt;format&lt;/li&gt;
+&lt;li&gt;improve&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Suspect:&lt;/h4&gt;
+
+&lt;h5&gt;-2&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;add&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5&gt;Positive:&lt;/h5&gt;
+&lt;h4&gt;Positive:&lt;/h4&gt;
+
+&lt;h5&gt;+10&lt;/h5&gt;
 
 &lt;ul&gt;
-&lt;li&gt;incorrect&lt;/li&gt;
+&lt;li&gt;fix&lt;/li&gt;
+&lt;li&gt;exception&lt;/li&gt;
+&lt;li&gt;missing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;+20&lt;/h5&gt;
+
+&lt;ul&gt;
 &lt;li&gt;buggy&lt;/li&gt;
 &lt;li&gt;bug&lt;/li&gt;
-&lt;li&gt;missing&lt;/li&gt;
-&lt;li&gt;mistake&lt;/li&gt;
-&lt;li&gt;exception&lt;/li&gt;
-&lt;li&gt;infinite&lt;/li&gt;
+&lt;li&gt;error&lt;/li&gt;
+&lt;li&gt;errors&lt;/li&gt;
+&lt;li&gt;incorrect&lt;/li&gt;
 &lt;li&gt;corrupt&lt;/li&gt;
+&lt;li&gt;mistake&lt;/li&gt;
+&lt;li&gt;infinite&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         
-          <description>&lt;h4&gt;Potential bug pattern&lt;/h4&gt;
+          <description>&lt;h3&gt;Potential bug pattern&lt;/h3&gt;
 </description>
         
         <pubDate>Mon, 20 Jul 2015 00:00:00 +0800</pubDate>
@@ -526,44 +607,6 @@ visitAfter(JavaClass)&lt;br&gt;&lt;/p&gt;
         <category>Lab</category>
         
         <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Use plugin to add detector to FindBugs</title>
-        <description>&lt;p&gt;Tutorial here:&lt;br&gt;
-https://code.google.com/p/findbugs/wiki/DetectorPluginTutorial&lt;/p&gt;
-
-&lt;p&gt;Well, the directory in which the plugins should be placed isn&amp;#39;t clear. &lt;/p&gt;
-
-&lt;p&gt;Spectate code here[in &amp;quot;edu.umd.cs.findbugs.PluginLoader&amp;quot;]:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;installStandardPlugins&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;homeDir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DetectorFactoryCollection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getFindBugsHome&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;homeDir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;home&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;homeDir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;loadPlugins&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;home&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Add a breakpoint at line2, and make sure what is the directory that FindBugs is searching in. &lt;/p&gt;
-</description>
-        
-          <description>&lt;p&gt;Tutorial here:&lt;br&gt;
-https://code.google.com/p/findbugs/wiki/DetectorPluginTutorial&lt;/p&gt;
-</description>
-        
-        <pubDate>Fri, 10 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/b.Use%20plugin%20to%20add%20detectors%20to%20FindBugs/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.Use%20plugin%20to%20add%20detectors%20to%20FindBugs/</guid>
-        
-        <category>Lab</category>
-        
-        <category>FindBugs</category>
         
         
       </item>
