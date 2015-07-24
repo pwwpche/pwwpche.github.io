@@ -5,9 +5,62 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 23 Jul 2015 09:14:08 +0800</pubDate>
-    <lastBuildDate>Thu, 23 Jul 2015 09:14:08 +0800</lastBuildDate>
+    <pubDate>Fri, 24 Jul 2015 09:18:32 +0800</pubDate>
+    <lastBuildDate>Fri, 24 Jul 2015 09:18:32 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Daily Report - 7.23</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;看完了postgresql的所有commit&lt;/li&gt;
+&lt;li&gt;bug list 新增一些bug&lt;/li&gt;
+&lt;li&gt;python爬虫现在可以把所有commit写到文件里&lt;/li&gt;
+&lt;li&gt;爬虫可以自动生成html页面&lt;/li&gt;
+&lt;li&gt;处理掉了fix#的情况&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;看完skinnyframework&lt;/li&gt;
+&lt;li&gt;buglist归类&lt;/li&gt;
+&lt;li&gt;解决多线程执行一段时间后卡死的问题&lt;/li&gt;
+&lt;li&gt;可以用solr对所有commit全文索引&lt;/li&gt;
+&lt;li&gt;看完公开课Lists部分&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;问题：&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;private var, val , def, protected?&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;看完了postgresql的所有commit&lt;/li&gt;
+&lt;li&gt;bug list 新增一些bug&lt;/li&gt;
+&lt;li&gt;python爬虫现在可以把所有commit写到文件里&lt;/li&gt;
+&lt;li&gt;爬虫可以自动生成html页面&lt;/li&gt;
+&lt;li&gt;处理掉了fix#的情况&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Thu, 23 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.23/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.23/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -47,8 +100,8 @@
 </description>
         
         <pubDate>Wed, 22 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.22/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.22/</guid>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.22/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.22/</guid>
         
         <category>Lab</category>
         
@@ -91,8 +144,8 @@
 </description>
         
         <pubDate>Tue, 21 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.21/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.21/</guid>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.21/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.21/</guid>
         
         <category>Lab</category>
         
@@ -205,7 +258,9 @@ https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868
 &lt;li&gt;format&lt;/li&gt;
 &lt;li&gt;improve&lt;/li&gt;
 &lt;li&gt;sample&lt;/li&gt;
+&lt;li&gt;example&lt;/li&gt;
 &lt;li&gt;file name&lt;/li&gt;
+&lt;li&gt;release&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4&gt;Suspect:&lt;/h4&gt;
@@ -214,6 +269,8 @@ https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868
 
 &lt;ul&gt;
 &lt;li&gt;add&lt;/li&gt;
+&lt;li&gt;version&lt;/li&gt;
+&lt;li&gt;build &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4&gt;Positive:&lt;/h4&gt;
@@ -243,7 +300,9 @@ https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868
 &lt;li&gt;infinite&lt;/li&gt;
 &lt;li&gt;stackoverflow&lt;/li&gt;
 &lt;li&gt;null pointer&lt;/li&gt;
+&lt;li&gt;null&lt;/li&gt;
 &lt;li&gt;npe&lt;/li&gt;
+&lt;li&gt;synchronization&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         
@@ -513,107 +572,6 @@ https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868
         <category>Lab</category>
         
         <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Some understandings about Detectors in FindBugs	</title>
-        <description>&lt;h4&gt;Detector Workflow:&lt;/h4&gt;
-
-&lt;p&gt;visit(JavaClass)&lt;br&gt;
-----&amp;gt;visit(Method)&lt;br&gt;
-----&amp;gt;----&amp;gt;visit(Code)&lt;br&gt;
-----&amp;gt;----&amp;gt;----&amp;gt;sawCode(int)&lt;br&gt;
-visitAfter(JavaClass)&lt;br&gt;&lt;/p&gt;
-
-&lt;h4&gt;TOS:&lt;/h4&gt;
-
-&lt;p&gt;Top Of Stack&lt;/p&gt;
-
-&lt;h4&gt;Detectors&lt;/h4&gt;
-
-&lt;h5&gt;CloneIdiom :&lt;/h5&gt;
-
-&lt;p&gt;Line 158, redundent if comparement, but this is not bug.    &lt;br&gt;
-get current class name and params&lt;br&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&amp;quot;clone&amp;quot;.equals(getMethodName())
-getMethodSig().startsWith(&amp;quot;()&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;get subclass&lt;br&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;subtypes2.isSubtype(getClassDescriptor(), cloneDescriptor)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;get class interface&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;String[] interface_names = obj.getInterfaceNames();
- for (String interface_name : interface_names) {
-    if (&amp;quot;java.lang.Cloneable&amp;quot;.equals(interface_name)) {}
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;get call method and params:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;seen == INVOKESPECIAL &amp;amp;&amp;amp; &amp;quot;java/util/HashMap&amp;quot;.equals(getClassConstantOperand()) &amp;amp;&amp;amp; 
-    &amp;quot;clone&amp;quot;.equals(getNameConstantOperand()) &amp;amp;&amp;amp; 
-    &amp;quot;([BII)V&amp;quot;.equals(getMethodDescriptorOperand().getSignature())
-=&amp;gt;void HashMap.clone(Byte[] , int, int)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h5&gt;BadUseOfReturnValue :&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;()Ljava/lang/String;&amp;quot; ==&amp;gt; String f();&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;&amp;quot;(ILjava/lang/Class;)J&amp;quot; ==&amp;gt; long f(int i, Class c);&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;&amp;quot;([B)V&amp;quot; ==&amp;gt; void String(byte[] bytes);&lt;br&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Reference: &lt;a href=&quot;https://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/types.html&quot;&gt;JNI Type Signatures&lt;/a&gt;&lt;/p&gt;
-
-&lt;h5&gt;DumbMethod&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;What is @SuppressedWarnings?
-get stack value&lt;/p&gt;
-
-&lt;p&gt;Item lengthArg = stack.getStackItem(0);
- if(lengthArg instanceOf Number){}
- ()&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5&gt;DroppedException&lt;/h5&gt;
-
-&lt;p&gt;get exception table&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;obj.getExceptionTable()
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h5&gt;AJTestInfiniteLoop&lt;/h5&gt;
-
-&lt;p&gt;test whether the call has infinite loop&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;cg.hasCircle(method,method)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h5&gt;AJTestAdviceScope&lt;/h5&gt;
-
-&lt;p&gt;get arguments count&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;this.getMethod().getArgumentTypes().length
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h5&gt;AJTestMultipleClassDeclaration&lt;/h5&gt;
-
-&lt;p&gt;Not quite sure what is he doing...&lt;/p&gt;
-</description>
-        
-          <description>&lt;h4&gt;Detector Workflow:&lt;/h4&gt;
-
-&lt;p&gt;visit(JavaClass)&lt;br&gt;
-----&amp;gt;visit(Method)&lt;br&gt;
-----&amp;gt;----&amp;gt;visit(Code)&lt;br&gt;
-----&amp;gt;----&amp;gt;----&amp;gt;sawCode(int)&lt;br&gt;
-visitAfter(JavaClass)&lt;br&gt;&lt;/p&gt;
-</description>
-        
-        <pubDate>Mon, 13 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.%20Some%20understandings%20about%20Detectors%20-%20Copy/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.%20Some%20understandings%20about%20Detectors%20-%20Copy/</guid>
-        
-        <category>Lab</category>
-        
-        <category>FindBugs</category>
         
         
       </item>
