@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>Some keywords about commit messages</title>
+    <title>Daily Report - 7.24</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
@@ -20,7 +20,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
-    <link rel="canonical" href="https://github.com/pwwpche/blog/a.%20Some%20keywords%20about%20commit%20messages/">
+    <link rel="canonical" href="https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.24/">
 
     <!-- Modernizr -->
     <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
@@ -74,108 +74,34 @@ ga('send', 'pageview');
       <div class="container">
          <div class="post">
   
-  <h1 class="postTitle">Some keywords about commit messages</h1>
-  <p class="meta">July 20, 2015 | <span class="time">0</span> Minute Read</p>
+  <h1 class="postTitle">Daily Report - 7.24</h1>
+  <p class="meta">July 24, 2015 | <span class="time">0</span> Minute Read</p>
   
-  <h3>Potential bug pattern</h3>
-
-<p>deserialize<br>
-https://github.com/avibryant/simmer/commit/fde08bac6e13d8c5dd96291bac217d15808dbc62</p>
-
-<p>string interpolation<br>
-https://github.com/kazuhira-r/lyrics-bot/commit/3cf97005bf6daa9be7c03dd6b3816b31f0028ef0</p>
-
-<p>def/var<br>
-https://github.com/scala-js/scala-js-dom/commit/4b4a9ba1ba5755ac9ffccdf57835e4dfbcb2f7c4</p>
-
-<p>runtime reflection <br>
-https://github.com/scala/scala/commit/06e7e342d1e27097df0b9d0b31a322fd1cf0a34e</p>
-
-<p>bound check<br>
-https://github.com/twitter/algebird/commit/4987db1f5e55e5d47d37a8ab58a8edf49542ed0f</p>
-
-<p>make serializable (improve?)<br>
-https://github.com/twitter/algebird/commit/deedb2ab5e7f27cdf357797fe8df21a98df7e665</p>
-
-<p>asInstanceOf is a bad habit<br>
-https://github.com/adamretter/Shadoop/commit/2094397e367c9895f1c3e033f80c3fa673895211</p>
-
-<p>unintended Lazy captures<br>
-https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868056ac04</p>
-
-<h3>filter word list</h3>
-
-<h4>Negative:</h4>
-
-<h5>-10</h5>
+  <h3>完成的任务</h3>
 
 <ul>
-<li>typo </li>
-<li>doc</li>
-<li>docs</li>
-<li>document </li>
-<li>documentation </li>
-<li>README </li>
-<li>version </li>
-<li>.md</li>
+<li>上午主要解决爬虫的各种问题</li>
+<li>似乎如果一个thread没有捕获exception的话就会死掉</li>
+<li>中午过后解决爬虫一捕获merge#URL就报错的问题（pull request的链接得从html里拿到，不一定是/pull/）</li>
+<li>下午爬虫可以跑了，拿到了所有项目的绝大部分commit message和对应的url</li>
+<li>爬下来的东西写数据库了</li>
+<li>准备做索引</li>
+<li>skinnyframework看完了</li>
 </ul>
 
-<h5>-5</h5>
+<h3>需要做的</h3>
 
 <ul>
-<li>broken link</li>
-<li>dependencies</li>
-<li>dependency</li>
-<li>comment</li>
-<li>sbt</li>
-<li>format</li>
-<li>improve</li>
-<li>sample</li>
-<li>example</li>
-<li>file name</li>
-<li>release</li>
+<li>bug list &gt; 70再归类，现在是39</li>
+<li>看完公开课Collection部分</li>
+<li>关键的类型推导如何实现，必须看compile scala for jvm那个论文了。</li>
 </ul>
 
-<h4>Suspect:</h4>
-
-<h5>-2</h5>
+<h3>问题：</h3>
 
 <ul>
-<li>add</li>
-<li>version</li>
-<li>build </li>
-</ul>
-
-<h4>Positive:</h4>
-
-<h5>+5</h5>
-
-<ul>
-<li>fix</li>
-<li>fixes</li>
-<li>exception</li>
-<li>missing</li>
-<li>don&#39;t</li>
-<li>do not</li>
-</ul>
-
-<h5>+20</h5>
-
-<ul>
-<li>buggy</li>
-<li>bugfix</li>
-<li>bug</li>
-<li>error</li>
-<li>errors</li>
-<li>incorrect</li>
-<li>corrupt</li>
-<li>mistake</li>
-<li>infinite</li>
-<li>stackoverflow</li>
-<li>null pointer</li>
-<li>null</li>
-<li>npe</li>
-<li>synchronization</li>
+<li>private var, val , def, protected?</li>
+<li>今天发现似乎def <function name> ： 加了类型的话也可能是bug</li>
 </ul>
 
 
@@ -187,7 +113,7 @@ https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868
 			  
 			  <a class="tag_list_link" href="/tag/Lab">Lab</a></li>
 			  
-			  <a class="tag_list_link" href="/tag/FindBugs">FindBugs</a></li>
+			  <a class="tag_list_link" href="/tag/Report">Report</a></li>
 			  
 			</ul>
 		  </li>
@@ -197,14 +123,10 @@ https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868
   <!-- POST NAVIGATION -->
   <div class="postNav clearfix">
      
-      <a class="prev" href="/blog/a.Daily%20Report%20-%207.17/"><span>&laquo;&nbsp;Daily Report - 7.17</span>
+      <a class="prev" href="/blog/a.%20Current%20bug%20list/"><span>&laquo;&nbsp;Current bug lists</span>
       
     </a>
       
-      
-      <a class="next" href="/blog/b.Daily%20Report%20-%207.20/"><span>Daily Report - 7.20&nbsp;&raquo;</span>
-       
-      </a>
      
   </div>
 </div>

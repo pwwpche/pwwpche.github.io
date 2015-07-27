@@ -5,9 +5,208 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 24 Jul 2015 09:18:32 +0800</pubDate>
-    <lastBuildDate>Fri, 24 Jul 2015 09:18:32 +0800</lastBuildDate>
+    <pubDate>Mon, 27 Jul 2015 10:20:54 +0800</pubDate>
+    <lastBuildDate>Mon, 27 Jul 2015 10:20:54 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Daily Report - 7.24</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午主要解决爬虫的各种问题&lt;/li&gt;
+&lt;li&gt;似乎如果一个thread没有捕获exception的话就会死掉&lt;/li&gt;
+&lt;li&gt;中午过后解决爬虫一捕获merge#URL就报错的问题（pull request的链接得从html里拿到，不一定是/pull/）&lt;/li&gt;
+&lt;li&gt;下午爬虫可以跑了，拿到了所有项目的绝大部分commit message和对应的url&lt;/li&gt;
+&lt;li&gt;爬下来的东西写数据库了&lt;/li&gt;
+&lt;li&gt;准备做索引&lt;/li&gt;
+&lt;li&gt;skinnyframework看完了&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;bug list &amp;gt; 70再归类，现在是39&lt;/li&gt;
+&lt;li&gt;看完公开课Collection部分&lt;/li&gt;
+&lt;li&gt;关键的类型推导如何实现，必须看compile scala for jvm那个论文了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;问题：&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;private var, val , def, protected?&lt;/li&gt;
+&lt;li&gt;今天发现似乎def &lt;function name&gt; ： 加了类型的话也可能是bug&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午主要解决爬虫的各种问题&lt;/li&gt;
+&lt;li&gt;似乎如果一个thread没有捕获exception的话就会死掉&lt;/li&gt;
+&lt;li&gt;中午过后解决爬虫一捕获merge#URL就报错的问题（pull request的链接得从html里拿到，不一定是/pull/）&lt;/li&gt;
+&lt;li&gt;下午爬虫可以跑了，拿到了所有项目的绝大部分commit message和对应的url&lt;/li&gt;
+&lt;li&gt;爬下来的东西写数据库了&lt;/li&gt;
+&lt;li&gt;准备做索引&lt;/li&gt;
+&lt;li&gt;skinnyframework看完了&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Fri, 24 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.24/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.24/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Current bug lists</title>
+        <description>&lt;h3&gt;Potential bug pattern&lt;/h3&gt;
+
+&lt;p&gt;use before init&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/02f7ec4a005642b01b348bdaee11cf39a922cbc4&lt;/p&gt;
+
+&lt;p&gt;import empty &lt;br&gt;
+https://github.com/fwbrasil/activate/commit/36995f1ead8b640fc879def63cde2770d465119f&lt;/p&gt;
+
+&lt;p&gt;singleton exception(Improvement)&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/4182a0c82f64ce866844bf72e3f78269d3343004&lt;/p&gt;
+
+&lt;p&gt;damn typo...&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/36dcc53026e665751a4de0ee3d1c760e3b1b200f&lt;/p&gt;
+
+&lt;p&gt;java.io.Serializable&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/f36b8a797cfe345ea629269ab38aec96429f039b&lt;/p&gt;
+
+&lt;p&gt;string prefix&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/250161626631709be9220a879acc52432d6d62ce&lt;/p&gt;
+
+&lt;p&gt;remove redundent .type&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/cb2c9d5d4d5efad4a6346d85017b2ce7b7b906b6&lt;/p&gt;
+
+&lt;p&gt;concurrent read/write&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/2aa63ec3dc64db66decbcd274b8443422da1b4c5&lt;/p&gt;
+
+&lt;p&gt;read/write lock&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/70fbe4070a56ec336fad71a0579c0f9f78c92831&lt;/p&gt;
+
+&lt;p&gt;concurrent delete&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/afc003b2c7d669008dacd20686dae5dbb86875a8&lt;/p&gt;
+
+&lt;p&gt;possible Null Pointer exception&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/43ff0a11562ff1628cbbd618994ca22cdeeb0276&lt;/p&gt;
+
+&lt;p&gt;case fallthrough&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/3bac399611f04ee2792d03ec71b102f937452637&lt;/p&gt;
+
+&lt;p&gt;get empty element from map&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/11d7c89632855104cc91be0b05cc40b0deed38b9&lt;/p&gt;
+
+&lt;p&gt;undefined field&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/11d7c89632855104cc91be0b05cc40b0deed38b9&lt;/p&gt;
+
+&lt;p&gt;type contravarience&lt;br&gt;
+https://github.com/sksamuel/elastic4s/commit/d3406a030a6daaee9cdf3b2fdd522effeff5ae89&lt;/p&gt;
+
+&lt;p&gt;too long thread sleep&lt;br&gt;
+https://github.com/sksamuel/elastic4s/commit/0351b7317a86da688beb6d1818f2caf703777275&lt;/p&gt;
+
+&lt;p&gt;match operator ===&lt;br&gt;
+https://github.com/mauricio/postgresql-async/commit/682e2bff8864209aa0e51a497cd71c4a6c02d812&lt;/p&gt;
+
+&lt;p&gt;some obvious function misuse&lt;br&gt;
+https://github.com/sksamuel/elastic4s/commit/3748069f982accf1ba94c4defd4aac16ba39fd1e&lt;/p&gt;
+
+&lt;p&gt;logger cause mem leak&lt;br&gt;
+https://github.com/mauricio/postgresql-async/commit/80876ee3293748e4bb96939e938a95d31b7b8768&lt;/p&gt;
+
+&lt;p&gt;foreach rather than map(improvement)&lt;br&gt;
+https://github.com/mauricio/postgresql-async/commit/f754c1b72524974a8d011b458daac9bd4140e590&lt;/p&gt;
+
+&lt;p&gt;bad matching syntax, should be _&lt;br&gt;
+https://github.com/mauricio/postgresql-async/commit/6e81e4adcb016cbd7b1e3ed36d5535d9cb6fa762&lt;/p&gt;
+
+&lt;p&gt;usage of any and anyRef&lt;br&gt;
+https://github.com/sksamuel/elastic4s/commit/97c8f27ed5addaa2ebe153ca7439c23f8a642f87&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;self calling&lt;br&gt;
+https://github.com/sksamuel/elastic4s/commit/ae73cd393cb967278aa92e53f6c480af0a7e2fac&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;missing function return type&lt;br&gt;
+https://github.com/aselab/scala-activerecord/commit/6a6e92b6a09078bbb263c580515d95fb82d6f40f&lt;/p&gt;
+
+&lt;p&gt;match return type(whether to add bracket is confusing and misleading    )&lt;br&gt;
+https://github.com/scalatra/scalatra/commit/96506a41dc9cc142305ab54e3cefde758fa880ab&lt;/p&gt;
+
+&lt;p&gt;reflection(don&amp;#39;t quite understand)&lt;br&gt;
+https://github.com/sorm/sorm/commit/ca1236ce8c11fddc844bdf287ed59b20f4a79a53&lt;/p&gt;
+
+&lt;p&gt;if everyone use, everyone should use &lt;br&gt;
+https://github.com/scalatra/scalatra/commit/5bc791191f78c6fecd3e6d5f68474c7c84593869&lt;/p&gt;
+
+&lt;p&gt;error with return type&lt;br&gt;
+https://github.com/skinny-framework/skinny-framework/commit/ed865e0cc193df6cdb8b478b7cb5c5a4d901612e&lt;/p&gt;
+
+&lt;p&gt;get should be consistent&lt;br&gt;
+https://github.com/skinny-framework/skinny-framework/commit/b77a6b69962f4d5f02e5e0da481bc100723ee2ee&lt;/p&gt;
+
+&lt;p&gt;member type&lt;br&gt;
+https://github.com/skinny-framework/skinny-framework/commit/5c0a356885939ac03561dd5e64ac0e33109d3d34&lt;/p&gt;
+
+&lt;p&gt;duplicated function call&lt;br&gt;
+https://github.com/skinny-framework/skinny-framework/commit/5d06ad52d6d741fc5c1ba624190ad659e70a4752&lt;/p&gt;
+
+&lt;p&gt;use function result before check&lt;br&gt;
+https://github.com/skinny-framework/skinny-framework/commit/f48bed91f8688bd0abe93aa6e7e4e4d0a54199a6&lt;/p&gt;
+
+&lt;p&gt;not-safe use of toString&lt;br&gt;
+https://github.com/skinny-framework/skinny-framework/commit/35c06c50515988cf49a6092a83fc640fd852f2d9&lt;/p&gt;
+
+&lt;p&gt;should check Null ahead&lt;br&gt;
+https://github.com/skinny-framework/skinny-framework/commit/56495db870122bda1c77f32e4f0b52b97677d80a&lt;/p&gt;
+
+&lt;p&gt;function name conflick&lt;br&gt;
+https://github.com/skinny-framework/skinny-framework/commit/5c9362edb0905f20c06e94b9bde00ec94b21b042&lt;/p&gt;
+
+&lt;p&gt;Another NPE(hard to detect)&lt;br&gt;
+https://github.com/skinny-framework/skinny-framework/commit/2e2a5b439a6a2a5fa1098ac33fe0fa701d782b77&lt;/p&gt;
+
+&lt;p&gt;check for unclosed bracket&lt;br&gt;
+https://github.com/skinny-framework/skinny-framework/commit/2134a1c5ccae5a83d9d2efd8eb33b34849fdcfd2&lt;/p&gt;
+
+&lt;p&gt;type problems&lt;br&gt;
+https://github.com/skinny-framework/skinny-framework/commit/887f63fefff8f19cf72fbea3126c6b36691245e1&lt;/p&gt;
+
+&lt;p&gt;class should be immutable&lt;br&gt;
+https://github.com/skinny-framework/skinny-framework/commit/7061db58c3a713a830db0c15ab7d63ed3834815d&lt;/p&gt;
+</description>
+        
+          <description>&lt;h3&gt;Potential bug pattern&lt;/h3&gt;
+
+&lt;p&gt;use before init&lt;br&gt;
+https://github.com/fwbrasil/activate/commit/02f7ec4a005642b01b348bdaee11cf39a922cbc4&lt;/p&gt;
+</description>
+        
+        <pubDate>Fri, 24 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.%20Current%20bug%20list/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.%20Current%20bug%20list/</guid>
+        
+        <category>Lab</category>
+        
+        <category>FindBugs</category>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -310,8 +509,8 @@ https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868
 </description>
         
         <pubDate>Mon, 20 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.%20Some%20keywords%20about%20commit%20messages/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.%20Some%20keywords%20about%20commit%20messages/</guid>
+        <link>https://github.com/pwwpche/blog/a.%20Some%20keywords%20about%20commit%20messages%20-%20Copy/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.%20Some%20keywords%20about%20commit%20messages%20-%20Copy/</guid>
         
         <category>Lab</category>
         
@@ -456,118 +655,6 @@ https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868
         <pubDate>Wed, 15 Jul 2015 00:00:00 +0800</pubDate>
         <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.15/</link>
         <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.15/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 7.14</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午先看Compiling Scala for JVM, 看了20多页，感觉似乎前面都在讲scala的特性如何翻译成Java的实现，不知道有没有用&lt;/li&gt;
-&lt;li&gt;中午尼玛又困死了&lt;/li&gt;
-&lt;li&gt;下午先看了看Emitting Scala class file via ASM，也不知道是干嘛用的，而且似乎更加没有用&lt;/li&gt;
-&lt;li&gt;win7安了scala，写了个Helloworld，用scalac编译后javap反汇编，似乎可以用，后面可以用来分析大一点的程序&lt;/li&gt;
-&lt;li&gt;傍晚找了找scala的bug汇总，发现issue tracker绝逼不是好东西，一没有代码，二乱的要死找不到重点&lt;/li&gt;
-&lt;li&gt;StackOverflow似乎也不太好找...&lt;/li&gt;
-&lt;li&gt;Bug Pattern可以在github里找，commit里面如果有bug 或者fix的话一般就是有bug修复了，可以看这里面的代码&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;应该主要关注XFindBugs的bug detector源码了&lt;/li&gt;
-&lt;li&gt;可以写写scala的代码了，把书带过来，coursera上有作业可以做&lt;/li&gt;
-&lt;li&gt;scala的特性还是不熟悉啊...要继续学习&lt;/li&gt;
-&lt;li&gt;是先找bug pattern，用写程序来分析pattern的bytecode，还是先学scala的bytecode如何生成，再找bug pattern呢？&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午先看Compiling Scala for JVM, 看了20多页，感觉似乎前面都在讲scala的特性如何翻译成Java的实现，不知道有没有用&lt;/li&gt;
-&lt;li&gt;中午尼玛又困死了&lt;/li&gt;
-&lt;li&gt;下午先看了看Emitting Scala class file via ASM，也不知道是干嘛用的，而且似乎更加没有用&lt;/li&gt;
-&lt;li&gt;win7安了scala，写了个Helloworld，用scalac编译后javap反汇编，似乎可以用，后面可以用来分析大一点的程序&lt;/li&gt;
-&lt;li&gt;傍晚找了找scala的bug汇总，发现issue tracker绝逼不是好东西，一没有代码，二乱的要死找不到重点&lt;/li&gt;
-&lt;li&gt;StackOverflow似乎也不太好找...&lt;/li&gt;
-&lt;li&gt;Bug Pattern可以在github里找，commit里面如果有bug 或者fix的话一般就是有bug修复了，可以看这里面的代码&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;应该主要关注XFindBugs的bug detector源码了&lt;/li&gt;
-&lt;li&gt;可以写写scala的代码了，把书带过来，coursera上有作业可以做&lt;/li&gt;
-&lt;li&gt;scala的特性还是不熟悉啊...要继续学习&lt;/li&gt;
-&lt;li&gt;是先找bug pattern，用写程序来分析pattern的bytecode，还是先学scala的bytecode如何生成，再找bug pattern呢？&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Tue, 14 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.14/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.14/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 7.13</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午看了两个FindBugs3的Detector，总结了一点获取参数、方法名等的方法。&lt;/li&gt;
-&lt;li&gt;中午酱油again&lt;/li&gt;
-&lt;li&gt;下午找了找scala bytecode的文章，大部分太短没什么用，有个比较长的，150多页，而且一堆公式，感觉会爆炸&lt;/li&gt;
-&lt;li&gt;傍晚看了点XFindBugs的源码，大部分都挺简单，但是看懂的话需要AspectJ生成bytecode的知识，所以不少没看懂&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;继续看FindBugs和XFindBugs的bug detector源码&lt;/li&gt;
-&lt;li&gt;看下Compiling Scala for the JVM是否有用&lt;/li&gt;
-&lt;li&gt;看INSANE，开始写起来自己的CFG&lt;/li&gt;
-&lt;li&gt;感觉Scala生成Bytecode需要自己动手javap，明天试一下。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午看了两个FindBugs3的Detector，总结了一点获取参数、方法名等的方法。&lt;/li&gt;
-&lt;li&gt;中午酱油again&lt;/li&gt;
-&lt;li&gt;下午找了找scala bytecode的文章，大部分太短没什么用，有个比较长的，150多页，而且一堆公式，感觉会爆炸&lt;/li&gt;
-&lt;li&gt;傍晚看了点XFindBugs的源码，大部分都挺简单，但是看懂的话需要AspectJ生成bytecode的知识，所以不少没看懂&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;继续看FindBugs和XFindBugs的bug detector源码&lt;/li&gt;
-&lt;li&gt;看下Compiling Scala for the JVM是否有用&lt;/li&gt;
-&lt;li&gt;看INSANE，开始写起来自己的CFG&lt;/li&gt;
-&lt;li&gt;感觉Scala生成Bytecode需要自己动手javap，明天试一下。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Mon, 13 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.13/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.13/</guid>
         
         <category>Lab</category>
         

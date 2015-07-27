@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Current bug lists</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="PWWPCHE" href="https://github.com/pwwpche/feed.xml" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    <link rel="canonical" href="https://github.com/pwwpche/blog/a.%20Current%20bug%20list/">
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
+
+     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+ 
+</head>
+
+
+<body>
+
+    <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="/">PWWPCHE</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 
+                 <li class="element first  ">
+                     <a href="/index.html">Home</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/articles">Articles</a>
+                 </li> 
+                 
+                 <li class="element   ">
+                     <a href="/about">About</a>
+                 </li> 
+                 
+                 <li class="element   last">
+                     <a href="/contact">Contact</a>
+                 </li> 
+                 
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+
+
+   <div class="content">
+      <div class="container">
+         <div class="post">
+  
+  <h1 class="postTitle">Current bug lists</h1>
+  <p class="meta">July 24, 2015 | <span class="time">1</span> Minute Read</p>
+  
+  <h3>Potential bug pattern</h3>
+
+<p>use before init<br>
+https://github.com/fwbrasil/activate/commit/02f7ec4a005642b01b348bdaee11cf39a922cbc4</p>
+
+<p>import empty <br>
+https://github.com/fwbrasil/activate/commit/36995f1ead8b640fc879def63cde2770d465119f</p>
+
+<p>singleton exception(Improvement)<br>
+https://github.com/fwbrasil/activate/commit/4182a0c82f64ce866844bf72e3f78269d3343004</p>
+
+<p>damn typo...<br>
+https://github.com/fwbrasil/activate/commit/36dcc53026e665751a4de0ee3d1c760e3b1b200f</p>
+
+<p>java.io.Serializable<br>
+https://github.com/fwbrasil/activate/commit/f36b8a797cfe345ea629269ab38aec96429f039b</p>
+
+<p>string prefix<br>
+https://github.com/fwbrasil/activate/commit/250161626631709be9220a879acc52432d6d62ce</p>
+
+<p>remove redundent .type<br>
+https://github.com/fwbrasil/activate/commit/cb2c9d5d4d5efad4a6346d85017b2ce7b7b906b6</p>
+
+<p>concurrent read/write<br>
+https://github.com/fwbrasil/activate/commit/2aa63ec3dc64db66decbcd274b8443422da1b4c5</p>
+
+<p>read/write lock<br>
+https://github.com/fwbrasil/activate/commit/70fbe4070a56ec336fad71a0579c0f9f78c92831</p>
+
+<p>concurrent delete<br>
+https://github.com/fwbrasil/activate/commit/afc003b2c7d669008dacd20686dae5dbb86875a8</p>
+
+<p>possible Null Pointer exception<br>
+https://github.com/fwbrasil/activate/commit/43ff0a11562ff1628cbbd618994ca22cdeeb0276</p>
+
+<p>case fallthrough<br>
+https://github.com/fwbrasil/activate/commit/3bac399611f04ee2792d03ec71b102f937452637</p>
+
+<p>get empty element from map<br>
+https://github.com/fwbrasil/activate/commit/11d7c89632855104cc91be0b05cc40b0deed38b9</p>
+
+<p>undefined field<br>
+https://github.com/fwbrasil/activate/commit/11d7c89632855104cc91be0b05cc40b0deed38b9</p>
+
+<p>type contravarience<br>
+https://github.com/sksamuel/elastic4s/commit/d3406a030a6daaee9cdf3b2fdd522effeff5ae89</p>
+
+<p>too long thread sleep<br>
+https://github.com/sksamuel/elastic4s/commit/0351b7317a86da688beb6d1818f2caf703777275</p>
+
+<p>match operator ===<br>
+https://github.com/mauricio/postgresql-async/commit/682e2bff8864209aa0e51a497cd71c4a6c02d812</p>
+
+<p>some obvious function misuse<br>
+https://github.com/sksamuel/elastic4s/commit/3748069f982accf1ba94c4defd4aac16ba39fd1e</p>
+
+<p>logger cause mem leak<br>
+https://github.com/mauricio/postgresql-async/commit/80876ee3293748e4bb96939e938a95d31b7b8768</p>
+
+<p>foreach rather than map(improvement)<br>
+https://github.com/mauricio/postgresql-async/commit/f754c1b72524974a8d011b458daac9bd4140e590</p>
+
+<p>bad matching syntax, should be _<br>
+https://github.com/mauricio/postgresql-async/commit/6e81e4adcb016cbd7b1e3ed36d5535d9cb6fa762</p>
+
+<p>usage of any and anyRef<br>
+https://github.com/sksamuel/elastic4s/commit/97c8f27ed5addaa2ebe153ca7439c23f8a642f87</p>
+
+<ol>
+<li>self calling<br>
+https://github.com/sksamuel/elastic4s/commit/ae73cd393cb967278aa92e53f6c480af0a7e2fac</li>
+</ol>
+
+<p>missing function return type<br>
+https://github.com/aselab/scala-activerecord/commit/6a6e92b6a09078bbb263c580515d95fb82d6f40f</p>
+
+<p>match return type(whether to add bracket is confusing and misleading    )<br>
+https://github.com/scalatra/scalatra/commit/96506a41dc9cc142305ab54e3cefde758fa880ab</p>
+
+<p>reflection(don&#39;t quite understand)<br>
+https://github.com/sorm/sorm/commit/ca1236ce8c11fddc844bdf287ed59b20f4a79a53</p>
+
+<p>if everyone use, everyone should use <br>
+https://github.com/scalatra/scalatra/commit/5bc791191f78c6fecd3e6d5f68474c7c84593869</p>
+
+<p>error with return type<br>
+https://github.com/skinny-framework/skinny-framework/commit/ed865e0cc193df6cdb8b478b7cb5c5a4d901612e</p>
+
+<p>get should be consistent<br>
+https://github.com/skinny-framework/skinny-framework/commit/b77a6b69962f4d5f02e5e0da481bc100723ee2ee</p>
+
+<p>member type<br>
+https://github.com/skinny-framework/skinny-framework/commit/5c0a356885939ac03561dd5e64ac0e33109d3d34</p>
+
+<p>duplicated function call<br>
+https://github.com/skinny-framework/skinny-framework/commit/5d06ad52d6d741fc5c1ba624190ad659e70a4752</p>
+
+<p>use function result before check<br>
+https://github.com/skinny-framework/skinny-framework/commit/f48bed91f8688bd0abe93aa6e7e4e4d0a54199a6</p>
+
+<p>not-safe use of toString<br>
+https://github.com/skinny-framework/skinny-framework/commit/35c06c50515988cf49a6092a83fc640fd852f2d9</p>
+
+<p>should check Null ahead<br>
+https://github.com/skinny-framework/skinny-framework/commit/56495db870122bda1c77f32e4f0b52b97677d80a</p>
+
+<p>function name conflick<br>
+https://github.com/skinny-framework/skinny-framework/commit/5c9362edb0905f20c06e94b9bde00ec94b21b042</p>
+
+<p>Another NPE(hard to detect)<br>
+https://github.com/skinny-framework/skinny-framework/commit/2e2a5b439a6a2a5fa1098ac33fe0fa701d782b77</p>
+
+<p>check for unclosed bracket<br>
+https://github.com/skinny-framework/skinny-framework/commit/2134a1c5ccae5a83d9d2efd8eb33b34849fdcfd2</p>
+
+<p>type problems<br>
+https://github.com/skinny-framework/skinny-framework/commit/887f63fefff8f19cf72fbea3126c6b36691245e1</p>
+
+<p>class should be immutable<br>
+https://github.com/skinny-framework/skinny-framework/commit/7061db58c3a713a830db0c15ab7d63ed3834815d</p>
+
+
+  <div class="tags">
+   <div class="container">
+   <h5>Tags</h5>
+		  <li class="archive_list">
+			<ul class="archive_list">
+			  
+			  <a class="tag_list_link" href="/tag/Lab">Lab</a></li>
+			  
+			  <a class="tag_list_link" href="/tag/FindBugs">FindBugs</a></li>
+			  
+			</ul>
+		  </li>
+	   </div>
+	</div><!-- end .tags -->
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+     
+      <a class="prev" href="/blog/a.Daily%20Report%20-%207.23/"><span>&laquo;&nbsp;Daily Report - 7.23</span>
+      
+    </a>
+      
+      
+      <a class="next" href="/blog/b.Daily%20Report%20-%207.24/"><span>Daily Report - 7.24&nbsp;&raquo;</span>
+       
+      </a>
+     
+  </div>
+</div>
+
+		 
+      </div>
+   </div><!-- end .content -->
+
+   <div class="footer">
+   <div class="container">
+      <p class="copy">&copy; 2015 <a href="http://pwwpche.github.io">pwwpche</a> Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
+
+      <div class="footer-links"> 
+         <ul class="noList"> 
+            
+         </ul>
+      </div>
+   </div>
+</div><!-- end .footer -->
+
+
+   <!-- Add jQuery and other scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src=""><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+
+
+</body>
+
+</html>
