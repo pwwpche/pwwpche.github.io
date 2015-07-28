@@ -5,9 +5,65 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 27 Jul 2015 19:35:56 +0800</pubDate>
-    <lastBuildDate>Mon, 27 Jul 2015 19:35:56 +0800</lastBuildDate>
+    <pubDate>Tue, 28 Jul 2015 19:29:54 +0800</pubDate>
+    <lastBuildDate>Tue, 28 Jul 2015 19:29:54 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Daily Report - 7.28</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;主要整理了lift-framework里的bug列表&lt;/li&gt;
+&lt;li&gt;下午还是困，到底怎么回事&lt;/li&gt;
+&lt;li&gt;更新buglist和keyword list&lt;/li&gt;
+&lt;li&gt;加了几个没爬到的scala repo&lt;/li&gt;
+&lt;li&gt;知道了val是编译时evaluate，def是运行时evaluate&lt;/li&gt;
+&lt;li&gt;收获两个deadlock的bug&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;akka别动了，会爆炸&lt;/li&gt;
+&lt;li&gt;把lift-framework看完&lt;/li&gt;
+&lt;li&gt;关键词列表要更新，整理出更准确的bugfix list&lt;/li&gt;
+&lt;li&gt;yesterday收藏夹里有点东西要看完&lt;/li&gt;
+&lt;li&gt;网上找找scala的lazy机制的资料吧&lt;/li&gt;
+&lt;li&gt;开始把bug list分类，写清楚详细bug原因&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;问题&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;bug fix里面有非常多的NPE检测，是否需要仔细看（因为里面几乎都涉及到了程序逻辑问题，可能并不是pattern）&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;主要整理了lift-framework里的bug列表&lt;/li&gt;
+&lt;li&gt;下午还是困，到底怎么回事&lt;/li&gt;
+&lt;li&gt;更新buglist和keyword list&lt;/li&gt;
+&lt;li&gt;加了几个没爬到的scala repo&lt;/li&gt;
+&lt;li&gt;知道了val是编译时evaluate，def是运行时evaluate&lt;/li&gt;
+&lt;li&gt;收获两个deadlock的bug&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Tue, 28 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.28/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.28/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -121,6 +177,30 @@
       <item>
         <title>Current bug lists</title>
         <description>&lt;h3&gt;Potential bug pattern&lt;/h3&gt;
+
+&lt;p&gt;deserialize&lt;br&gt;
+https://github.com/avibryant/simmer/commit/fde08bac6e13d8c5dd96291bac217d15808dbc62&lt;/p&gt;
+
+&lt;p&gt;string interpolation&lt;br&gt;
+https://github.com/kazuhira-r/lyrics-bot/commit/3cf97005bf6daa9be7c03dd6b3816b31f0028ef0&lt;/p&gt;
+
+&lt;p&gt;def/var&lt;br&gt;
+https://github.com/scala-js/scala-js-dom/commit/4b4a9ba1ba5755ac9ffccdf57835e4dfbcb2f7c4&lt;/p&gt;
+
+&lt;p&gt;runtime reflection &lt;br&gt;
+https://github.com/scala/scala/commit/06e7e342d1e27097df0b9d0b31a322fd1cf0a34e&lt;/p&gt;
+
+&lt;p&gt;bound check&lt;br&gt;
+https://github.com/twitter/algebird/commit/4987db1f5e55e5d47d37a8ab58a8edf49542ed0f&lt;/p&gt;
+
+&lt;p&gt;make serializable (improve?)&lt;br&gt;
+https://github.com/twitter/algebird/commit/deedb2ab5e7f27cdf357797fe8df21a98df7e665&lt;/p&gt;
+
+&lt;p&gt;asInstanceOf is a bad habit&lt;br&gt;
+https://github.com/adamretter/Shadoop/commit/2094397e367c9895f1c3e033f80c3fa673895211&lt;/p&gt;
+
+&lt;p&gt;unintended Lazy captures&lt;br&gt;
+https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868056ac04&lt;/p&gt;
 
 &lt;p&gt;use before init&lt;br&gt;
 https://github.com/fwbrasil/activate/commit/02f7ec4a005642b01b348bdaee11cf39a922cbc4&lt;/p&gt;
@@ -265,12 +345,89 @@ https://github.com/eed3si9n/scalaxb/commit/b6c5a29c8d38d90bfd3dbbac7042a4427d1e3
 
 &lt;p&gt;use lazy val to get overriden
 https://github.com/eed3si9n/scalaxb/commit/abc50699d157c702a063ac6f031ae0b959cad0b7&lt;/p&gt;
+
+&lt;p&gt;misuse of val and def
+https://github.com/eed3si9n/scalaxb/commit/13046ac38c9423c063d89bcf485f087e579b22ea&lt;/p&gt;
+
+&lt;p&gt;missing prefex in string interpolation
+https://github.com/lift/framework/commit/dc632a927a22a9b81ff5422fdc1ba389ce47595f&lt;/p&gt;
+
+&lt;p&gt;missing default match option
+https://github.com/lift/framework/commit/77ba2b73e800358405f9bbbe1e2ac3f26126d951&lt;/p&gt;
+
+&lt;p&gt;enum with duplicated value
+https://github.com/lift/framework/commit/5f09c86fdc72ae163d2fc4d4415b764e3d92be1f&lt;/p&gt;
+
+&lt;p&gt;broken string interpolation
+https://github.com/lift/framework/commit/4ecd3198c4b5c8070510a8260c722c77094af215&lt;/p&gt;
+
+&lt;p&gt;missing default match
+https://github.com/lift/framework/commit/9b370d1bf627a38ebc0bdd7b8aa0152653f49807
+https://github.com/lift/framework/commit/97c08c7dd9ed161a83f6c3b716e03bbec98f28fc&lt;/p&gt;
+
+&lt;p&gt;dead match condition
+https://github.com/lift/framework/commit/deb27666c0f8936aa12763afd74aba1439305f40&lt;/p&gt;
+
+&lt;p&gt;unused parameter
+https://github.com/lift/framework/commit/ed4331ab1a33795356520f33ee22f0b39fe48b30&lt;/p&gt;
+
+&lt;p&gt;NPE
+https://github.com/lift/framework/commit/0836f2a926c33bf72d8babe36d958653b146bbc1
+https://github.com/lift/framework/commit/ce4bf6f1a5d1c8c71001e24ca537c5800ac7c541
+https://github.com/lift/framework/commit/47cd758a4fc468327049923b90bab70fe8e11419
+https://github.com/lift/framework/commit/550feb02e4f9bff6959c17b41b7af6fdac207fa4
+https://github.com/lift/framework/commit/a09b633327405cf3c4aad2c0c124ea5b897428b5&lt;/p&gt;
+
+&lt;p&gt;lines not confront 
+https://github.com/lift/framework/commit/fa070cb0ffc7f3f6c64deb5039b87f3710cb5f3e&lt;/p&gt;
+
+&lt;p&gt;deadlock
+https://github.com/lift/framework/commit/820a15d7a2c5e2bb4eb00352b325412393329998&lt;/p&gt;
+
+&lt;p&gt;null check
+https://github.com/lift/framework/commit/e6d70f393e32493bfc413ddad79711340903992a&lt;/p&gt;
+
+&lt;p&gt;reentrantreadwritelock deadlock
+https://github.com/lift/framework/commit/9dc635255f15bca027db5735e94ddfbbd800aa56&lt;/p&gt;
+
+&lt;p&gt;type mismatch
+https://github.com/lift/framework/commit/1ffac230fea785e221e9ecb2a1b106c324700a2b&lt;/p&gt;
+
+&lt;p&gt;off-by-1 error
+https://github.com/lift/framework/commit/b1ed911ea9aa965c6de292226dce7670a37a2576&lt;/p&gt;
+
+&lt;p&gt;argument type error(need further insight)
+https://github.com/lift/framework/commit/f01b9d5fc50533f3c2ba932357fac8c39a1fd1ea&lt;/p&gt;
+
+&lt;p&gt;wrong intended null evaluation
+https://github.com/lift/framework/commit/7cc7134c37a599dd7f80a646eb0ce49d1d318862&lt;/p&gt;
+
+&lt;p&gt;non-existance field serialization
+https://github.com/lift/framework/commit/ed0a9488c4163455980047c20e409ac810a32e2e&lt;/p&gt;
+
+&lt;p&gt;transient field serialization
+https://github.com/lift/framework/commit/38930ae0c8bf92a725a5558584ea698c904f0400&lt;/p&gt;
+
+&lt;p&gt;incorrect usage of array buffer
+https://github.com/lift/framework/commit/0b80e60948498400639949422d6040744cc45c76&lt;/p&gt;
+
+&lt;p&gt;incorrect type check
+https://github.com/lift/framework/commit/ea5f68c2208ea3d7907e7a089b0883d89e54a876&lt;/p&gt;
+
+&lt;p&gt;type mismatch in pattern matching
+https://github.com/lift/framework/commit/1c7c0c3c23e77c6c2adfb3eb36080cbed57530a8&lt;/p&gt;
+
+&lt;p&gt;possible stack overflow
+https://github.com/lift/framework/commit/cbebcead73974d323ce3954de7934e4663d9ef46&lt;/p&gt;
+
+&lt;p&gt;java double parsing problem
+https://github.com/lift/framework/commit/6ae4c680288f7daf6eccdf338cf48a7b733dab13&lt;/p&gt;
+
+&lt;p&gt;type matching(several other similar mistakes)
+https://github.com/lift/framework/commit/d48479e317ddfc1b183661396de74c5ae21fadd2&lt;/p&gt;
 </description>
         
           <description>&lt;h3&gt;Potential bug pattern&lt;/h3&gt;
-
-&lt;p&gt;use before init&lt;br&gt;
-https://github.com/fwbrasil/activate/commit/02f7ec4a005642b01b348bdaee11cf39a922cbc4&lt;/p&gt;
 </description>
         
         <pubDate>Fri, 24 Jul 2015 00:00:00 +0800</pubDate>
@@ -480,109 +637,72 @@ https://github.com/fwbrasil/activate/commit/02f7ec4a005642b01b348bdaee11cf39a922
       
       <item>
         <title>Some keywords about commit messages</title>
-        <description>&lt;h3&gt;Potential bug pattern&lt;/h3&gt;
+        <description>&lt;h3&gt;filter word list&lt;/h3&gt;
 
-&lt;p&gt;deserialize&lt;br&gt;
-https://github.com/avibryant/simmer/commit/fde08bac6e13d8c5dd96291bac217d15808dbc62&lt;/p&gt;
+&lt;p&gt;&amp;quot;doc&amp;quot; : -20,
+&amp;quot;document &amp;quot; : -20,
+&amp;quot;readme&amp;quot; : -20,
+&amp;quot;version&amp;quot; : -20,
+&amp;quot;.md&amp;quot; : -20,
+&amp;quot;message&amp;quot; : -20,
+&amp;quot;documentation &amp;quot; : -20,
+&amp;quot;docs&amp;quot; : -20,
+&amp;quot;pom&amp;quot; : -20, &lt;/p&gt;
 
-&lt;p&gt;string interpolation&lt;br&gt;
-https://github.com/kazuhira-r/lyrics-bot/commit/3cf97005bf6daa9be7c03dd6b3816b31f0028ef0&lt;/p&gt;
+&lt;p&gt;&amp;quot;environment&amp;quot; : -10,
+&amp;quot;typo &amp;quot; : -10,
+&amp;quot;sbt&amp;quot; : -10,
+&amp;quot;spec&amp;quot; : -10,
+&amp;quot;dependencies&amp;quot; : -10,
+&amp;quot;dependency&amp;quot; : -10,
+&amp;quot;deprecat&amp;quot; : -10,
+&amp;quot;link&amp;quot; : -10,
+&amp;quot;rename&amp;quot; : -10,
+&amp;quot;indent&amp;quot; : -10, 
+&amp;quot;spelling&amp;quot; : -10,
+&amp;quot;error log&amp;quot; : -10,&lt;br&gt;
+&amp;quot;support&amp;quot; : -10,
+&amp;quot;improv&amp;quot; : -10,&lt;/p&gt;
 
-&lt;p&gt;def/var&lt;br&gt;
-https://github.com/scala-js/scala-js-dom/commit/4b4a9ba1ba5755ac9ffccdf57835e4dfbcb2f7c4&lt;/p&gt;
+&lt;p&gt;&amp;quot;better&amp;quot; : -5,
+&amp;quot;report&amp;quot; : -5, 
+&amp;quot;comment&amp;quot; : -5,
+&amp;quot;format&amp;quot; : -5,
+&amp;quot;sample&amp;quot; : -5,
+&amp;quot;example&amp;quot; : -5,
+&amp;quot;file name&amp;quot; : -5,
+&amp;quot;release&amp;quot; : -5,
+&amp;quot;add&amp;quot; : -5,
+&amp;quot;build&amp;quot; : -5,
+&amp;quot;version&amp;quot; : -5,&lt;/p&gt;
 
-&lt;p&gt;runtime reflection &lt;br&gt;
-https://github.com/scala/scala/commit/06e7e342d1e27097df0b9d0b31a322fd1cf0a34e&lt;/p&gt;
+&lt;p&gt;&amp;quot;fix&amp;quot; : +5,
+&amp;quot;fixes&amp;quot; : +5,
+&amp;quot;correct&amp;quot; : +5, 
+&amp;quot;exception&amp;quot; : +5,
+&amp;quot;missing&amp;quot; : +5,
+&amp;quot;don&amp;#39;t&amp;quot; : +5,
+&amp;quot;do not&amp;quot; : +5,
+&amp;quot;failure&amp;quot; : +5,
+&amp;quot;return type&amp;quot; : +5,
+&amp;quot;should&amp;quot; : +5,&lt;/p&gt;
 
-&lt;p&gt;bound check&lt;br&gt;
-https://github.com/twitter/algebird/commit/4987db1f5e55e5d47d37a8ab58a8edf49542ed0f&lt;/p&gt;
-
-&lt;p&gt;make serializable (improve?)&lt;br&gt;
-https://github.com/twitter/algebird/commit/deedb2ab5e7f27cdf357797fe8df21a98df7e665&lt;/p&gt;
-
-&lt;p&gt;asInstanceOf is a bad habit&lt;br&gt;
-https://github.com/adamretter/Shadoop/commit/2094397e367c9895f1c3e033f80c3fa673895211&lt;/p&gt;
-
-&lt;p&gt;unintended Lazy captures&lt;br&gt;
-https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868056ac04&lt;/p&gt;
-
-&lt;h3&gt;filter word list&lt;/h3&gt;
-
-&lt;h4&gt;Negative:&lt;/h4&gt;
-
-&lt;h5&gt;-10&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;typo &lt;/li&gt;
-&lt;li&gt;doc&lt;/li&gt;
-&lt;li&gt;docs&lt;/li&gt;
-&lt;li&gt;document &lt;/li&gt;
-&lt;li&gt;documentation &lt;/li&gt;
-&lt;li&gt;README &lt;/li&gt;
-&lt;li&gt;version &lt;/li&gt;
-&lt;li&gt;.md&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5&gt;-5&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;broken link&lt;/li&gt;
-&lt;li&gt;dependencies&lt;/li&gt;
-&lt;li&gt;dependency&lt;/li&gt;
-&lt;li&gt;comment&lt;/li&gt;
-&lt;li&gt;sbt&lt;/li&gt;
-&lt;li&gt;format&lt;/li&gt;
-&lt;li&gt;improve&lt;/li&gt;
-&lt;li&gt;sample&lt;/li&gt;
-&lt;li&gt;example&lt;/li&gt;
-&lt;li&gt;file name&lt;/li&gt;
-&lt;li&gt;release&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4&gt;Suspect:&lt;/h4&gt;
-
-&lt;h5&gt;-2&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;add&lt;/li&gt;
-&lt;li&gt;version&lt;/li&gt;
-&lt;li&gt;build &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4&gt;Positive:&lt;/h4&gt;
-
-&lt;h5&gt;+5&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;fix&lt;/li&gt;
-&lt;li&gt;fixes&lt;/li&gt;
-&lt;li&gt;exception&lt;/li&gt;
-&lt;li&gt;missing&lt;/li&gt;
-&lt;li&gt;don&amp;#39;t&lt;/li&gt;
-&lt;li&gt;do not&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5&gt;+20&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;buggy&lt;/li&gt;
-&lt;li&gt;bugfix&lt;/li&gt;
-&lt;li&gt;bug&lt;/li&gt;
-&lt;li&gt;error&lt;/li&gt;
-&lt;li&gt;errors&lt;/li&gt;
-&lt;li&gt;incorrect&lt;/li&gt;
-&lt;li&gt;corrupt&lt;/li&gt;
-&lt;li&gt;mistake&lt;/li&gt;
-&lt;li&gt;infinite&lt;/li&gt;
-&lt;li&gt;stackoverflow&lt;/li&gt;
-&lt;li&gt;null pointer&lt;/li&gt;
-&lt;li&gt;null&lt;/li&gt;
-&lt;li&gt;npe&lt;/li&gt;
-&lt;li&gt;synchronization&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&amp;quot;buggy&amp;quot; : +10,
+&amp;quot;bugfix&amp;quot; : +10,
+&amp;quot;bug&amp;quot; : +10,
+&amp;quot;error&amp;quot; : +10,
+&amp;quot;errors&amp;quot; : +10,
+&amp;quot;incorrect&amp;quot; : +10,
+&amp;quot;corrupt&amp;quot; : +10,
+&amp;quot;mistake&amp;quot; : +10,
+&amp;quot;infinite&amp;quot; : +10,
+&amp;quot;stackoverflow&amp;quot; : +10,
+&amp;quot;null pointer&amp;quot; : +10,
+&amp;quot;null&amp;quot; : +10,
+&amp;quot;npe&amp;quot; : +10&lt;/p&gt;
 </description>
         
-          <description>&lt;h3&gt;Potential bug pattern&lt;/h3&gt;
+          <description>&lt;h3&gt;filter word list&lt;/h3&gt;
 </description>
         
         <pubDate>Mon, 20 Jul 2015 00:00:00 +0800</pubDate>
@@ -626,53 +746,6 @@ https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868
         <pubDate>Fri, 17 Jul 2015 00:00:00 +0800</pubDate>
         <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.17/</link>
         <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.17/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 7.16</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午看Scala的公开课，搞不懂Curry Function是啥东西&lt;/li&gt;
-&lt;li&gt;中午和下午接着看，高阶函数那里懂一些了，开始做作业&lt;/li&gt;
-&lt;li&gt;傍晚的时候Homework2做完了&lt;/li&gt;
-&lt;li&gt;找到一篇介绍scala compile的ppt，但是东西比较早（09年的了）&lt;/li&gt;
-&lt;li&gt;Week3的视频没有英语字幕，课程是用法语讲的...gg&lt;/li&gt;
-&lt;li&gt;找到了现在所有scala的比较出名的开源库（收藏夹里）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;做Coursera Homework3&lt;/li&gt;
-&lt;li&gt;看Compile Scala for JVM 的论文&lt;/li&gt;
-&lt;li&gt;试试看能不能从github里面挖commit里的bug&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午看Scala的公开课，搞不懂Curry Function是啥东西&lt;/li&gt;
-&lt;li&gt;中午和下午接着看，高阶函数那里懂一些了，开始做作业&lt;/li&gt;
-&lt;li&gt;傍晚的时候Homework2做完了&lt;/li&gt;
-&lt;li&gt;找到一篇介绍scala compile的ppt，但是东西比较早（09年的了）&lt;/li&gt;
-&lt;li&gt;Week3的视频没有英语字幕，课程是用法语讲的...gg&lt;/li&gt;
-&lt;li&gt;找到了现在所有scala的比较出名的开源库（收藏夹里）&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Thu, 16 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.16/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.16/</guid>
         
         <category>Lab</category>
         
