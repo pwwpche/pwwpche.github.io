@@ -77,255 +77,277 @@ ga('send', 'pageview');
   <h1 class="postTitle">Current bug lists</h1>
   <p class="meta">July 24, 2015 | <span class="time">2</span> Minute Read</p>
   
-  <h3>Potential bug pattern</h3>
+  <h3>Prefix</h3>
 
-<p>deserialize<br>
+<ul>
+<li>[Not sure] : Not sure whether it is a bug</li>
+<li>[Possible] : More probable than [Not sure]</li>
+<li>[Bug] : It is a bug and I know why</li>
+<li>[Improvement] : This is a fix to improve performance or something, but not a bug fix</li>
+<li>[Can&#39;t detect] : This is a bug, but I don&#39;t know how to detect it(maybe because it is more related with the program logic)</li>
+<li>[Don&#39;t understand] : Commit message define it a &quot;bug fix&quot;, but I can&#39;t tell why</li>
+<li>[Warning] : This looks likes a bug BUT IT IS NOT</li>
+<li>[Ignore] : This is a bug, but not critical</li>
+</ul>
+
+<h3>Possible bug pattern</h3>
+
+<p>[Not sure]deserialize<br>
 https://github.com/avibryant/simmer/commit/fde08bac6e13d8c5dd96291bac217d15808dbc62</p>
 
-<p>string interpolation<br>
-https://github.com/kazuhira-r/lyrics-bot/commit/3cf97005bf6daa9be7c03dd6b3816b31f0028ef0</p>
-
-<p>def/var<br>
+<p>[Not sure]def/var<br>
 https://github.com/scala-js/scala-js-dom/commit/4b4a9ba1ba5755ac9ffccdf57835e4dfbcb2f7c4</p>
 
-<p>runtime reflection <br>
+<p>[Not Sure]runtime reflection <br>
 https://github.com/scala/scala/commit/06e7e342d1e27097df0b9d0b31a322fd1cf0a34e</p>
 
-<p>bound check<br>
+<p>[Can&#39;t detect]bound check<br>
 https://github.com/twitter/algebird/commit/4987db1f5e55e5d47d37a8ab58a8edf49542ed0f</p>
 
-<p>make serializable (improve?)<br>
+<p>[Improvement]make serializable<br>
 https://github.com/twitter/algebird/commit/deedb2ab5e7f27cdf357797fe8df21a98df7e665</p>
 
-<p>asInstanceOf is a bad habit<br>
+<p>[Not sure]asInstanceOf is a bad habit<br>
 https://github.com/adamretter/Shadoop/commit/2094397e367c9895f1c3e033f80c3fa673895211</p>
 
-<p>unintended Lazy captures<br>
+<p>[Not sure]unintended Lazy captures<br>
 https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868056ac04</p>
 
-<p>use before init<br>
+<p>[Bug]use before init<br>
 https://github.com/fwbrasil/activate/commit/02f7ec4a005642b01b348bdaee11cf39a922cbc4</p>
 
-<p>import empty <br>
+<p>[Not Sure]import empty <br>
 https://github.com/fwbrasil/activate/commit/36995f1ead8b640fc879def63cde2770d465119f</p>
 
-<p>singleton exception(Improvement)<br>
+<p>[Improvement]singleton exception<br>
 https://github.com/fwbrasil/activate/commit/4182a0c82f64ce866844bf72e3f78269d3343004</p>
 
-<p>damn typo...<br>
-https://github.com/fwbrasil/activate/commit/36dcc53026e665751a4de0ee3d1c760e3b1b200f</p>
-
-<p>java.io.Serializable<br>
+<p>[Possible]java.io.Serializable<br>
 https://github.com/fwbrasil/activate/commit/f36b8a797cfe345ea629269ab38aec96429f039b</p>
 
-<p>string prefix<br>
-https://github.com/fwbrasil/activate/commit/250161626631709be9220a879acc52432d6d62ce</p>
-
-<p>remove redundent .type<br>
+<p>[Improvement]remove redundent .type<br>
 https://github.com/fwbrasil/activate/commit/cb2c9d5d4d5efad4a6346d85017b2ce7b7b906b6</p>
 
-<p>concurrent read/write<br>
+<p>[Bug]concurrent read/write<br>
 https://github.com/fwbrasil/activate/commit/2aa63ec3dc64db66decbcd274b8443422da1b4c5</p>
 
-<p>read/write lock<br>
+<p>[Bug]read/write lock<br>
 https://github.com/fwbrasil/activate/commit/70fbe4070a56ec336fad71a0579c0f9f78c92831</p>
 
-<p>concurrent delete<br>
+<p>[Bug]concurrent delete<br>
 https://github.com/fwbrasil/activate/commit/afc003b2c7d669008dacd20686dae5dbb86875a8</p>
 
-<p>possible Null Pointer exception<br>
+<p>[Bug]possible Null Pointer exception<br>
 https://github.com/fwbrasil/activate/commit/43ff0a11562ff1628cbbd618994ca22cdeeb0276</p>
 
-<p>case fallthrough<br>
+<p>[Bug]case fallthrough<br>
 https://github.com/fwbrasil/activate/commit/3bac399611f04ee2792d03ec71b102f937452637</p>
 
-<p>get empty element from map<br>
+<p>[Bug]get empty element from map<br>
 https://github.com/fwbrasil/activate/commit/11d7c89632855104cc91be0b05cc40b0deed38b9</p>
 
-<p>undefined field<br>
+<p>[Bug]undefined field<br>
 https://github.com/fwbrasil/activate/commit/11d7c89632855104cc91be0b05cc40b0deed38b9</p>
 
-<p>type contravarience<br>
+<p>[Don&#39;t understand]type contravarience<br>
 https://github.com/sksamuel/elastic4s/commit/d3406a030a6daaee9cdf3b2fdd522effeff5ae89</p>
 
-<p>too long thread sleep<br>
+<p>[Warning]too long thread sleep<br>
 https://github.com/sksamuel/elastic4s/commit/0351b7317a86da688beb6d1818f2caf703777275</p>
 
-<p>match operator ===<br>
+<p>[Can&#39;t detect]match operator ===(see http://stackoverflow.com/questions/26193267/why-does-slick-require-using-three-equal-signs-for-comparison)<br>
 https://github.com/mauricio/postgresql-async/commit/682e2bff8864209aa0e51a497cd71c4a6c02d812</p>
 
-<p>some obvious function misuse<br>
+<p>[Bug]some obvious function misuse<br>
 https://github.com/sksamuel/elastic4s/commit/3748069f982accf1ba94c4defd4aac16ba39fd1e</p>
 
-<p>logger cause mem leak<br>
+<p>[Possible]logger cause mem leak<br>
 https://github.com/mauricio/postgresql-async/commit/80876ee3293748e4bb96939e938a95d31b7b8768</p>
 
-<p>foreach rather than map(improvement)<br>
+<p>[Improvement]foreach rather than map<br>
 https://github.com/mauricio/postgresql-async/commit/f754c1b72524974a8d011b458daac9bd4140e590</p>
 
-<p>bad matching syntax, should be _<br>
+<p>[Bug]bad matching syntax, should be _<br>
 https://github.com/mauricio/postgresql-async/commit/6e81e4adcb016cbd7b1e3ed36d5535d9cb6fa762</p>
 
-<p>usage of any and anyRef<br>
+<p>[Possible]usage of any and anyRef<br>
 https://github.com/sksamuel/elastic4s/commit/97c8f27ed5addaa2ebe153ca7439c23f8a642f87</p>
 
-<ol>
-<li>self calling<br>
-https://github.com/sksamuel/elastic4s/commit/ae73cd393cb967278aa92e53f6c480af0a7e2fac</li>
-</ol>
-
-<p>missing function return type<br>
+<p>[Possible]missing function return type<br>
 https://github.com/aselab/scala-activerecord/commit/6a6e92b6a09078bbb263c580515d95fb82d6f40f</p>
 
-<p>match return type(whether to add bracket is confusing and misleading    )<br>
+<p>[Possible]match return type(whether to add bracket is confusing and misleading)<br>
 https://github.com/scalatra/scalatra/commit/96506a41dc9cc142305ab54e3cefde758fa880ab</p>
 
-<p>reflection(don&#39;t quite understand)<br>
+<p>[Not sure]reflection(don&#39;t quite understand)<br>
 https://github.com/sorm/sorm/commit/ca1236ce8c11fddc844bdf287ed59b20f4a79a53</p>
 
-<p>if everyone use, everyone should use <br>
+<p>[Bug]if everyone use, everyone should use <br>
 https://github.com/scalatra/scalatra/commit/5bc791191f78c6fecd3e6d5f68474c7c84593869</p>
 
-<p>error with return type<br>
+<p>[Bug]error with return type<br>
 https://github.com/skinny-framework/skinny-framework/commit/ed865e0cc193df6cdb8b478b7cb5c5a4d901612e</p>
 
-<p>get should be consistent<br>
+<p>[Possible]get should be consistent<br>
 https://github.com/skinny-framework/skinny-framework/commit/b77a6b69962f4d5f02e5e0da481bc100723ee2ee</p>
 
-<p>member type<br>
+<p>[Possible]member type<br>
 https://github.com/skinny-framework/skinny-framework/commit/5c0a356885939ac03561dd5e64ac0e33109d3d34</p>
 
-<p>duplicated function call<br>
+<p>[Improvement]duplicated function call<br>
 https://github.com/skinny-framework/skinny-framework/commit/5d06ad52d6d741fc5c1ba624190ad659e70a4752</p>
 
-<p>use function result before check<br>
+<p>[Can&#39;t detect]use function result before check<br>
 https://github.com/skinny-framework/skinny-framework/commit/f48bed91f8688bd0abe93aa6e7e4e4d0a54199a6</p>
 
-<p>not-safe use of toString<br>
+<p>[Bug]not-safe use of toString<br>
 https://github.com/skinny-framework/skinny-framework/commit/35c06c50515988cf49a6092a83fc640fd852f2d9</p>
 
-<p>should check Null ahead<br>
+<p>[Bug]should check Null ahead<br>
 https://github.com/skinny-framework/skinny-framework/commit/56495db870122bda1c77f32e4f0b52b97677d80a</p>
 
-<p>function name conflick<br>
+<p>[Bug]function name conflict<br>
 https://github.com/skinny-framework/skinny-framework/commit/5c9362edb0905f20c06e94b9bde00ec94b21b042</p>
 
-<p>Another NPE(hard to detect)<br>
+<p>[Bug]Another NPE(hard to detect)<br>
 https://github.com/skinny-framework/skinny-framework/commit/2e2a5b439a6a2a5fa1098ac33fe0fa701d782b77</p>
 
-<p>check for unclosed bracket<br>
+<p>[Bug]check for unclosed bracket<br>
 https://github.com/skinny-framework/skinny-framework/commit/2134a1c5ccae5a83d9d2efd8eb33b34849fdcfd2</p>
 
-<p>type problems<br>
+<p>[Possible]type problems<br>
 https://github.com/skinny-framework/skinny-framework/commit/887f63fefff8f19cf72fbea3126c6b36691245e1</p>
 
-<p>class should be immutable<br>
+<p>[Can&#39;t detect]class should be immutable<br>
 https://github.com/skinny-framework/skinny-framework/commit/7061db58c3a713a830db0c15ab7d63ed3834815d</p>
 
-<p>check for type[Nothing]
+<p>[Bug]check for type[Nothing]
 https://github.com/adamw/macwire/commit/366611f2364678efd625a446a93341deb62b825c</p>
 
-<p>No Return type?
+<p>[Possible]No Return type?
 https://github.com/adamw/macwire/commit/c453e63f03d590ff622de8c6de0842b6e57345eb</p>
 
-<p>missing .value(all except one pattern)
+<p>[Bug]missing .value(all except one pattern)
 https://github.com/eed3si9n/scalaxb/commit/c90cb88c760d67b804df2a2418b4e5a60661656c</p>
 
-<p>This is a false-positive for empty matching
+<p>[Be careful]This is a false-positive for empty matching
 https://github.com/eed3si9n/scalaxb/commit/7ae77094f0671148d33055f52f7ad1d319636bbd</p>
 
-<p>case is not used
-https://github.com/eed3si9n/scalaxb/commit/6660f45e82cab053736d9681dd933e658675e66b</p>
-
-<p>[improvement]duplicate function call
+<p>[Improvement]duplicate function call
 https://github.com/eed3si9n/scalaxb/commit/edff5d58c20177cf47f259771614bc3f63919165</p>
 
-<p>[improvement]emit a warning for use of null
+<p>[Improvement]emit a warning for use of null
 https://github.com/eed3si9n/scalaxb/commit/380a11989fa5fa8f2583b11ee34de9488cc58925
 https://github.com/eed3si9n/scalaxb/commit/b6c5a29c8d38d90bfd3dbbac7042a4427d1e3a97</p>
 
-<p>use lazy val to get overriden
+<p>[Don&#39;t understand]use lazy val to get overriden
 https://github.com/eed3si9n/scalaxb/commit/abc50699d157c702a063ac6f031ae0b959cad0b7</p>
 
-<p>misuse of val and def
+<p>[Can&#39;t detect]misuse of val and def
 https://github.com/eed3si9n/scalaxb/commit/13046ac38c9423c063d89bcf485f087e579b22ea</p>
 
-<p>missing prefex in string interpolation
+<p>[Bug]missing prefex in string interpolation
 https://github.com/lift/framework/commit/dc632a927a22a9b81ff5422fdc1ba389ce47595f</p>
 
-<p>missing default match option
+<p>[Bug]missing default match option
 https://github.com/lift/framework/commit/77ba2b73e800358405f9bbbe1e2ac3f26126d951</p>
 
-<p>enum with duplicated value
+<p>[Bug]enum with duplicated value
 https://github.com/lift/framework/commit/5f09c86fdc72ae163d2fc4d4415b764e3d92be1f</p>
 
-<p>broken string interpolation
-https://github.com/lift/framework/commit/4ecd3198c4b5c8070510a8260c722c77094af215</p>
+<p>[Bug]broken string interpolation
+https://github.com/lift/framework/commit/51b4f9dbf672d12a3aa5227e4fbecdadf6493bf5</p>
 
-<p>missing default match
+<p>[Bug]missing default match
 https://github.com/lift/framework/commit/9b370d1bf627a38ebc0bdd7b8aa0152653f49807
 https://github.com/lift/framework/commit/97c08c7dd9ed161a83f6c3b716e03bbec98f28fc</p>
 
-<p>dead match condition
+<p>[Bug]dead match condition
 https://github.com/lift/framework/commit/deb27666c0f8936aa12763afd74aba1439305f40</p>
 
-<p>unused parameter
+<p>[Possible]unused parameter
 https://github.com/lift/framework/commit/ed4331ab1a33795356520f33ee22f0b39fe48b30</p>
 
-<p>NPE
+<p>[Bug]NPE
 https://github.com/lift/framework/commit/0836f2a926c33bf72d8babe36d958653b146bbc1
 https://github.com/lift/framework/commit/ce4bf6f1a5d1c8c71001e24ca537c5800ac7c541
-https://github.com/lift/framework/commit/47cd758a4fc468327049923b90bab70fe8e11419
-https://github.com/lift/framework/commit/550feb02e4f9bff6959c17b41b7af6fdac207fa4
 https://github.com/lift/framework/commit/a09b633327405cf3c4aad2c0c124ea5b897428b5</p>
 
-<p>lines not confront 
+<p>[Can&#39;t detect]
+Zero distance of a list
+https://github.com/lift/framework/commit/47cd758a4fc468327049923b90bab70fe8e11419</p>
+
+<p>[Ignore]lines not confront
 https://github.com/lift/framework/commit/fa070cb0ffc7f3f6c64deb5039b87f3710cb5f3e</p>
 
-<p>deadlock
+<p>[Bug]deadlock
 https://github.com/lift/framework/commit/820a15d7a2c5e2bb4eb00352b325412393329998</p>
 
-<p>null check
+<p>[Bug]null check of string
 https://github.com/lift/framework/commit/e6d70f393e32493bfc413ddad79711340903992a</p>
 
-<p>reentrantreadwritelock deadlock
+<p>[Bug]reentrantreadwritelock deadlock
 https://github.com/lift/framework/commit/9dc635255f15bca027db5735e94ddfbbd800aa56</p>
 
-<p>type mismatch
+<p>[Bug]type mismatch
 https://github.com/lift/framework/commit/1ffac230fea785e221e9ecb2a1b106c324700a2b</p>
 
-<p>off-by-1 error
-https://github.com/lift/framework/commit/b1ed911ea9aa965c6de292226dce7670a37a2576</p>
+<p>[Can&#39;t detect]off-by-1 error
+https://github.com/lift/framework/commit/b1ed911ea9aa965c6de292226dce7670a37a2576
+https://github.com/lift/framework/commit/bad555b9b6adbb407a6026b324e28480ea175fd1</p>
 
-<p>argument type error(need further insight)
+<p>[Bug]argument type error(need further insight)
 https://github.com/lift/framework/commit/f01b9d5fc50533f3c2ba932357fac8c39a1fd1ea</p>
 
-<p>wrong intended null evaluation
+<p>[Bug]wrong intended null evaluation
 https://github.com/lift/framework/commit/7cc7134c37a599dd7f80a646eb0ce49d1d318862</p>
 
-<p>non-existance field serialization
+<p>[Not sure]non-existance field serialization
 https://github.com/lift/framework/commit/ed0a9488c4163455980047c20e409ac810a32e2e</p>
 
-<p>transient field serialization
+<p>[Not sure]transient field serialization
 https://github.com/lift/framework/commit/38930ae0c8bf92a725a5558584ea698c904f0400</p>
 
-<p>incorrect usage of array buffer
+<p>[Bug]incorrect usage of array buffer
 https://github.com/lift/framework/commit/0b80e60948498400639949422d6040744cc45c76</p>
 
-<p>incorrect type check
+<p>[Bug]incorrect type check
 https://github.com/lift/framework/commit/ea5f68c2208ea3d7907e7a089b0883d89e54a876</p>
 
-<p>type mismatch in pattern matching
+<p>[Bug]type mismatch in pattern matching
 https://github.com/lift/framework/commit/1c7c0c3c23e77c6c2adfb3eb36080cbed57530a8</p>
 
-<p>possible stack overflow
+<p>[Can&#39;t detect]possible stack overflow
 https://github.com/lift/framework/commit/cbebcead73974d323ce3954de7934e4663d9ef46</p>
 
-<p>java double parsing problem
+<p>[Don&#39;t understand]java double parsing problem
 https://github.com/lift/framework/commit/6ae4c680288f7daf6eccdf338cf48a7b733dab13</p>
 
-<p>type matching(several other similar mistakes)
+<p>[Not sure]type matching(several other similar mistakes)
 https://github.com/lift/framework/commit/d48479e317ddfc1b183661396de74c5ae21fadd2</p>
+
+<p>[Bug]invalid import(typo)
+https://github.com/lift/framework/commit/5eadebe1cb46f0784133f2d03c126e484a1ad7f2</p>
+
+<p>[Don&#39;t understand]infinite loop
+https://github.com/lift/framework/commit/ca7d6e79f4130bedc37917b51b455e9de45e69a7</p>
+
+<p>[Bug]NPE
+https://github.com/lift/framework/commit/5312678ef896a5a5de1063b4b54b391df77d1738
+https://github.com/lift/framework/commit/edebbd744804ce7f4e3e15d2512e53d304ee5b78
+https://github.com/lift/framework/commit/1e24fe928cdfd482445b8fa5223cad3dc956acf2</p>
+
+<p>[Bug]null serialization
+https://github.com/lift/framework/commit/97b92da891458b447946bdc2b8678a26f831fc19</p>
+
+<p>[Bug]nonsense behavior of match
+https://github.com/lift/framework/commit/aab84d819cc6f2abe040f6a84dd6949bb156256a</p>
+
+<p>[Can&#39;t detect]not tail recursive function leads to stackoverflow
+https://github.com/lift/framework/commit/4ad245afe62221b39c4f5edc9ffb1b5c744c9510</p>
+
+<p>[Possible]perhaps bad matching?
+https://github.com/lift/framework/commit/7263c58852706fd88bd3fbe02f007a4acbd25dbd   </p>
 
 
   <div class="tags">
@@ -336,7 +358,7 @@ https://github.com/lift/framework/commit/d48479e317ddfc1b183661396de74c5ae21fadd
 			  
 			  <a class="tag_list_link" href="/tag/Lab">Lab</a></li>
 			  
-			  <a class="tag_list_link" href="/tag/FindBugs">FindBugs</a></li>
+			  <a class="tag_list_link" href="/tag/Bug_list">Bug_list</a></li>
 			  
 			</ul>
 		  </li>
