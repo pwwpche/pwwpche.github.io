@@ -5,9 +5,85 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 29 Jul 2015 20:30:21 +0800</pubDate>
-    <lastBuildDate>Wed, 29 Jul 2015 20:30:21 +0800</lastBuildDate>
+    <pubDate>Thu, 30 Jul 2015 17:02:07 +0800</pubDate>
+    <lastBuildDate>Thu, 30 Jul 2015 17:02:07 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Daily Report - 7.30</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;看了一个twitter_algebird，收获基本为0&lt;/li&gt;
+&lt;li&gt;列了一下八月份要做的事情&lt;/li&gt;
+&lt;li&gt;lazy的东西略微看了一下，似乎帮助也不是很大&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;写一个detector&lt;/li&gt;
+&lt;li&gt;用string interpolation的那个写&lt;/li&gt;
+&lt;li&gt;再看一个repo吧&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;看了一个twitter_algebird，收获基本为0&lt;/li&gt;
+&lt;li&gt;列了一下八月份要做的事情&lt;/li&gt;
+&lt;li&gt;lazy的东西略微看了一下，似乎帮助也不是很大&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Thu, 30 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.30/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.30/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>TODO in August</title>
+        <description>&lt;ul&gt;
+&lt;li&gt;先做一个最简单的bug detector出来（可以用string interpolation那个，配合regex做）&lt;/li&gt;
+&lt;li&gt;然后再找一些bug pattern，关键在于pattern要是有效的，尽可能检测出很多bug来最好&lt;/li&gt;
+&lt;li&gt;detector数量可多可少，注意控制时间&lt;/li&gt;
+&lt;li&gt;写其他detector的代码，对于NPE和Deadlock上网找论文&lt;/li&gt;
+&lt;li&gt;类型检查是个问题，这个要好好看论文&lt;/li&gt;
+&lt;li&gt;最后解决false positive的问题&lt;/li&gt;
+&lt;li&gt;八月底之前完成所有工作&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;ul&gt;
+&lt;li&gt;先做一个最简单的bug detector出来（可以用string interpolation那个，配合regex做）&lt;/li&gt;
+&lt;li&gt;然后再找一些bug pattern，关键在于pattern要是有效的，尽可能检测出很多bug来最好&lt;/li&gt;
+&lt;li&gt;detector数量可多可少，注意控制时间&lt;/li&gt;
+&lt;li&gt;写其他detector的代码，对于NPE和Deadlock上网找论文&lt;/li&gt;
+&lt;li&gt;类型检查是个问题，这个要好好看论文&lt;/li&gt;
+&lt;li&gt;最后解决false positive的问题&lt;/li&gt;
+&lt;li&gt;八月底之前完成所有工作&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Thu, 30 Jul 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.%20TODO%20List%20-%207.30/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.%20TODO%20List%20-%207.30/</guid>
+        
+        <category>Lab</category>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -60,7 +136,7 @@
       
       <item>
         <title>Catagorized bug lists</title>
-        <description>&lt;h4&gt;String interpolation error&lt;/h4&gt;
+        <description>&lt;h4&gt;String interpolation error()&lt;/h4&gt;
 
 &lt;h5&gt;Bug - missing prefex in string interpolation&lt;/h5&gt;
 
@@ -99,7 +175,9 @@
 
 &lt;h5&gt;Bug - check for unclosed bracket(If use IDE, obvious these errors can be eliminated)&lt;/h5&gt;
 
-&lt;p&gt;https://github.com/skinny-framework/skinny-framework/commit/2134a1c5ccae5a83d9d2efd8eb33b34849fdcfd2&lt;/p&gt;
+&lt;p&gt;https://github.com/skinny-framework/skinny-framework/commit/2134a1c5ccae5a83d9d2efd8eb33b34849fdcfd2
+[Bug]same var used twice between statement
+https://github.com/twitter/algebird/commit/3dab7aa8ac8e093dfb367476c5672e844ff6a818&lt;/p&gt;
 
 &lt;h4&gt;Concurrency and Lock&lt;/h4&gt;
 
@@ -241,9 +319,13 @@ https://github.com/lift/framework/commit/97c08c7dd9ed161a83f6c3b716e03bbec98f28f
 &lt;h5&gt;Bug - incorrect usage of array buffer(obvious)&lt;/h5&gt;
 
 &lt;p&gt;https://github.com/lift/framework/commit/0b80e60948498400639949422d6040744cc45c76&lt;/p&gt;
+
+&lt;p&gt;Type misuse
+[Bug] int divided by int(density, which is used above, should be double instead of int)
+https://github.com/twitter/algebird/commit/0642b720f71f15fe9180598b920b32d4ccc55e9d&lt;/p&gt;
 </description>
         
-          <description>&lt;h4&gt;String interpolation error&lt;/h4&gt;
+          <description>&lt;h4&gt;String interpolation error()&lt;/h4&gt;
 
 &lt;h5&gt;Bug - missing prefex in string interpolation&lt;/h5&gt;
 
@@ -704,6 +786,21 @@ https://github.com/lift/framework/commit/4ad245afe62221b39c4f5edc9ffb1b5c744c951
 
 &lt;p&gt;[Possible]perhaps bad matching?
 https://github.com/lift/framework/commit/7263c58852706fd88bd3fbe02f007a4acbd25dbd   &lt;/p&gt;
+
+&lt;p&gt;[Bug] int divided by int
+https://github.com/twitter/algebird/commit/0642b720f71f15fe9180598b920b32d4ccc55e9d&lt;/p&gt;
+
+&lt;p&gt;[Compile error]type error
+https://github.com/twitter/algebird/commit/c1e367b5239271c76b5aa7783386da290c0beae2&lt;/p&gt;
+
+&lt;p&gt;[Bug]same var used twice between statement
+https://github.com/twitter/algebird/commit/3dab7aa8ac8e093dfb367476c5672e844ff6a818&lt;/p&gt;
+
+&lt;p&gt;[Not sure]reuse an iterator
+https://github.com/twitter/algebird/commit/f8cbd5d52eabfcbbc99fa3ccb2af9cb1a5485959&lt;/p&gt;
+
+&lt;p&gt;[Not sure]map toSeq error
+https://github.com/twitter/algebird/commit/6f4559e5391be084baecca0bb4fcb6fe131eb604&lt;/p&gt;
 </description>
         
           <description>&lt;h3&gt;Prefix&lt;/h3&gt;
@@ -825,96 +922,6 @@ https://github.com/lift/framework/commit/7263c58852706fd88bd3fbe02f007a4acbd25db
         <pubDate>Wed, 22 Jul 2015 00:00:00 +0800</pubDate>
         <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.22/</link>
         <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.22/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 7.21</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;看完了scala的Type Matching&lt;/li&gt;
-&lt;li&gt;python爬虫做好并行了，为了一个pool.map弄了半个小时...&lt;/li&gt;
-&lt;li&gt;加了一点keyword，&lt;/li&gt;
-&lt;li&gt;筛选commit message的时候可以采用评分机制，具体每个词多少得分要看经验&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;学Scala的lazy机制&lt;/li&gt;
-&lt;li&gt;看完awesome-scala里所有database库的commit message&lt;/li&gt;
-&lt;li&gt;看的时候把相应的scala代码也看懂&lt;/li&gt;
-&lt;li&gt;做Homework 4&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;看完了scala的Type Matching&lt;/li&gt;
-&lt;li&gt;python爬虫做好并行了，为了一个pool.map弄了半个小时...&lt;/li&gt;
-&lt;li&gt;加了一点keyword，&lt;/li&gt;
-&lt;li&gt;筛选commit message的时候可以采用评分机制，具体每个词多少得分要看经验&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Tue, 21 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.21/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.21/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 7.20</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午还是看Coursera的Week5视频，学习Scala的Type&lt;/li&gt;
-&lt;li&gt;中午困&lt;/li&gt;
-&lt;li&gt;下午接着看视频&lt;/li&gt;
-&lt;li&gt;下午的主要任务是在github上找commit&lt;/li&gt;
-&lt;li&gt;列出了一个初步的Keyword List&lt;/li&gt;
-&lt;li&gt;写了个小爬虫，爬所有的commit message&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;因为数据量巨大，所以做爬虫并行化&lt;/li&gt;
-&lt;li&gt;学Scala下一块Pattern Matching&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午还是看Coursera的Week5视频，学习Scala的Type&lt;/li&gt;
-&lt;li&gt;中午困&lt;/li&gt;
-&lt;li&gt;下午接着看视频&lt;/li&gt;
-&lt;li&gt;下午的主要任务是在github上找commit&lt;/li&gt;
-&lt;li&gt;列出了一个初步的Keyword List&lt;/li&gt;
-&lt;li&gt;写了个小爬虫，爬所有的commit message&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Mon, 20 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.20/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.20/</guid>
         
         <category>Lab</category>
         
