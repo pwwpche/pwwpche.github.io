@@ -75,7 +75,7 @@ ga('send', 'pageview');
          <div class="post">
   
   <h1 class="postTitle">Catagorized bug lists</h1>
-  <p class="meta">July 29, 2015 | <span class="time">2</span> Minute Read</p>
+  <p class="meta">July 29, 2015 | <span class="time">3</span> Minute Read</p>
   
   <h4>String interpolation error()</h4>
 
@@ -91,11 +91,17 @@ ga('send', 'pageview');
 
 <h5>Bug - self calling(an obvious error, with function self-calling without any change to parameters)</h5>
 
-<p>https://github.com/sksamuel/elastic4s/commit/ae73cd393cb967278aa92e53f6c480af0a7e2fac</p>
+<p>https://github.com/sksamuel/elastic4s/commit/ae73cd393cb967278aa92e53f6c480af0a7e2fac
+https://github.com/nicta/scoobi/commit/20c875e1a1fb2710e7efd8a1dd211e8b3cda1341 (need verification)
+https://github.com/storm-enroute/reactive-collections/commit/0761e212e486e624dd2f3a69bdcbcb541deb64a9</p>
 
 <h5>Bug - some obvious function misuse</h5>
 
-<p>https://github.com/sksamuel/elastic4s/commit/3748069f982accf1ba94c4defd4aac16ba39fd1e
+<p>https://github.com/sksamuel/elastic4s/commit/3748069f982accf1ba94c4defd4aac16ba39fd1e</p>
+
+<h5>Bug - has/is should be something==null</h5>
+
+<p>https://github.com/storm-enroute/reactive-collections/commit/4032970311a636d78b4daa742e7d3f98fa7acaf4
 - The following need to analyze source code, not compiled .class)</p>
 
 <h5>Bug - wrong intended null evaluation</h5>
@@ -118,7 +124,11 @@ ga('send', 'pageview');
 
 <p>https://github.com/skinny-framework/skinny-framework/commit/2134a1c5ccae5a83d9d2efd8eb33b34849fdcfd2
 [Bug]same var used twice between statement
-https://github.com/twitter/algebird/commit/3dab7aa8ac8e093dfb367476c5672e844ff6a818</p>
+https://github.com/twitter/algebird/commit/3dab7aa8ac8e093dfb367476c5672e844ff6a818
+[Bug]increment inside condition, which leed to infinite loop
+https://github.com/storm-enroute/reactive-collections/commit/a06257201def332e59f5966f37d21f47ef290f00
+[Bug]False condition(could be detected by NullChecker in findBugs)
+https://github.com/storm-enroute/reactive-collections/commit/5d6581c23641141cfacb9491c5e8f1426383c39f</p>
 
 <h4>Concurrency and Lock</h4>
 
@@ -163,6 +173,12 @@ https://github.com/twitter/algebird/commit/3dab7aa8ac8e093dfb367476c5672e844ff6a
 <h5>Bug - should check Null ahead</h5>
 
 <p>https://github.com/skinny-framework/skinny-framework/commit/56495db870122bda1c77f32e4f0b52b97677d80a</p>
+
+<h5>Bug - Check null</h5>
+
+<p>https://github.com/playframework/playframework/commit/f5971e788a4af7037e1df86b3151a7229df60018
+https://github.com/playframework/playframework/commit/2bcf2c1a7a86f4d1b1db8306a1656f0db1a75d75
+https://github.com/storm-enroute/reactive-collections/commit/6e66926bf2380a94d4c6be5b9e495b754ca311a6</p>
 
 <h5>Bug - Another NPE(hard to detect)</h5>
 
@@ -249,21 +265,42 @@ https://github.com/lift/framework/commit/97c08c7dd9ed161a83f6c3b716e03bbec98f28f
 
 <p>https://github.com/lift/framework/commit/1c7c0c3c23e77c6c2adfb3eb36080cbed57530a8</p>
 
+<h5>Bug - missing parenthesis of omComplete in fromCallback1, with type: Unit =&gt; ()(http://stackoverflow.com/questions/6643030/what-is-the-rule-for-parenthesis-in-scala-method-invocation)</h5>
+
+<p>https://github.com/playframework/playframework/commit/6ec8f31fc9c632ab3d1eab29f441e5e8e3db4271</p>
+
 <h4>Enumeration</h4>
 
 <h5>Bug - enum with duplicated value(value(10) was used twice)</h5>
 
 <p>https://github.com/lift/framework/commit/5f09c86fdc72ae163d2fc4d4415b764e3d92be1f</p>
 
-<h4>Syntax error</h4>
+<h4>Syntax error or unsafe usage</h4>
 
 <h5>Bug - incorrect usage of array buffer(obvious)</h5>
 
 <p>https://github.com/lift/framework/commit/0b80e60948498400639949422d6040744cc45c76</p>
 
-<p>Type misuse
-[Bug] int divided by int(density, which is used above, should be double instead of int)
-https://github.com/twitter/algebird/commit/0642b720f71f15fe9180598b920b32d4ccc55e9d</p>
+<h5>Bug - unsafe use of setObject() in optionToStatement</h5>
+
+<p>https://github.com/playframework/playframework/commit/08c3ee4d0430653caa4c167e9d5a0d3dc6cb529c</p>
+
+<h4>Type misuse</h4>
+
+<h5>[Bug] int divided by int(density, which is used above, should be double instead of int)</h5>
+
+<p>https://github.com/twitter/algebird/commit/0642b720f71f15fe9180598b920b32d4ccc55e9d</p>
+
+<h5>[Bug] should use while to iterate through a HashMap(var table: Array[ReactMap.Entry[K, V]] = null)</h5>
+
+<p>https://github.com/storm-enroute/reactive-collections/commit/75797ed43c501bd0308a5c6ee7fa423f6c1f58ba</p>
+
+<h4>Unused function parameter</h4>
+
+<p>[Bug] the var &quot;req&quot; in &quot;handlerForRequest&quot; is not used, instead, mispelled into &quot;request&quot; in function definition
+https://github.com/jroper/playframework/commit/7d22bf13830c7b072d22aaaee10fe7c5c4c8cc0c
+[Bug] parameter &quot;regex&quot; should be used
+https://github.com/playframework/playframework/commit/8589377861f242be38bb5a85c2c472cade95f332</p>
 
 
   <div class="tags">
