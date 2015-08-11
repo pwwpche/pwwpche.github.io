@@ -5,9 +5,208 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 03 Aug 2015 19:43:25 +0800</pubDate>
-    <lastBuildDate>Mon, 03 Aug 2015 19:43:25 +0800</lastBuildDate>
+    <pubDate>Tue, 11 Aug 2015 18:36:14 +0800</pubDate>
+    <lastBuildDate>Tue, 11 Aug 2015 18:36:14 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Daily Report - 8.11</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午从自己的buglist中找scapegoat没用过的pattern&lt;/li&gt;
+&lt;li&gt;似乎这东西是用scala的AST做的，很好，有变量名了&lt;/li&gt;
+&lt;li&gt;下午看看scala的Tree是怎么回事&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;配置好scapegoat，让这东西能跑一个class出结果来&lt;/li&gt;
+&lt;li&gt;写个pattern，用scapegoat的方法写出来&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午从自己的buglist中找scapegoat没用过的pattern&lt;/li&gt;
+&lt;li&gt;似乎这东西是用scala的AST做的，很好，有变量名了&lt;/li&gt;
+&lt;li&gt;下午看看scala的Tree是怎么回事&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Tue, 11 Aug 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.11/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.11/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Daily Report - 8.10</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午接着找别人的repo，增加buglist&lt;/li&gt;
+&lt;li&gt;重点用regex验证找到的bug是不是pattern&lt;/li&gt;
+&lt;li&gt;Power4GREP很好用&lt;/li&gt;
+&lt;li&gt;下午崩了，找到一个Scapegoat做的跟自己做的东西一样，而且找的pattern更多&lt;/li&gt;
+&lt;li&gt;晚上似乎没什么好做的了...&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;接着找bug list&lt;/li&gt;
+&lt;li&gt;what should we do now?&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午接着找别人的repo，增加buglist&lt;/li&gt;
+&lt;li&gt;重点用regex验证找到的bug是不是pattern&lt;/li&gt;
+&lt;li&gt;Power4GREP很好用&lt;/li&gt;
+&lt;li&gt;下午崩了，找到一个Scapegoat做的跟自己做的东西一样，而且找的pattern更多&lt;/li&gt;
+&lt;li&gt;晚上似乎没什么好做的了...&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Mon, 10 Aug 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.10/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.10/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Daily Report - 8.7</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;还是看别人的repo&lt;/li&gt;
+&lt;li&gt;增加了一些bug list&lt;/li&gt;
+&lt;li&gt;考虑用regex找bug pattern&lt;/li&gt;
+&lt;li&gt;发现string interpolation的确是个pattern，但其他的不好说&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;接着找bug list&lt;/li&gt;
+&lt;li&gt;用regex试试其他bug pattern能不能找出来&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;还是看别人的repo&lt;/li&gt;
+&lt;li&gt;增加了一些bug list&lt;/li&gt;
+&lt;li&gt;考虑用regex找bug pattern&lt;/li&gt;
+&lt;li&gt;发现string interpolation的确是个pattern，但其他的不好说&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Fri, 07 Aug 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.7%20-%20Copy/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.7%20-%20Copy/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Daily Report - 8.6</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;剧=坑&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;尼玛这两天真是弃疗的...&lt;/li&gt;
+&lt;li&gt;晚上回去不能下剧&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;剧=坑&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Thu, 06 Aug 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.6/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.6/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Daily Report - 8.5</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;剧=坑&lt;/li&gt;
+&lt;li&gt;看了不少小repo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;坑...&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;剧=坑&lt;/li&gt;
+&lt;li&gt;看了不少小repo&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Wed, 05 Aug 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.5/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.5/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -213,783 +412,6 @@
         <category>Lab</category>
         
         <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Catagorized bug lists</title>
-        <description>&lt;h4&gt;String interpolation error()&lt;/h4&gt;
-
-&lt;h5&gt;Bug - missing prefex in string interpolation&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/dc632a927a22a9b81ff5422fdc1ba389ce47595f&lt;/p&gt;
-
-&lt;h5&gt;Bug - broken string interpolation(missing prefix)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/51b4f9dbf672d12a3aa5227e4fbecdadf6493bf5&lt;/p&gt;
-
-&lt;h4&gt;Obvious error&lt;/h4&gt;
-
-&lt;h5&gt;Bug - self calling(an obvious error, with function self-calling without any change to parameters)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/sksamuel/elastic4s/commit/ae73cd393cb967278aa92e53f6c480af0a7e2fac
-https://github.com/nicta/scoobi/commit/20c875e1a1fb2710e7efd8a1dd211e8b3cda1341 (need verification)
-https://github.com/storm-enroute/reactive-collections/commit/0761e212e486e624dd2f3a69bdcbcb541deb64a9&lt;/p&gt;
-
-&lt;h5&gt;Bug - some obvious function misuse&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/sksamuel/elastic4s/commit/3748069f982accf1ba94c4defd4aac16ba39fd1e&lt;/p&gt;
-
-&lt;h5&gt;Bug - has/is should be something==null&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/storm-enroute/reactive-collections/commit/4032970311a636d78b4daa742e7d3f98fa7acaf4
-- The following need to analyze source code, not compiled .class)&lt;/p&gt;
-
-&lt;h5&gt;Bug - wrong intended null evaluation&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/7cc7134c37a599dd7f80a646eb0ce49d1d318862&lt;/p&gt;
-
-&lt;h5&gt;Bug - damn typo...(class name is &amp;quot;not in&amp;quot;, but toString() return &amp;quot;in&amp;quot;)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/fwbrasil/activate/commit/36dcc53026e665751a4de0ee3d1c760e3b1b200f&lt;/p&gt;
-
-&lt;h5&gt;Bug - use before init(should be -&amp;gt; if(initialize) then do some work)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/fwbrasil/activate/commit/02f7ec4a005642b01b348bdaee11cf39a922cbc4&lt;/p&gt;
-
-&lt;h5&gt;Bug - function name conflict(addHeader() and setHeader())&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/skinny-framework/skinny-framework/commit/5c9362edb0905f20c06e94b9bde00ec94b21b042&lt;/p&gt;
-
-&lt;h5&gt;Bug - check for unclosed bracket(If use IDE, obvious these errors can be eliminated)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/skinny-framework/skinny-framework/commit/2134a1c5ccae5a83d9d2efd8eb33b34849fdcfd2
-[Bug]same var used twice between statement
-https://github.com/twitter/algebird/commit/3dab7aa8ac8e093dfb367476c5672e844ff6a818
-[Bug]increment inside condition, which leed to infinite loop
-https://github.com/storm-enroute/reactive-collections/commit/a06257201def332e59f5966f37d21f47ef290f00
-[Bug]False condition(could be detected by NullChecker in findBugs)
-https://github.com/storm-enroute/reactive-collections/commit/5d6581c23641141cfacb9491c5e8f1426383c39f&lt;/p&gt;
-
-&lt;h4&gt;Concurrency and Lock&lt;/h4&gt;
-
-&lt;h5&gt;Bug - concurrent lock error(index in unload() is not protected by lock)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/fwbrasil/activate/commit/2aa63ec3dc64db66decbcd274b8443422da1b4c5&lt;/p&gt;
-
-&lt;h5&gt;Bug - read/write lock(Move lazy inside lock scope, but why?)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/fwbrasil/activate/commit/70fbe4070a56ec336fad71a0579c0f9f78c92831&lt;/p&gt;
-
-&lt;h5&gt;Bug - concurrent delete(not all map.put are protected, so duplicated get() will lead to different result)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/fwbrasil/activate/commit/afc003b2c7d669008dacd20686dae5dbb86875a8&lt;/p&gt;
-
-&lt;h5&gt;Bug - deadlock(one holds asyncSync while another holds msgCallbackSync)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/820a15d7a2c5e2bb4eb00352b325412393329998&lt;/p&gt;
-
-&lt;h5&gt;Bug - reentrantreadwritelock deadlock(one holds readlock and another holds writelock, but why writelock could be held twice?)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/9dc635255f15bca027db5735e94ddfbbd800aa56&lt;/p&gt;
-
-&lt;h4&gt;NPE&lt;/h4&gt;
-
-&lt;h5&gt;Bug - possible Null Pointer exception&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/fwbrasil/activate/commit/43ff0a11562ff1628cbbd618994ca22cdeeb0276&lt;/p&gt;
-
-&lt;h5&gt;Bug - get empty element from map&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/fwbrasil/activate/commit/11d7c89632855104cc91be0b05cc40b0deed38b9&lt;/p&gt;
-
-&lt;h5&gt;Bug - undefined field(in Reflection.getStatic())&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/fwbrasil/activate/commit/11d7c89632855104cc91be0b05cc40b0deed38b9&lt;/p&gt;
-
-&lt;h5&gt;Bug - not-safe use of toString&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/skinny-framework/skinny-framework/commit/35c06c50515988cf49a6092a83fc640fd852f2d9&lt;/p&gt;
-
-&lt;h5&gt;Bug - should check Null ahead&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/skinny-framework/skinny-framework/commit/56495db870122bda1c77f32e4f0b52b97677d80a&lt;/p&gt;
-
-&lt;h5&gt;Bug - Check null&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/playframework/playframework/commit/f5971e788a4af7037e1df86b3151a7229df60018
-https://github.com/playframework/playframework/commit/2bcf2c1a7a86f4d1b1db8306a1656f0db1a75d75
-https://github.com/storm-enroute/reactive-collections/commit/6e66926bf2380a94d4c6be5b9e495b754ca311a6&lt;/p&gt;
-
-&lt;h5&gt;Bug - Another NPE(hard to detect)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/skinny-framework/skinny-framework/commit/2e2a5b439a6a2a5fa1098ac33fe0fa701d782b77
-https://github.com/lift/framework/commit/0836f2a926c33bf72d8babe36d958653b146bbc1
-https://github.com/lift/framework/commit/ce4bf6f1a5d1c8c71001e24ca537c5800ac7c541
-https://github.com/lift/framework/commit/a09b633327405cf3c4aad2c0c124ea5b897428b5&lt;/p&gt;
-
-&lt;h5&gt;Bug - null check of string&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/e6d70f393e32493bfc413ddad79711340903992a
-https://github.com/lift/framework/commit/5312678ef896a5a5de1063b4b54b391df77d1738
-https://github.com/lift/framework/commit/edebbd744804ce7f4e3e15d2512e53d304ee5b78
-https://github.com/lift/framework/commit/1e24fe928cdfd482445b8fa5223cad3dc956acf2&lt;/p&gt;
-
-&lt;h5&gt;Bug - null serialization&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/97b92da891458b447946bdc2b8678a26f831fc19&lt;/p&gt;
-
-&lt;h4&gt;Pattern Matching&lt;/h4&gt;
-
-&lt;h5&gt;Bug - case fallthrough(In scala, case will not fall through, so any empty =&amp;gt; block will be suspicious)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/fwbrasil/activate/commit/3bac399611f04ee2792d03ec71b102f937452637&lt;/p&gt;
-
-&lt;h5&gt;Bug - bad matching syntax, should be _(Invalid matching syntax)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/mauricio/postgresql-async/commit/6e81e4adcb016cbd7b1e3ed36d5535d9cb6fa762&lt;/p&gt;
-
-&lt;h5&gt;Bug - nonsense behavior of match(what does &amp;quot;()&amp;quot; do)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/aab84d819cc6f2abe040f6a84dd6949bb156256a&lt;/p&gt;
-
-&lt;h4&gt;Pattern matching is not complete&lt;/h4&gt;
-
-&lt;h5&gt;Bug - missing default match option(this matching cannot generate &amp;quot;True&amp;quot; result for boolean matching)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/77ba2b73e800358405f9bbbe1e2ac3f26126d951&lt;/p&gt;
-
-&lt;h5&gt;Bug - missing default match&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/9b370d1bf627a38ebc0bdd7b8aa0152653f49807
-https://github.com/lift/framework/commit/97c08c7dd9ed161a83f6c3b716e03bbec98f28fc&lt;/p&gt;
-
-&lt;h5&gt;Bug - dead match condition(This one needs further check)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/deb27666c0f8936aa12763afd74aba1439305f40&lt;/p&gt;
-
-&lt;h4&gt;All except this&lt;/h4&gt;
-
-&lt;h5&gt;Bug - if everyone use, everyone should use (file is used in matching case but not in processing block)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/scalatra/scalatra/commit/5bc791191f78c6fecd3e6d5f68474c7c84593869&lt;/p&gt;
-
-&lt;h5&gt;Bug - missing .value(all except one pattern)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/eed3si9n/scalaxb/commit/c90cb88c760d67b804df2a2418b4e5a60661656c&lt;/p&gt;
-
-&lt;h4&gt;Function return type(Need to study how type is generated)&lt;/h4&gt;
-
-&lt;h5&gt;Bug - error with return type&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/skinny-framework/skinny-framework/commit/ed865e0cc193df6cdb8b478b7cb5c5a4d901612e&lt;/p&gt;
-
-&lt;h5&gt;Bug - type mismatch&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/1ffac230fea785e221e9ecb2a1b106c324700a2b&lt;/p&gt;
-
-&lt;h4&gt;Type checking&lt;/h4&gt;
-
-&lt;h5&gt;Bug - check for type[Nothing]&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/adamw/macwire/commit/366611f2364678efd625a446a93341deb62b825c&lt;/p&gt;
-
-&lt;h5&gt;Bug - argument type error(need further insight)(Cross check with function call)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/f01b9d5fc50533f3c2ba932357fac8c39a1fd1ea&lt;/p&gt;
-
-&lt;h5&gt;Bug - incorrect type check&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/ea5f68c2208ea3d7907e7a089b0883d89e54a876&lt;/p&gt;
-
-&lt;h5&gt;Bug - type mismatch in pattern matching&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/1c7c0c3c23e77c6c2adfb3eb36080cbed57530a8&lt;/p&gt;
-
-&lt;h5&gt;Bug - missing parenthesis of omComplete in fromCallback1, with type: Unit =&amp;gt; ()(http://stackoverflow.com/questions/6643030/what-is-the-rule-for-parenthesis-in-scala-method-invocation)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/playframework/playframework/commit/6ec8f31fc9c632ab3d1eab29f441e5e8e3db4271&lt;/p&gt;
-
-&lt;h4&gt;Enumeration&lt;/h4&gt;
-
-&lt;h5&gt;Bug - enum with duplicated value(value(10) was used twice)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/5f09c86fdc72ae163d2fc4d4415b764e3d92be1f&lt;/p&gt;
-
-&lt;h4&gt;Syntax error or unsafe usage&lt;/h4&gt;
-
-&lt;h5&gt;Bug - incorrect usage of array buffer(obvious)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/0b80e60948498400639949422d6040744cc45c76&lt;/p&gt;
-
-&lt;h5&gt;Bug - unsafe use of setObject() in optionToStatement&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/playframework/playframework/commit/08c3ee4d0430653caa4c167e9d5a0d3dc6cb529c&lt;/p&gt;
-
-&lt;h4&gt;Type misuse&lt;/h4&gt;
-
-&lt;h5&gt;[Bug] int divided by int(density, which is used above, should be double instead of int)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/twitter/algebird/commit/0642b720f71f15fe9180598b920b32d4ccc55e9d&lt;/p&gt;
-
-&lt;h5&gt;[Bug] should use while to iterate through a HashMap(var table: Array[ReactMap.Entry[K, V]] = null)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/storm-enroute/reactive-collections/commit/75797ed43c501bd0308a5c6ee7fa423f6c1f58ba&lt;/p&gt;
-
-&lt;h4&gt;Unused function parameter&lt;/h4&gt;
-
-&lt;p&gt;[Bug] the var &amp;quot;req&amp;quot; in &amp;quot;handlerForRequest&amp;quot; is not used, instead, mispelled into &amp;quot;request&amp;quot; in function definition
-https://github.com/jroper/playframework/commit/7d22bf13830c7b072d22aaaee10fe7c5c4c8cc0c
-[Bug] parameter &amp;quot;regex&amp;quot; should be used
-https://github.com/playframework/playframework/commit/8589377861f242be38bb5a85c2c472cade95f332&lt;/p&gt;
-</description>
-        
-          <description>&lt;h4&gt;String interpolation error()&lt;/h4&gt;
-
-&lt;h5&gt;Bug - missing prefex in string interpolation&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/dc632a927a22a9b81ff5422fdc1ba389ce47595f&lt;/p&gt;
-
-&lt;h5&gt;Bug - broken string interpolation(missing prefix)&lt;/h5&gt;
-
-&lt;p&gt;https://github.com/lift/framework/commit/51b4f9dbf672d12a3aa5227e4fbecdadf6493bf5&lt;/p&gt;
-</description>
-        
-        <pubDate>Wed, 29 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.%20Catagorized%20bug%20list/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.%20Catagorized%20bug%20list/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Bug_list</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 7.28</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;主要整理了lift-framework里的bug列表&lt;/li&gt;
-&lt;li&gt;下午还是困，到底怎么回事&lt;/li&gt;
-&lt;li&gt;更新buglist和keyword list&lt;/li&gt;
-&lt;li&gt;加了几个没爬到的scala repo&lt;/li&gt;
-&lt;li&gt;知道了val是编译时evaluate，def是运行时evaluate&lt;/li&gt;
-&lt;li&gt;收获两个deadlock的bug&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;akka别动了，会爆炸&lt;/li&gt;
-&lt;li&gt;把lift-framework看完&lt;/li&gt;
-&lt;li&gt;关键词列表要更新，整理出更准确的bugfix list&lt;/li&gt;
-&lt;li&gt;yesterday收藏夹里有点东西要看完&lt;/li&gt;
-&lt;li&gt;网上找找scala的lazy机制的资料吧&lt;/li&gt;
-&lt;li&gt;开始把bug list分类，写清楚详细bug原因&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;问题&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;bug fix里面有非常多的NPE检测，是否需要仔细看（因为里面几乎都涉及到了程序逻辑问题，可能并不是pattern）&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;主要整理了lift-framework里的bug列表&lt;/li&gt;
-&lt;li&gt;下午还是困，到底怎么回事&lt;/li&gt;
-&lt;li&gt;更新buglist和keyword list&lt;/li&gt;
-&lt;li&gt;加了几个没爬到的scala repo&lt;/li&gt;
-&lt;li&gt;知道了val是编译时evaluate，def是运行时evaluate&lt;/li&gt;
-&lt;li&gt;收获两个deadlock的bug&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Tue, 28 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.28/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.28/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 7.27</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午看了快学scala里的模式匹配、类型参数两章&lt;/li&gt;
-&lt;li&gt;（其实好多都看的云里雾里的）&lt;/li&gt;
-&lt;li&gt;中午和下午看完了adamw/macwire里的commit&lt;/li&gt;
-&lt;li&gt;下午还看了eed3si9n/scalaxb的commit，但里面全都是业务逻辑的bug，真正有价值的东西不多&lt;/li&gt;
-&lt;li&gt;下午四点多尼玛还困&lt;/li&gt;
-&lt;li&gt;写了个python脚本自动从commit message根据isFix规则生成bug的汇总html页面&lt;/li&gt;
-&lt;li&gt;一天的成果是更新了一些bug list和bug的关键词评分&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;bug list &amp;gt; 70再归类，现在有50+了&lt;/li&gt;
-&lt;li&gt;Lazy Value好好看&lt;/li&gt;
-&lt;li&gt;类型推导先放一下&lt;/li&gt;
-&lt;li&gt;继续整理bug list，看完&lt;/li&gt;
-&lt;li&gt;scala的official github repo里面也有不少commit可以看&lt;/li&gt;
-&lt;li&gt;明天试试吧akka的commit整理完看完吧&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午看了快学scala里的模式匹配、类型参数两章&lt;/li&gt;
-&lt;li&gt;（其实好多都看的云里雾里的）&lt;/li&gt;
-&lt;li&gt;中午和下午看完了adamw/macwire里的commit&lt;/li&gt;
-&lt;li&gt;下午还看了eed3si9n/scalaxb的commit，但里面全都是业务逻辑的bug，真正有价值的东西不多&lt;/li&gt;
-&lt;li&gt;下午四点多尼玛还困&lt;/li&gt;
-&lt;li&gt;写了个python脚本自动从commit message根据isFix规则生成bug的汇总html页面&lt;/li&gt;
-&lt;li&gt;一天的成果是更新了一些bug list和bug的关键词评分&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Mon, 27 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.27/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.27/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 7.24</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午主要解决爬虫的各种问题&lt;/li&gt;
-&lt;li&gt;似乎如果一个thread没有捕获exception的话就会死掉&lt;/li&gt;
-&lt;li&gt;中午过后解决爬虫一捕获merge#URL就报错的问题（pull request的链接得从html里拿到，不一定是/pull/）&lt;/li&gt;
-&lt;li&gt;下午爬虫可以跑了，拿到了所有项目的绝大部分commit message和对应的url&lt;/li&gt;
-&lt;li&gt;爬下来的东西写数据库了&lt;/li&gt;
-&lt;li&gt;准备做索引&lt;/li&gt;
-&lt;li&gt;skinnyframework看完了&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;bug list &amp;gt; 70再归类，现在是39&lt;/li&gt;
-&lt;li&gt;看完公开课Collection部分&lt;/li&gt;
-&lt;li&gt;关键的类型推导如何实现，必须看compile scala for jvm那个论文了。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;问题：&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;private var, val , def, protected?&lt;/li&gt;
-&lt;li&gt;今天发现似乎def &lt;function name&gt; ： 加了类型的话也可能是bug&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午主要解决爬虫的各种问题&lt;/li&gt;
-&lt;li&gt;似乎如果一个thread没有捕获exception的话就会死掉&lt;/li&gt;
-&lt;li&gt;中午过后解决爬虫一捕获merge#URL就报错的问题（pull request的链接得从html里拿到，不一定是/pull/）&lt;/li&gt;
-&lt;li&gt;下午爬虫可以跑了，拿到了所有项目的绝大部分commit message和对应的url&lt;/li&gt;
-&lt;li&gt;爬下来的东西写数据库了&lt;/li&gt;
-&lt;li&gt;准备做索引&lt;/li&gt;
-&lt;li&gt;skinnyframework看完了&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Fri, 24 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.24/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.Daily%20Report%20-%207.24/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Current bug lists</title>
-        <description>&lt;h3&gt;Prefix&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;[Not sure] : Not sure whether it is a bug&lt;/li&gt;
-&lt;li&gt;[Possible] : More probable than [Not sure]&lt;/li&gt;
-&lt;li&gt;[Bug] : It is a bug and I know why&lt;/li&gt;
-&lt;li&gt;[Improvement] : This is a fix to improve performance or something, but not a bug fix&lt;/li&gt;
-&lt;li&gt;[Can&amp;#39;t detect] : This is a bug, but I don&amp;#39;t know how to detect it(maybe because it is more related with the program logic)&lt;/li&gt;
-&lt;li&gt;[Don&amp;#39;t understand] : Commit message define it a &amp;quot;bug fix&amp;quot;, but I can&amp;#39;t tell why&lt;/li&gt;
-&lt;li&gt;[Warning] : This looks likes a bug BUT IT IS NOT&lt;/li&gt;
-&lt;li&gt;[Ignore] : This is a bug, but not critical&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;Possible bug pattern&lt;/h3&gt;
-
-&lt;p&gt;[Not sure]deserialize&lt;br&gt;
-https://github.com/avibryant/simmer/commit/fde08bac6e13d8c5dd96291bac217d15808dbc62&lt;/p&gt;
-
-&lt;p&gt;[Not sure]def/var&lt;br&gt;
-https://github.com/scala-js/scala-js-dom/commit/4b4a9ba1ba5755ac9ffccdf57835e4dfbcb2f7c4&lt;/p&gt;
-
-&lt;p&gt;[Not Sure]runtime reflection &lt;br&gt;
-https://github.com/scala/scala/commit/06e7e342d1e27097df0b9d0b31a322fd1cf0a34e&lt;/p&gt;
-
-&lt;p&gt;[Can&amp;#39;t detect]bound check&lt;br&gt;
-https://github.com/twitter/algebird/commit/4987db1f5e55e5d47d37a8ab58a8edf49542ed0f&lt;/p&gt;
-
-&lt;p&gt;[Improvement]make serializable&lt;br&gt;
-https://github.com/twitter/algebird/commit/deedb2ab5e7f27cdf357797fe8df21a98df7e665&lt;/p&gt;
-
-&lt;p&gt;[Not sure]asInstanceOf is a bad habit&lt;br&gt;
-https://github.com/adamretter/Shadoop/commit/2094397e367c9895f1c3e033f80c3fa673895211&lt;/p&gt;
-
-&lt;p&gt;[Not sure]unintended Lazy captures&lt;br&gt;
-https://github.com/milessabin/shapeless/commit/78def231b91b45786aa9676fc1398b868056ac04&lt;/p&gt;
-
-&lt;p&gt;[Bug]use before init&lt;br&gt;
-https://github.com/fwbrasil/activate/commit/02f7ec4a005642b01b348bdaee11cf39a922cbc4&lt;/p&gt;
-
-&lt;p&gt;[Not Sure]import empty &lt;br&gt;
-https://github.com/fwbrasil/activate/commit/36995f1ead8b640fc879def63cde2770d465119f&lt;/p&gt;
-
-&lt;p&gt;[Improvement]singleton exception&lt;br&gt;
-https://github.com/fwbrasil/activate/commit/4182a0c82f64ce866844bf72e3f78269d3343004&lt;/p&gt;
-
-&lt;p&gt;[Possible]java.io.Serializable&lt;br&gt;
-https://github.com/fwbrasil/activate/commit/f36b8a797cfe345ea629269ab38aec96429f039b&lt;/p&gt;
-
-&lt;p&gt;[Improvement]remove redundent .type&lt;br&gt;
-https://github.com/fwbrasil/activate/commit/cb2c9d5d4d5efad4a6346d85017b2ce7b7b906b6&lt;/p&gt;
-
-&lt;p&gt;[Bug]concurrent read/write&lt;br&gt;
-https://github.com/fwbrasil/activate/commit/2aa63ec3dc64db66decbcd274b8443422da1b4c5&lt;/p&gt;
-
-&lt;p&gt;[Bug]read/write lock&lt;br&gt;
-https://github.com/fwbrasil/activate/commit/70fbe4070a56ec336fad71a0579c0f9f78c92831&lt;/p&gt;
-
-&lt;p&gt;[Bug]concurrent delete&lt;br&gt;
-https://github.com/fwbrasil/activate/commit/afc003b2c7d669008dacd20686dae5dbb86875a8&lt;/p&gt;
-
-&lt;p&gt;[Bug]possible Null Pointer exception&lt;br&gt;
-https://github.com/fwbrasil/activate/commit/43ff0a11562ff1628cbbd618994ca22cdeeb0276&lt;/p&gt;
-
-&lt;p&gt;[Bug]case fallthrough&lt;br&gt;
-https://github.com/fwbrasil/activate/commit/3bac399611f04ee2792d03ec71b102f937452637&lt;/p&gt;
-
-&lt;p&gt;[Bug]get empty element from map&lt;br&gt;
-https://github.com/fwbrasil/activate/commit/11d7c89632855104cc91be0b05cc40b0deed38b9&lt;/p&gt;
-
-&lt;p&gt;[Bug]undefined field&lt;br&gt;
-https://github.com/fwbrasil/activate/commit/11d7c89632855104cc91be0b05cc40b0deed38b9&lt;/p&gt;
-
-&lt;p&gt;[Don&amp;#39;t understand]type contravarience&lt;br&gt;
-https://github.com/sksamuel/elastic4s/commit/d3406a030a6daaee9cdf3b2fdd522effeff5ae89&lt;/p&gt;
-
-&lt;p&gt;[Warning]too long thread sleep&lt;br&gt;
-https://github.com/sksamuel/elastic4s/commit/0351b7317a86da688beb6d1818f2caf703777275&lt;/p&gt;
-
-&lt;p&gt;[Can&amp;#39;t detect]match operator ===(see http://stackoverflow.com/questions/26193267/why-does-slick-require-using-three-equal-signs-for-comparison)&lt;br&gt;
-https://github.com/mauricio/postgresql-async/commit/682e2bff8864209aa0e51a497cd71c4a6c02d812&lt;/p&gt;
-
-&lt;p&gt;[Bug]some obvious function misuse&lt;br&gt;
-https://github.com/sksamuel/elastic4s/commit/3748069f982accf1ba94c4defd4aac16ba39fd1e&lt;/p&gt;
-
-&lt;p&gt;[Possible]logger cause mem leak&lt;br&gt;
-https://github.com/mauricio/postgresql-async/commit/80876ee3293748e4bb96939e938a95d31b7b8768&lt;/p&gt;
-
-&lt;p&gt;[Improvement]foreach rather than map&lt;br&gt;
-https://github.com/mauricio/postgresql-async/commit/f754c1b72524974a8d011b458daac9bd4140e590&lt;/p&gt;
-
-&lt;p&gt;[Bug]bad matching syntax, should be _&lt;br&gt;
-https://github.com/mauricio/postgresql-async/commit/6e81e4adcb016cbd7b1e3ed36d5535d9cb6fa762&lt;/p&gt;
-
-&lt;p&gt;[Possible]usage of any and anyRef&lt;br&gt;
-https://github.com/sksamuel/elastic4s/commit/97c8f27ed5addaa2ebe153ca7439c23f8a642f87&lt;/p&gt;
-
-&lt;p&gt;[Possible]missing function return type&lt;br&gt;
-https://github.com/aselab/scala-activerecord/commit/6a6e92b6a09078bbb263c580515d95fb82d6f40f&lt;/p&gt;
-
-&lt;p&gt;[Possible]match return type(whether to add bracket is confusing and misleading)&lt;br&gt;
-https://github.com/scalatra/scalatra/commit/96506a41dc9cc142305ab54e3cefde758fa880ab&lt;/p&gt;
-
-&lt;p&gt;[Not sure]reflection(don&amp;#39;t quite understand)&lt;br&gt;
-https://github.com/sorm/sorm/commit/ca1236ce8c11fddc844bdf287ed59b20f4a79a53&lt;/p&gt;
-
-&lt;p&gt;[Bug]if everyone use, everyone should use &lt;br&gt;
-https://github.com/scalatra/scalatra/commit/5bc791191f78c6fecd3e6d5f68474c7c84593869&lt;/p&gt;
-
-&lt;p&gt;[Bug]error with return type&lt;br&gt;
-https://github.com/skinny-framework/skinny-framework/commit/ed865e0cc193df6cdb8b478b7cb5c5a4d901612e&lt;/p&gt;
-
-&lt;p&gt;[Possible]get should be consistent&lt;br&gt;
-https://github.com/skinny-framework/skinny-framework/commit/b77a6b69962f4d5f02e5e0da481bc100723ee2ee&lt;/p&gt;
-
-&lt;p&gt;[Possible]member type&lt;br&gt;
-https://github.com/skinny-framework/skinny-framework/commit/5c0a356885939ac03561dd5e64ac0e33109d3d34&lt;/p&gt;
-
-&lt;p&gt;[Improvement]duplicated function call&lt;br&gt;
-https://github.com/skinny-framework/skinny-framework/commit/5d06ad52d6d741fc5c1ba624190ad659e70a4752&lt;/p&gt;
-
-&lt;p&gt;[Can&amp;#39;t detect]use function result before check&lt;br&gt;
-https://github.com/skinny-framework/skinny-framework/commit/f48bed91f8688bd0abe93aa6e7e4e4d0a54199a6&lt;/p&gt;
-
-&lt;p&gt;[Bug]not-safe use of toString&lt;br&gt;
-https://github.com/skinny-framework/skinny-framework/commit/35c06c50515988cf49a6092a83fc640fd852f2d9&lt;/p&gt;
-
-&lt;p&gt;[Bug]should check Null ahead&lt;br&gt;
-https://github.com/skinny-framework/skinny-framework/commit/56495db870122bda1c77f32e4f0b52b97677d80a&lt;/p&gt;
-
-&lt;p&gt;[Bug]function name conflict&lt;br&gt;
-https://github.com/skinny-framework/skinny-framework/commit/5c9362edb0905f20c06e94b9bde00ec94b21b042&lt;/p&gt;
-
-&lt;p&gt;[Bug]Another NPE(hard to detect)&lt;br&gt;
-https://github.com/skinny-framework/skinny-framework/commit/2e2a5b439a6a2a5fa1098ac33fe0fa701d782b77&lt;/p&gt;
-
-&lt;p&gt;[Bug]check for unclosed bracket&lt;br&gt;
-https://github.com/skinny-framework/skinny-framework/commit/2134a1c5ccae5a83d9d2efd8eb33b34849fdcfd2&lt;/p&gt;
-
-&lt;p&gt;[Possible]type problems&lt;br&gt;
-https://github.com/skinny-framework/skinny-framework/commit/887f63fefff8f19cf72fbea3126c6b36691245e1&lt;/p&gt;
-
-&lt;p&gt;[Can&amp;#39;t detect]class should be immutable&lt;br&gt;
-https://github.com/skinny-framework/skinny-framework/commit/7061db58c3a713a830db0c15ab7d63ed3834815d&lt;/p&gt;
-
-&lt;p&gt;[Bug]check for type[Nothing]
-https://github.com/adamw/macwire/commit/366611f2364678efd625a446a93341deb62b825c&lt;/p&gt;
-
-&lt;p&gt;[Possible]No Return type?
-https://github.com/adamw/macwire/commit/c453e63f03d590ff622de8c6de0842b6e57345eb&lt;/p&gt;
-
-&lt;p&gt;[Bug]missing .value(all except one pattern)
-https://github.com/eed3si9n/scalaxb/commit/c90cb88c760d67b804df2a2418b4e5a60661656c&lt;/p&gt;
-
-&lt;p&gt;[Be careful]This is a false-positive for empty matching
-https://github.com/eed3si9n/scalaxb/commit/7ae77094f0671148d33055f52f7ad1d319636bbd&lt;/p&gt;
-
-&lt;p&gt;[Improvement]duplicate function call
-https://github.com/eed3si9n/scalaxb/commit/edff5d58c20177cf47f259771614bc3f63919165&lt;/p&gt;
-
-&lt;p&gt;[Improvement]emit a warning for use of null
-https://github.com/eed3si9n/scalaxb/commit/380a11989fa5fa8f2583b11ee34de9488cc58925
-https://github.com/eed3si9n/scalaxb/commit/b6c5a29c8d38d90bfd3dbbac7042a4427d1e3a97&lt;/p&gt;
-
-&lt;p&gt;[Don&amp;#39;t understand]use lazy val to get overriden
-https://github.com/eed3si9n/scalaxb/commit/abc50699d157c702a063ac6f031ae0b959cad0b7&lt;/p&gt;
-
-&lt;p&gt;[Can&amp;#39;t detect]misuse of val and def
-https://github.com/eed3si9n/scalaxb/commit/13046ac38c9423c063d89bcf485f087e579b22ea&lt;/p&gt;
-
-&lt;p&gt;[Bug]missing prefex in string interpolation
-https://github.com/lift/framework/commit/dc632a927a22a9b81ff5422fdc1ba389ce47595f&lt;/p&gt;
-
-&lt;p&gt;[Bug]missing default match option
-https://github.com/lift/framework/commit/77ba2b73e800358405f9bbbe1e2ac3f26126d951&lt;/p&gt;
-
-&lt;p&gt;[Bug]enum with duplicated value
-https://github.com/lift/framework/commit/5f09c86fdc72ae163d2fc4d4415b764e3d92be1f&lt;/p&gt;
-
-&lt;p&gt;[Bug]broken string interpolation
-https://github.com/lift/framework/commit/51b4f9dbf672d12a3aa5227e4fbecdadf6493bf5&lt;/p&gt;
-
-&lt;p&gt;[Bug]missing default match
-https://github.com/lift/framework/commit/9b370d1bf627a38ebc0bdd7b8aa0152653f49807
-https://github.com/lift/framework/commit/97c08c7dd9ed161a83f6c3b716e03bbec98f28fc&lt;/p&gt;
-
-&lt;p&gt;[Bug]dead match condition
-https://github.com/lift/framework/commit/deb27666c0f8936aa12763afd74aba1439305f40&lt;/p&gt;
-
-&lt;p&gt;[Possible]unused parameter
-https://github.com/lift/framework/commit/ed4331ab1a33795356520f33ee22f0b39fe48b30&lt;/p&gt;
-
-&lt;p&gt;[Bug]NPE
-https://github.com/lift/framework/commit/0836f2a926c33bf72d8babe36d958653b146bbc1
-https://github.com/lift/framework/commit/ce4bf6f1a5d1c8c71001e24ca537c5800ac7c541
-https://github.com/lift/framework/commit/a09b633327405cf3c4aad2c0c124ea5b897428b5&lt;/p&gt;
-
-&lt;p&gt;[Can&amp;#39;t detect]
-Zero distance of a list
-https://github.com/lift/framework/commit/47cd758a4fc468327049923b90bab70fe8e11419&lt;/p&gt;
-
-&lt;p&gt;[Ignore]lines not confront
-https://github.com/lift/framework/commit/fa070cb0ffc7f3f6c64deb5039b87f3710cb5f3e&lt;/p&gt;
-
-&lt;p&gt;[Bug]deadlock
-https://github.com/lift/framework/commit/820a15d7a2c5e2bb4eb00352b325412393329998&lt;/p&gt;
-
-&lt;p&gt;[Bug]null check of string
-https://github.com/lift/framework/commit/e6d70f393e32493bfc413ddad79711340903992a&lt;/p&gt;
-
-&lt;p&gt;[Bug]reentrantreadwritelock deadlock
-https://github.com/lift/framework/commit/9dc635255f15bca027db5735e94ddfbbd800aa56&lt;/p&gt;
-
-&lt;p&gt;[Bug]type mismatch
-https://github.com/lift/framework/commit/1ffac230fea785e221e9ecb2a1b106c324700a2b&lt;/p&gt;
-
-&lt;p&gt;[Can&amp;#39;t detect]off-by-1 error
-https://github.com/lift/framework/commit/b1ed911ea9aa965c6de292226dce7670a37a2576
-https://github.com/lift/framework/commit/bad555b9b6adbb407a6026b324e28480ea175fd1&lt;/p&gt;
-
-&lt;p&gt;[Bug]argument type error(need further insight)
-https://github.com/lift/framework/commit/f01b9d5fc50533f3c2ba932357fac8c39a1fd1ea&lt;/p&gt;
-
-&lt;p&gt;[Bug]wrong intended null evaluation
-https://github.com/lift/framework/commit/7cc7134c37a599dd7f80a646eb0ce49d1d318862&lt;/p&gt;
-
-&lt;p&gt;[Not sure]non-existance field serialization
-https://github.com/lift/framework/commit/ed0a9488c4163455980047c20e409ac810a32e2e&lt;/p&gt;
-
-&lt;p&gt;[Not sure]transient field serialization
-https://github.com/lift/framework/commit/38930ae0c8bf92a725a5558584ea698c904f0400&lt;/p&gt;
-
-&lt;p&gt;[Bug]incorrect usage of array buffer
-https://github.com/lift/framework/commit/0b80e60948498400639949422d6040744cc45c76&lt;/p&gt;
-
-&lt;p&gt;[Bug]incorrect type check
-https://github.com/lift/framework/commit/ea5f68c2208ea3d7907e7a089b0883d89e54a876&lt;/p&gt;
-
-&lt;p&gt;[Bug]type mismatch in pattern matching
-https://github.com/lift/framework/commit/1c7c0c3c23e77c6c2adfb3eb36080cbed57530a8&lt;/p&gt;
-
-&lt;p&gt;[Can&amp;#39;t detect]possible stack overflow
-https://github.com/lift/framework/commit/cbebcead73974d323ce3954de7934e4663d9ef46&lt;/p&gt;
-
-&lt;p&gt;[Don&amp;#39;t understand]java double parsing problem
-https://github.com/lift/framework/commit/6ae4c680288f7daf6eccdf338cf48a7b733dab13&lt;/p&gt;
-
-&lt;p&gt;[Not sure]type matching(several other similar mistakes)
-https://github.com/lift/framework/commit/d48479e317ddfc1b183661396de74c5ae21fadd2&lt;/p&gt;
-
-&lt;p&gt;[Bug]invalid import(typo)
-https://github.com/lift/framework/commit/5eadebe1cb46f0784133f2d03c126e484a1ad7f2&lt;/p&gt;
-
-&lt;p&gt;[Don&amp;#39;t understand]infinite loop
-https://github.com/lift/framework/commit/ca7d6e79f4130bedc37917b51b455e9de45e69a7&lt;/p&gt;
-
-&lt;p&gt;[Bug]NPE
-https://github.com/lift/framework/commit/5312678ef896a5a5de1063b4b54b391df77d1738
-https://github.com/lift/framework/commit/edebbd744804ce7f4e3e15d2512e53d304ee5b78
-https://github.com/lift/framework/commit/1e24fe928cdfd482445b8fa5223cad3dc956acf2&lt;/p&gt;
-
-&lt;p&gt;[Bug]null serialization
-https://github.com/lift/framework/commit/97b92da891458b447946bdc2b8678a26f831fc19&lt;/p&gt;
-
-&lt;p&gt;[Bug]nonsense behavior of match
-https://github.com/lift/framework/commit/aab84d819cc6f2abe040f6a84dd6949bb156256a&lt;/p&gt;
-
-&lt;p&gt;[Can&amp;#39;t detect]not tail recursive function leads to stackoverflow
-https://github.com/lift/framework/commit/4ad245afe62221b39c4f5edc9ffb1b5c744c9510&lt;/p&gt;
-
-&lt;p&gt;[Possible]perhaps bad matching?
-https://github.com/lift/framework/commit/7263c58852706fd88bd3fbe02f007a4acbd25dbd   &lt;/p&gt;
-
-&lt;p&gt;[Bug] int divided by int
-https://github.com/twitter/algebird/commit/0642b720f71f15fe9180598b920b32d4ccc55e9d&lt;/p&gt;
-
-&lt;p&gt;[Compile error]type error
-https://github.com/twitter/algebird/commit/c1e367b5239271c76b5aa7783386da290c0beae2&lt;/p&gt;
-
-&lt;p&gt;[Bug]same var used twice between statement
-https://github.com/twitter/algebird/commit/3dab7aa8ac8e093dfb367476c5672e844ff6a818&lt;/p&gt;
-
-&lt;p&gt;[Not sure]reuse an iterator
-https://github.com/twitter/algebird/commit/f8cbd5d52eabfcbbc99fa3ccb2af9cb1a5485959&lt;/p&gt;
-
-&lt;p&gt;[Not sure]map toSeq error
-https://github.com/twitter/algebird/commit/6f4559e5391be084baecca0bb4fcb6fe131eb604&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;[Warning]Don&amp;#39;t need default case
-https://github.com/nicta/scoobi/commit/596178e2108e697820f2775b4e80b20032f589eb&lt;/p&gt;
-
-&lt;p&gt;[Bug]equal no hashcode
-https://github.com/nicta/scoobi/commit/33f4f6f72f2aea987d3d1c4e126b48fa75bd4a5b&lt;/p&gt;
-
-&lt;p&gt;[Improvement]Don&amp;#39;t override default type
-https://github.com/NICTA/scoobi/commit/6c5454be847f3895d9a5289c3a877bd395d1d948&lt;/p&gt;
-
-&lt;p&gt;[Bug]Null check
-https://github.com/nicta/scoobi/commit/383b92bdd971610625407101f32934107c136e35&lt;/p&gt;
-
-&lt;p&gt;[Bug]NPE
-https://github.com/playframework/playframework/commit/f5971e788a4af7037e1df86b3151a7229df60018&lt;/p&gt;
-
-&lt;p&gt;[Bug]unused local var
-https://github.com/jroper/playframework/commit/7d22bf13830c7b072d22aaaee10fe7c5c4c8cc0c&lt;/p&gt;
-
-&lt;p&gt;[Bug]unsafe .setObject(_, null)
-https://github.com/playframework/playframework/commit/08c3ee4d0430653caa4c167e9d5a0d3dc6cb529c&lt;/p&gt;
-
-&lt;p&gt;[Bug]missing patenthesis 
-https://github.com/playframework/playframework/commit/6ec8f31fc9c632ab3d1eab29f441e5e8e3db4271&lt;/p&gt;
-
-&lt;p&gt;[Bug]obvious mistake
-https://github.com/storm-enroute/reactive-collections/commit/4032970311a636d78b4daa742e7d3f98fa7acaf4&lt;/p&gt;
-
-&lt;p&gt;[Bug]unused parameter
-https://github.com/playframework/playframework/commit/8589377861f242be38bb5a85c2c472cade95f332&lt;/p&gt;
-
-&lt;p&gt;[Bug]improper use of foreach
-https://github.com/storm-enroute/reactive-collections/commit/75797ed43c501bd0308a5c6ee7fa423f6c1f58ba&lt;/p&gt;
-
-&lt;p&gt;[Bug] self calling
-https://github.com/storm-enroute/reactive-collections/commit/0761e212e486e624dd2f3a69bdcbcb541deb64a9&lt;/p&gt;
-
-&lt;p&gt;[Bug]increment inside condition
-https://github.com/storm-enroute/reactive-collections/commit/a06257201def332e59f5966f37d21f47ef290f00&lt;/p&gt;
-
-&lt;p&gt;[Bug] false condition
-https://github.com/storm-enroute/reactive-collections/commit/5d6581c23641141cfacb9491c5e8f1426383c39f&lt;/p&gt;
-</description>
-        
-          <description>&lt;h3&gt;Prefix&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;[Not sure] : Not sure whether it is a bug&lt;/li&gt;
-&lt;li&gt;[Possible] : More probable than [Not sure]&lt;/li&gt;
-&lt;li&gt;[Bug] : It is a bug and I know why&lt;/li&gt;
-&lt;li&gt;[Improvement] : This is a fix to improve performance or something, but not a bug fix&lt;/li&gt;
-&lt;li&gt;[Can&amp;#39;t detect] : This is a bug, but I don&amp;#39;t know how to detect it(maybe because it is more related with the program logic)&lt;/li&gt;
-&lt;li&gt;[Don&amp;#39;t understand] : Commit message define it a &amp;quot;bug fix&amp;quot;, but I can&amp;#39;t tell why&lt;/li&gt;
-&lt;li&gt;[Warning] : This looks likes a bug BUT IT IS NOT&lt;/li&gt;
-&lt;li&gt;[Ignore] : This is a bug, but not critical&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Fri, 24 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.%20Current%20bug%20list/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.%20Current%20bug%20list/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Bug_list</category>
         
         
       </item>

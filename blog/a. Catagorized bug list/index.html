@@ -85,47 +85,56 @@ ga('send', 'pageview');
 
 <h5>Bug - broken string interpolation(missing prefix)</h5>
 
-<p>https://github.com/lift/framework/commit/51b4f9dbf672d12a3aa5227e4fbecdadf6493bf5</p>
+<p>https://github.com/lift/framework/commit/51b4f9dbf672d12a3aa5227e4fbecdadf6493bf5
+Regex : 
+[\W]&quot;[^&quot;]<em>\${[^&quot;]</em>}[^&quot;]*&quot;</p>
 
 <h4>Obvious error</h4>
 
 <h5>Bug - self calling(an obvious error, with function self-calling without any change to parameters)</h5>
 
 <p>https://github.com/sksamuel/elastic4s/commit/ae73cd393cb967278aa92e53f6c480af0a7e2fac
-https://github.com/nicta/scoobi/commit/20c875e1a1fb2710e7efd8a1dd211e8b3cda1341 (need verification)
+https://github.com/nicta/scoobi/commit/20c875e1a1fb2710e7efd8a1dd211e8b3cda1341
 https://github.com/storm-enroute/reactive-collections/commit/0761e212e486e624dd2f3a69bdcbcb541deb64a9</p>
+
+<h5>Bug - function name conflict(addHeader() and setHeader())</h5>
+
+<p>https://github.com/skinny-framework/skinny-framework/commit/5c9362edb0905f20c06e94b9bde00ec94b21b042</p>
 
 <h5>Bug - some obvious function misuse</h5>
 
 <p>https://github.com/sksamuel/elastic4s/commit/3748069f982accf1ba94c4defd4aac16ba39fd1e</p>
 
-<h5>Bug - has/is should be something==null</h5>
+<h5>[Not Found] - &quot;0000&quot; means that something is missing</h5>
+
+<p>https://github.com/factorie/factorie/commit/10041d13117a88c364ae48caddb563477af850b1</p>
+
+<h5>[Not Found] - has/is should be something==null</h5>
 
 <p>https://github.com/storm-enroute/reactive-collections/commit/4032970311a636d78b4daa742e7d3f98fa7acaf4
 - The following need to analyze source code, not compiled .class)</p>
 
 <h5>Bug - wrong intended null evaluation</h5>
 
-<p>https://github.com/lift/framework/commit/7cc7134c37a599dd7f80a646eb0ce49d1d318862</p>
+<p>https://github.com/lift/framework/commit/7cc7134c37a599dd7f80a646eb0ce49d1d318862
+Regex : if.<em>((.</em>(!=|ne)\s<em>null)|null\s</em>(!=|ne).<em>).</em>Nil</p>
 
 <h5>Bug - damn typo...(class name is &quot;not in&quot;, but toString() return &quot;in&quot;)</h5>
 
-<p>https://github.com/fwbrasil/activate/commit/36dcc53026e665751a4de0ee3d1c760e3b1b200f</p>
+<p>https://github.com/fwbrasil/activate/commit/36dcc53026e665751a4de0ee3d1c760e3b1b200f
+check : Duplicate toString values in case class with only one string involved, and class names are different
+Regex : def toString\s<em>=\s</em>&quot;[^&quot;]*&quot;</p>
 
 <h5>Bug - use before init(should be -&gt; if(initialize) then do some work)</h5>
 
 <p>https://github.com/fwbrasil/activate/commit/02f7ec4a005642b01b348bdaee11cf39a922cbc4</p>
 
-<h5>Bug - function name conflict(addHeader() and setHeader())</h5>
-
-<p>https://github.com/skinny-framework/skinny-framework/commit/5c9362edb0905f20c06e94b9bde00ec94b21b042</p>
-
-<h5>Bug - check for unclosed bracket(If use IDE, obvious these errors can be eliminated)</h5>
+<h5>Bug - check for unclosed bracket(If use IDE, obviously these errors can be eliminated)</h5>
 
 <p>https://github.com/skinny-framework/skinny-framework/commit/2134a1c5ccae5a83d9d2efd8eb33b34849fdcfd2
 [Bug]same var used twice between statement
 https://github.com/twitter/algebird/commit/3dab7aa8ac8e093dfb367476c5672e844ff6a818
-[Bug]increment inside condition, which leed to infinite loop
+[Bug]increment inside condition, which leed to infinite loop(i++ in if statement)
 https://github.com/storm-enroute/reactive-collections/commit/a06257201def332e59f5966f37d21f47ef290f00
 [Bug]False condition(could be detected by NullChecker in findBugs)
 https://github.com/storm-enroute/reactive-collections/commit/5d6581c23641141cfacb9491c5e8f1426383c39f</p>
@@ -178,7 +187,8 @@ https://github.com/storm-enroute/reactive-collections/commit/5d6581c23641141cfac
 
 <p>https://github.com/playframework/playframework/commit/f5971e788a4af7037e1df86b3151a7229df60018
 https://github.com/playframework/playframework/commit/2bcf2c1a7a86f4d1b1db8306a1656f0db1a75d75
-https://github.com/storm-enroute/reactive-collections/commit/6e66926bf2380a94d4c6be5b9e495b754ca311a6</p>
+https://github.com/storm-enroute/reactive-collections/commit/6e66926bf2380a94d4c6be5b9e495b754ca311a6
+https://github.com/aselab/scala-activerecord/commit/10d9069bf62f8217e04bdba3d20ed3f590fdce22    </p>
 
 <h5>Bug - Another NPE(hard to detect)</h5>
 
@@ -196,21 +206,30 @@ https://github.com/lift/framework/commit/1e24fe928cdfd482445b8fa5223cad3dc956acf
 
 <h5>Bug - null serialization</h5>
 
-<p>https://github.com/lift/framework/commit/97b92da891458b447946bdc2b8678a26f831fc19</p>
+<p>https://github.com/lift/framework/commit/97b92da891458b447946bdc2b8678a26f831fc19
+https://github.com/aselab/scala-activerecord/commit/e43f4ac6a1303cbf4905a914982da1b8f9e9ab56</p>
 
 <h4>Pattern Matching</h4>
 
 <h5>Bug - case fallthrough(In scala, case will not fall through, so any empty =&gt; block will be suspicious)</h5>
 
-<p>https://github.com/fwbrasil/activate/commit/3bac399611f04ee2792d03ec71b102f937452637</p>
+<p>Regex : (high false-positive)
+\s<em>case.</em>=&gt;\s*
+\s*(case|})
+https://github.com/fwbrasil/activate/commit/3bac399611f04ee2792d03ec71b102f937452637</p>
 
-<h5>Bug - bad matching syntax, should be _(Invalid matching syntax)</h5>
+<h5>Bug - bad matching syntax, should be _(Invalid matching syntax)(Compile error)</h5>
 
 <p>https://github.com/mauricio/postgresql-async/commit/6e81e4adcb016cbd7b1e3ed36d5535d9cb6fa762</p>
 
 <h5>Bug - nonsense behavior of match(what does &quot;()&quot; do)</h5>
 
 <p>https://github.com/lift/framework/commit/aab84d819cc6f2abe040f6a84dd6949bb156256a</p>
+
+<h4>Pointer OutOfBound</h4>
+
+<p>[Bug]mat.length is &lt; n, so mat(n-1) is out of bound
+https://github.com/BIDData/BIDMach/commit/21942503ceca49eb6b862c7e1b74b51455d1523c</p>
 
 <h4>Pattern matching is not complete</h4>
 
@@ -239,13 +258,19 @@ https://github.com/lift/framework/commit/97c08c7dd9ed161a83f6c3b716e03bbec98f28f
 
 <h4>Function return type(Need to study how type is generated)</h4>
 
+<h5>Missing return type is not a bug</h5>
+
 <h5>Bug - error with return type</h5>
 
 <p>https://github.com/skinny-framework/skinny-framework/commit/ed865e0cc193df6cdb8b478b7cb5c5a4d901612e</p>
 
 <h5>Bug - type mismatch</h5>
 
-<p>https://github.com/lift/framework/commit/1ffac230fea785e221e9ecb2a1b106c324700a2b</p>
+<p>https://github.com/lift/framework/commit/1ffac230fea785e221e9ecb2a1b106c324700a2b
+[Bug] &quot;return&quot; in case and bad return type
+https://github.com/factorie/factorie/commit/1914891580b1e4cf7467b25fce2467f646d2193a
+[Bug]Return type error
+https://github.com/xitrum-framework/sclasner/commit/3ec95406d77b56f31a111192aeed76cd74059823</p>
 
 <h4>Type checking</h4>
 
@@ -277,17 +302,29 @@ https://github.com/lift/framework/commit/97c08c7dd9ed161a83f6c3b716e03bbec98f28f
 
 <h4>Syntax error or unsafe usage</h4>
 
-<h5>Bug - incorrect usage of array buffer(obvious)</h5>
+<h5>[False] - incorrect usage of array buffer(obvious)</h5>
 
 <p>https://github.com/lift/framework/commit/0b80e60948498400639949422d6040744cc45c76</p>
 
-<h5>Bug - unsafe use of setObject() in optionToStatement</h5>
+<h5>[Possible] - unsafe use of setObject() in optionToStatement</h5>
 
 <p>https://github.com/playframework/playframework/commit/08c3ee4d0430653caa4c167e9d5a0d3dc6cb529c</p>
 
+<h5>[Bug]Possible string out of bound error</h5>
+
+<p>https://github.com/jrudolph/sbt-dependency-graph/commit/0bcd2e03f49f6c7133e9ef9e40b95d40970e4a29</p>
+
+<h5>[Bug]reuse an iterator</h5>
+
+<p>https://github.com/twitter/algebird/commit/f8cbd5d52eabfcbbc99fa3ccb2af9cb1a5485959</p>
+
+<h5>[Bug] misuse of Array(missing new)</h5>
+
+<p>https://github.com/BIDData/BIDMach/commit/479faa4a9afa3d126019547809a8e140b545b65c</p>
+
 <h4>Type misuse</h4>
 
-<h5>[Bug] int divided by int(density, which is used above, should be double instead of int)</h5>
+<h5>[Bug][Case] int divided by int(density, which is used above, should be double instead of int)</h5>
 
 <p>https://github.com/twitter/algebird/commit/0642b720f71f15fe9180598b920b32d4ccc55e9d</p>
 
@@ -295,12 +332,32 @@ https://github.com/lift/framework/commit/97c08c7dd9ed161a83f6c3b716e03bbec98f28f
 
 <p>https://github.com/storm-enroute/reactive-collections/commit/75797ed43c501bd0308a5c6ee7fa423f6c1f58ba</p>
 
+<h5>[False] false type(missing bracket)</h5>
+
+<p>https://github.com/factorie/factorie/commit/a1334905a4d5580ea82fbe8bca58ba5d5c2654a6</p>
+
+<h5>[Warning]use of not thread-safe type in val</h5>
+
+<p>https://github.com/maxcellent/lamma/commit/61c787957da76cf4dbfb5ce3f133b351dc8799cd</p>
+
+<h5>[Bug]False parameter type</h5>
+
+<p>https://github.com/xitrum-framework/glokka/commit/ef079563a97a24966c44e5e58dc8c82664921ff1  </p>
+
 <h4>Unused function parameter</h4>
 
-<p>[Bug] the var &quot;req&quot; in &quot;handlerForRequest&quot; is not used, instead, mispelled into &quot;request&quot; in function definition
+<p>[Bug][Case] the var &quot;req&quot; in &quot;handlerForRequest&quot; is not used, instead, mispelled into &quot;request&quot; in function definition
 https://github.com/jroper/playframework/commit/7d22bf13830c7b072d22aaaee10fe7c5c4c8cc0c
-[Bug] parameter &quot;regex&quot; should be used
-https://github.com/playframework/playframework/commit/8589377861f242be38bb5a85c2c472cade95f332</p>
+[Bug][Case] parameter &quot;regex&quot; should be used
+https://github.com/playframework/playframework/commit/8589377861f242be38bb5a85c2c472cade95f332
+[Bug]unused function parameter
+https://github.com/etorreborre/specs2/commit/a455c55b6d0c014e36f18ec39260ec79a65afa4d</p>
+
+<h4>Override hashCode and equals</h4>
+
+<p>Regex : ^(?!override)\s*def hashCode()
+[Style] override members of the super class
+https://github.com/BIDData/BIDMach/commit/d35f06bc3ae4da8ab604635453ba512ef6d1477b</p>
 
 
   <div class="tags">
