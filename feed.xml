@@ -5,9 +5,53 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 11 Aug 2015 18:36:14 +0800</pubDate>
-    <lastBuildDate>Tue, 11 Aug 2015 18:36:14 +0800</lastBuildDate>
+    <pubDate>Thu, 13 Aug 2015 13:46:12 +0800</pubDate>
+    <lastBuildDate>Thu, 13 Aug 2015 13:46:12 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Daily Report - 8.11</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午看了两个repo，发现还是没什么...&lt;/li&gt;
+&lt;li&gt;中午被老师放鸽子了&lt;/li&gt;
+&lt;li&gt;下午先弄好了scapegoat（其实是昨天晚上弄好的），用test可以直接跑不同inspector的测试用例，很方便&lt;/li&gt;
+&lt;li&gt;傍晚写了一个判断type比较语句有没有用错等号的例子，跑起来了，在equality.compareFloatingTypes里&lt;/li&gt;
+&lt;li&gt;弄出来自己的测试框架&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;弄明白scalagoat如何遍历AST的&lt;/li&gt;
+&lt;li&gt;写两个inspector&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上午看了两个repo，发现还是没什么...&lt;/li&gt;
+&lt;li&gt;中午被老师放鸽子了&lt;/li&gt;
+&lt;li&gt;下午先弄好了scapegoat（其实是昨天晚上弄好的），用test可以直接跑不同inspector的测试用例，很方便&lt;/li&gt;
+&lt;li&gt;傍晚写了一个判断type比较语句有没有用错等号的例子，跑起来了，在equality.compareFloatingTypes里&lt;/li&gt;
+&lt;li&gt;弄出来自己的测试框架&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Tue, 11 Aug 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.12/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.12/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -38,8 +82,8 @@
 </description>
         
         <pubDate>Tue, 11 Aug 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.11/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.11/</guid>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.11%20-%20Copy/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.11%20-%20Copy/</guid>
         
         <category>Lab</category>
         
@@ -364,54 +408,6 @@
         <guid isPermaLink="true">https://github.com/pwwpche/blog/a.%20TODO%20List%20-%207.30/</guid>
         
         <category>Lab</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 7.29</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;lift-framework看完了&lt;/li&gt;
-&lt;li&gt;目前的bug list分类做完了，并且每个bug前面都加了分类标签&lt;/li&gt;
-&lt;li&gt;bug list关键词列表略微更新&lt;/li&gt;
-&lt;li&gt;中午终于困得睡着了&lt;/li&gt;
-&lt;li&gt;进度汇报完了，接着做更新buglist&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;再看完两个framework吧，cross checking会使正确率高一些&lt;/li&gt;
-&lt;li&gt;更新完目前的关键词列表，并用之扫一遍skinny 和lift的commit message&lt;/li&gt;
-&lt;li&gt;看看implicit 的scope之前有没有出现过，觉得这也可能是一个坑&lt;/li&gt;
-&lt;li&gt;对NPE归类，看以前bug的源码&lt;/li&gt;
-&lt;li&gt;找找scala如何做类型推导的资料&lt;/li&gt;
-&lt;li&gt;lazy的资料没找，明天要找。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;lift-framework看完了&lt;/li&gt;
-&lt;li&gt;目前的bug list分类做完了，并且每个bug前面都加了分类标签&lt;/li&gt;
-&lt;li&gt;bug list关键词列表略微更新&lt;/li&gt;
-&lt;li&gt;中午终于困得睡着了&lt;/li&gt;
-&lt;li&gt;进度汇报完了，接着做更新buglist&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Wed, 29 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.29/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.29/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
         
         
       </item>
