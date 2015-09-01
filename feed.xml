@@ -5,9 +5,203 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 17 Aug 2015 23:02:28 +0800</pubDate>
-    <lastBuildDate>Mon, 17 Aug 2015 23:02:28 +0800</lastBuildDate>
+    <pubDate>Tue, 01 Sep 2015 11:07:10 +0800</pubDate>
+    <lastBuildDate>Tue, 01 Sep 2015 11:07:10 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Install jekyll on Windows</title>
+        <description>&lt;p class=&quot;intro&quot;&gt;为了给ssd里的win7安jekyll，重新弄了一遍ruby。大部分都是抄的&lt;/p&gt;
+
+&lt;p&gt;抄的链接在这里 &lt;a href=&quot;http://jekyll-windows.juthilo.com/1-ruby-and-devkit/&quot;&gt;Run Jekyll on Windows&lt;/a&gt; &lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;到ruby官网上下载ruby和rubydev的安装包，没事闲着还是别用x64吧&lt;/li&gt;
+&lt;li&gt;自己配配环境变量，把ruby21/bin加到PATH里&lt;/li&gt;
+&lt;li&gt;安装时，目录里不要带空格，否则后面gem install jekyll会报runtime error（看这里：&lt;a href=&quot;http://stackoverflow.com/questions/16898286/error-invalid-switch-in-rubyopt-f-runtimeerror-is-shown-while-install-gems&quot;&gt;Invalid switch in RUBYOPT&lt;/a&gt;）&lt;/li&gt;
+&lt;li&gt;下载rubygem直接安装&lt;/li&gt;
+&lt;li&gt;安好后把gem的source改一下,确保gem sources -l后只有淘宝的源&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sources&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remove&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubygems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sources&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;taobao&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sources&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;6.等着安装吧，下taobao的源下比官方的快多了&lt;/p&gt;
+</description>
+        
+          <description>&lt;p class=&quot;intro&quot;&gt;为了给ssd里的win7安jekyll，重新弄了一遍ruby。大部分都是抄的&lt;/p&gt;
+</description>
+        
+        <pubDate>Tue, 01 Sep 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/b.%20Install%20Jekyll%20on%20Windows%20-%20Copy/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.%20Install%20Jekyll%20on%20Windows%20-%20Copy/</guid>
+        
+        <category>jekyll</category>
+        
+        <category>ruby</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>How to write inspectors for Scapegoat</title>
+        <description>&lt;h5&gt;Check the inspections in com.sksamuel.scapegoat.inspections&lt;/h5&gt;
+
+&lt;p&gt;All the inspectors can be found here. Just copy one of them and write the code in inspect()&lt;/p&gt;
+
+&lt;h5&gt;Use showRaw(reify{...}) to generate the AST of possible pattern&lt;/h5&gt;
+
+&lt;p&gt;Write a piece of code that may contains a bug, which should better be simple and representative. &lt;/p&gt;
+
+&lt;p&gt;Type following code in cmd:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scala.reflect.runtime.universe._&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;paste&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;showRaw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reify&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/*Your code here*/&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And then, check the AST generated. Here is a simple python program to format them&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;tabCnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;nextPos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;newLine&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;PUT YOUR AST STRING HERE&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;nextPos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nextPos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#        resultStr = resultStr + &amp;quot;\t&amp;quot; * tabCnt + &amp;quot;\n&amp;quot; &lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;tabCnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tabCnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;),&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#&amp;quot;),&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tabCnt&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;newLine&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;(&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;tabCnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tabCnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tabCnt&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;)&amp;#39;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nextPos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nextPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;newLine&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;)&amp;#39;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nextPos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nextPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;)&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt; 
+        &lt;span class=&quot;n&quot;&gt;tabCnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tabCnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tabCnt&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;
+        
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultStr&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</description>
+        
+          <description>&lt;h5&gt;Check the inspections in com.sksamuel.scapegoat.inspections&lt;/h5&gt;
+</description>
+        
+        <pubDate>Tue, 01 Sep 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.%20How%20to%20write%20inspectors%20for%20Scapegoat%20-%20Copy/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.%20How%20to%20write%20inspectors%20for%20Scapegoat%20-%20Copy/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Scapegoat</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Daily Report - 8.18</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;写了两个inspector&lt;/li&gt;
+&lt;li&gt;貌似有点明白如何遍历一个函数了&lt;/li&gt;
+&lt;li&gt;InfiniteWhile那个还真不好写&lt;/li&gt;
+&lt;li&gt;思考一下上面这个怎么写吧&lt;/li&gt;
+&lt;li&gt;修改一下string interpolation的关于ImplicitNot Found的falsePositive&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;再看三个repo，repo别太大...&lt;/li&gt;
+&lt;li&gt;写两个inspector&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;写了两个inspector&lt;/li&gt;
+&lt;li&gt;貌似有点明白如何遍历一个函数了&lt;/li&gt;
+&lt;li&gt;InfiniteWhile那个还真不好写&lt;/li&gt;
+&lt;li&gt;思考一下上面这个怎么写吧&lt;/li&gt;
+&lt;li&gt;修改一下string interpolation的关于ImplicitNot Found的falsePositive&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Tue, 18 Aug 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.19/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.19/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Daily Report - 8.18</title>
+        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;写了两个inspector&lt;/li&gt;
+&lt;li&gt;貌似有点明白如何遍历一个函数了&lt;/li&gt;
+&lt;li&gt;InfiniteWhile那个还真不好写&lt;/li&gt;
+&lt;li&gt;思考一下上面这个怎么写吧&lt;/li&gt;
+&lt;li&gt;修改一下string interpolation的关于ImplicitNot Found的falsePositive&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;需要做的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;再看三个repo，repo别太大...&lt;/li&gt;
+&lt;li&gt;写两个inspector&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;写了两个inspector&lt;/li&gt;
+&lt;li&gt;貌似有点明白如何遍历一个函数了&lt;/li&gt;
+&lt;li&gt;InfiniteWhile那个还真不好写&lt;/li&gt;
+&lt;li&gt;思考一下上面这个怎么写吧&lt;/li&gt;
+&lt;li&gt;修改一下string interpolation的关于ImplicitNot Found的falsePositive&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Tue, 18 Aug 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.18/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.18/</guid>
+        
+        <category>Lab</category>
+        
+        <category>Report</category>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -256,169 +450,6 @@
         <pubDate>Thu, 06 Aug 2015 00:00:00 +0800</pubDate>
         <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.6/</link>
         <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.6/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 8.5</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;剧=坑&lt;/li&gt;
-&lt;li&gt;看了不少小repo&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;坑...&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;剧=坑&lt;/li&gt;
-&lt;li&gt;看了不少小repo&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Wed, 05 Aug 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.5/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.5/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 8.3</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午弃疗了，冰与火之歌三观太正&lt;/li&gt;
-&lt;li&gt;中午改装了一下commit爬虫，把所有项目源码爬下来了，计划做个全文搜索用来找代码什么的&lt;/li&gt;
-&lt;li&gt;下午看play framework的bug，没用，人家代码质量也高，commit都是程序逻辑修复的&lt;/li&gt;
-&lt;li&gt;晚上看了个reactive-collections，这里可用的错误多一些&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;明天再看三个个小一点的repo吧，那种html在7k-12k的这种&lt;/li&gt;
-&lt;li&gt;类型推导赶紧看&lt;/li&gt;
-&lt;li&gt;把ppt里的bug list挑出2个写plugin吧&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上午弃疗了，冰与火之歌三观太正&lt;/li&gt;
-&lt;li&gt;中午改装了一下commit爬虫，把所有项目源码爬下来了，计划做个全文搜索用来找代码什么的&lt;/li&gt;
-&lt;li&gt;下午看play framework的bug，没用，人家代码质量也高，commit都是程序逻辑修复的&lt;/li&gt;
-&lt;li&gt;晚上看了个reactive-collections，这里可用的错误多一些&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Mon, 03 Aug 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.3/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.3/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 7.31</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;写完了String Interpolation检测的plugin&lt;/li&gt;
-&lt;li&gt;看了一半scoobi的fix commit，用处也相当小，人家代码质量高没办法...&lt;/li&gt;
-&lt;li&gt;找到了一个PDM什么的，是检测source code的，不知道有没有用&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;string interpolation 这种最简单的东西处理起来也不是很方便&lt;/li&gt;
-&lt;li&gt;至少再看两个“有点用”的repo，总结bug list&lt;/li&gt;
-&lt;li&gt;NPE和Deadlock先放下，开始看Runtime Type的文章&lt;/li&gt;
-&lt;li&gt;看看老师给的东西里面有没有什么比较有用pattern（比如equal no hashcode这种）&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;写完了String Interpolation检测的plugin&lt;/li&gt;
-&lt;li&gt;看了一半scoobi的fix commit，用处也相当小，人家代码质量高没办法...&lt;/li&gt;
-&lt;li&gt;找到了一个PDM什么的，是检测source code的，不知道有没有用&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Fri, 31 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.31/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.31/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 7.30</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;看了一个twitter_algebird，收获基本为0&lt;/li&gt;
-&lt;li&gt;列了一下八月份要做的事情&lt;/li&gt;
-&lt;li&gt;lazy的东西略微看了一下，似乎帮助也不是很大&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;写一个detector&lt;/li&gt;
-&lt;li&gt;用string interpolation的那个写&lt;/li&gt;
-&lt;li&gt;再看一个repo吧&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;看了一个twitter_algebird，收获基本为0&lt;/li&gt;
-&lt;li&gt;列了一下八月份要做的事情&lt;/li&gt;
-&lt;li&gt;lazy的东西略微看了一下，似乎帮助也不是很大&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Thu, 30 Jul 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.30/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%207.30/</guid>
         
         <category>Lab</category>
         
