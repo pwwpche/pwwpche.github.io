@@ -5,9 +5,142 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 01 Sep 2015 11:07:10 +0800</pubDate>
-    <lastBuildDate>Tue, 01 Sep 2015 11:07:10 +0800</lastBuildDate>
+    <pubDate>Tue, 01 Sep 2015 12:11:41 +0800</pubDate>
+    <lastBuildDate>Tue, 01 Sep 2015 12:11:41 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Compile result of scala projects with Scapegoat plugin</title>
+        <description>&lt;h4&gt;Reasons for Compilation Failure&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Scala version is 2.10, which is not supported by Scapegoat&lt;/li&gt;
+&lt;li&gt;Project is too large, and recording all patterns causes JVM GarbageCollection over limit &lt;/li&gt;
+&lt;li&gt;Can&amp;#39;t resolve buildinfo, which, I don&amp;#39;t know why&lt;/li&gt;
+&lt;li&gt;sbt build failed&lt;/li&gt;
+&lt;li&gt;Compile error with Scapegoat plugin attached, but sbt compile always succeed. Maybe there are some bug in Scapegoat plugin.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;How to add Scapegoat plugin&lt;/h4&gt;
+
+&lt;p&gt;Write following code to project/plugins.sbt
+----addSbtPlugin(&amp;quot;com.sksamuel.scapegoat&amp;quot; %% &amp;quot;sbt-scapegoat&amp;quot; % &amp;quot;1.0.0&amp;quot;)&lt;/p&gt;
+
+&lt;h4&gt;Results&lt;/h4&gt;
+
+&lt;h5&gt;Success&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;adamw_macwire     56s&lt;/li&gt;
+&lt;li&gt;AsyncttpClient-async...&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;daniel-trinh_scalariform&lt;/li&gt;
+&lt;li&gt;p2t2_figaro           122s&lt;/li&gt;
+&lt;li&gt;dickwall_subcut       13s&lt;/li&gt;
+&lt;li&gt;dispatch_reboot       25s&lt;/li&gt;
+&lt;li&gt;dylemma_scala-frp 13s&lt;/li&gt;
+&lt;li&gt;etaty_rediscala       50s&lt;/li&gt;
+&lt;li&gt;fehmicansaglam_tepkin     54s&lt;/li&gt;
+&lt;li&gt;finagle_finch     80s&lt;/li&gt;
+&lt;li&gt;maxcellent_lamma  24s&lt;/li&gt;
+&lt;li&gt;mesosphere_chaos  45s&lt;/li&gt;
+&lt;li&gt;ngocdaothanh&lt;em&gt;netcaty&lt;/em&gt;master   4s&lt;/li&gt;
+&lt;li&gt;nafg&lt;em&gt;reactive&lt;/em&gt;v0.4.0  98s&lt;/li&gt;
+&lt;li&gt;novus&lt;em&gt;salat&lt;/em&gt;_master   29s&lt;/li&gt;
+&lt;li&gt;ReactiveMongo&lt;em&gt;ReactiveMongo&lt;/em&gt;master    58s&lt;/li&gt;
+&lt;li&gt;ReactiveX&lt;em&gt;RxScala&lt;/em&gt;0.x 32s&lt;/li&gt;
+&lt;li&gt;romainreuillon&lt;em&gt;mgo&lt;/em&gt;master 98s&lt;/li&gt;
+&lt;li&gt;SandroGrzicic&lt;em&gt;ScalaBuff&lt;/em&gt;master    28s&lt;/li&gt;
+&lt;li&gt;scala&lt;em&gt;async&lt;/em&gt;master    33s&lt;/li&gt;
+&lt;li&gt;scala&lt;em&gt;pickling&lt;/em&gt;0.10.x 104s&lt;/li&gt;
+&lt;li&gt;scala&lt;em&gt;scala-parser-combinators&lt;/em&gt;master 27s&lt;/li&gt;
+&lt;li&gt;sirthias&lt;em&gt;scala-ssh&lt;/em&gt;master 23s&lt;/li&gt;
+&lt;li&gt;sksamuel&lt;em&gt;elastic4s&lt;/em&gt;master 105s&lt;/li&gt;
+&lt;li&gt;squeryl&lt;em&gt;squeryl&lt;/em&gt;master    74s&lt;/li&gt;
+&lt;li&gt;stephenmcd&lt;em&gt;curiodb&lt;/em&gt;master 162s, most time on compiling java sources&lt;/li&gt;
+&lt;li&gt;xitrum-framework&lt;em&gt;scala-xgettext&lt;/em&gt;master    4s(only one file)&lt;/li&gt;
+&lt;li&gt;xitrum-framework&lt;em&gt;scaposer&lt;/em&gt;master  12s&lt;/li&gt;
+&lt;li&gt;twitter&lt;em&gt;finatra&lt;/em&gt;master    510s, most used on resolving&lt;/li&gt;
+&lt;li&gt;unfiltered&lt;em&gt;unfiltered&lt;/em&gt;0.9.0   122s, some Compilation failed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5&gt;Failed:&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;eed3si9n_scalaxb----multiple compile error&lt;/li&gt;
+&lt;li&gt;aselab-scala-activerecord----multiple compile error&lt;/li&gt;
+&lt;li&gt;dispatch_reboot----can&amp;#39;t resolve BuildInfo&lt;/li&gt;
+&lt;li&gt;BIDData_BIDMach&lt;/li&gt;
+&lt;li&gt;eardouglas_xsbt-web-plugin----can&amp;#39;t compile due to changing version from 2.10 to 2.11&lt;/li&gt;
+&lt;li&gt;etorreborre_specs2----unknown compile error(some .scala could be compiled but some not)&lt;/li&gt;
+&lt;li&gt;factorie_factorie----outOfMemoryError&lt;/li&gt;
+&lt;li&gt;FasterXML_jackson-module-scala-master----null pointer error due to invalid path
+(jackson-module-scala-master\target\scala-2.11/scapegoat-report])&lt;/li&gt;
+&lt;li&gt;fwbrasil_activate----cannot resolve org.scala.reflections&lt;/li&gt;
+&lt;li&gt;garyKeorkunian_squants----cannot change scala version to 2.11&lt;/li&gt;
+&lt;li&gt;intel-hadoop_gearpump----overhead limit exceed -&amp;gt;outOfMemoryError&lt;/li&gt;
+&lt;li&gt;json4s_json4s----96s, compilation failed halfway&lt;/li&gt;
+&lt;li&gt;julien-truffaut_Monocle----66s, compilation failed halfway&lt;/li&gt;
+&lt;li&gt;lift-framework----278s, compilation failed halfway&lt;/li&gt;
+&lt;li&gt;lihaoyi_scala-js-fiddle   ----36s, compilation error halfway&lt;/li&gt;
+&lt;li&gt;intel-hadoop_gearpump ----overhead limit exceed -&amp;gt;outOfMemoryError when compiling&lt;/li&gt;
+&lt;li&gt;ISCPIF_openmole----unknown error&lt;/li&gt;
+&lt;li&gt;jaliss_securesocial----loading definitions takes too long&lt;/li&gt;
+&lt;li&gt;Jetbrains_sbt-ide-settings----cannot change scala version to 2.11&lt;/li&gt;
+&lt;li&gt;jrudolph_sbt-dependency-graph----version 2.10&lt;/li&gt;
+&lt;li&gt;js-scala&lt;em&gt;js-scala----cannot resolve dependency : EPFL#lms&lt;/em&gt;2.11;0.3-SNAPSHOT: not found&lt;/li&gt;
+&lt;li&gt;lihaoyi_scalatags----unknown error, sbt failed&lt;/li&gt;
+&lt;li&gt;mauricio_postgresql-async----plugin not loaded ?&lt;/li&gt;
+&lt;li&gt;milessabin_shapeless----compile error&lt;/li&gt;
+&lt;li&gt;mohiva&lt;em&gt;play-silhouette&lt;/em&gt;master&lt;/li&gt;
+&lt;li&gt;monifu&lt;em&gt;monifu&lt;/em&gt;master----compile error&lt;/li&gt;
+&lt;li&gt;pocorall&lt;em&gt;scaloid&lt;/em&gt;master----null pointer error&lt;/li&gt;
+&lt;li&gt;propensive&lt;em&gt;rapture&lt;/em&gt;dev----sbt build failed&lt;/li&gt;
+&lt;li&gt;puffnfresh&lt;em&gt;wartremover&lt;/em&gt;latest-release----sbt build failed&lt;/li&gt;
+&lt;li&gt;rickynils&lt;em&gt;scalacheck&lt;/em&gt;master----use scala version 2.10&lt;/li&gt;
+&lt;li&gt;romainreuillon&lt;em&gt;gridscale&lt;/em&gt;master----out of memory&lt;/li&gt;
+&lt;li&gt;scalanlp&lt;em&gt;breeze&lt;/em&gt;master    ----takes too long&lt;/li&gt;
+&lt;li&gt;scalatra&lt;em&gt;scalatra&lt;/em&gt;2.4.x----numerous compile error&lt;/li&gt;
+&lt;li&gt;scaldi&lt;em&gt;scaldi&lt;/em&gt;master----&lt;/li&gt;
+&lt;li&gt;scalikejdbc&lt;em&gt;scalikejdbc&lt;/em&gt;master----scala version 2.10&lt;/li&gt;
+&lt;li&gt;scodec&lt;em&gt;scodec&lt;/em&gt;master----53s, compile error&lt;/li&gt;
+&lt;li&gt;sirthias&lt;em&gt;parboiled2&lt;/em&gt;master----version 2.10&lt;/li&gt;
+&lt;li&gt;skinny-framework&lt;em&gt;skinny-framework&lt;/em&gt;master----version 2.10&lt;/li&gt;
+&lt;li&gt;spray&lt;em&gt;sbt-revolver&lt;/em&gt;master----type error in expression&lt;/li&gt;
+&lt;li&gt;t2v&lt;em&gt;play2-auth&lt;/em&gt;master----94s, compilation failed&lt;/li&gt;
+&lt;li&gt;storm-enroute&lt;em&gt;reactive-collections&lt;/em&gt;master----too many compile errors&lt;/li&gt;
+&lt;li&gt;takezoe&lt;em&gt;gitbucket&lt;/em&gt;master----compile error&lt;/li&gt;
+&lt;li&gt;tpolecat&lt;em&gt;doobie&lt;/em&gt;master----compile error, missing buildinfo.scala&lt;/li&gt;
+&lt;li&gt;twitter&lt;em&gt;cassovary&lt;/em&gt;master----Compilation failed&lt;/li&gt;
+&lt;li&gt;w3c&lt;em&gt;banana-rdf&lt;/em&gt;0.8.x---- java.lang.OutOfMemoryError: GC overhead limit exceeded&lt;/li&gt;
+&lt;li&gt;websudos&lt;em&gt;phantom&lt;/em&gt;develop----sbt resolution failed&lt;/li&gt;
+&lt;li&gt;xitrum-framework&lt;em&gt;glokka&lt;/em&gt;master----Compilation error&lt;/li&gt;
+&lt;li&gt;xitrum-framework&lt;em&gt;scalive&lt;/em&gt;master----Compilation error&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+          <description>&lt;h4&gt;Reasons for Compilation Failure&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Scala version is 2.10, which is not supported by Scapegoat&lt;/li&gt;
+&lt;li&gt;Project is too large, and recording all patterns causes JVM GarbageCollection over limit &lt;/li&gt;
+&lt;li&gt;Can&amp;#39;t resolve buildinfo, which, I don&amp;#39;t know why&lt;/li&gt;
+&lt;li&gt;sbt build failed&lt;/li&gt;
+&lt;li&gt;Compile error with Scapegoat plugin attached, but sbt compile always succeed. Maybe there are some bug in Scapegoat plugin.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        
+        <pubDate>Tue, 01 Sep 2015 00:00:00 +0800</pubDate>
+        <link>https://github.com/pwwpche/blog/c.%20Scapegoat%20compile%20result/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/c.%20Scapegoat%20compile%20result/</guid>
+        
+        <category>Scapegoat</category>
+        
+        <category>Lab</category>
+        
+        
+      </item>
+      
     
       
       <item>
@@ -35,8 +168,8 @@
 </description>
         
         <pubDate>Tue, 01 Sep 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/b.%20Install%20Jekyll%20on%20Windows%20-%20Copy/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.%20Install%20Jekyll%20on%20Windows%20-%20Copy/</guid>
+        <link>https://github.com/pwwpche/blog/b.%20Install%20Jekyll%20on%20Windows/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/b.%20Install%20Jekyll%20on%20Windows/</guid>
         
         <category>jekyll</category>
         
@@ -104,8 +237,8 @@
 </description>
         
         <pubDate>Tue, 01 Sep 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.%20How%20to%20write%20inspectors%20for%20Scapegoat%20-%20Copy/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.%20How%20to%20write%20inspectors%20for%20Scapegoat%20-%20Copy/</guid>
+        <link>https://github.com/pwwpche/blog/a.%20Inspectors%20for%20Scapegoat%20-%20Copy/</link>
+        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.%20Inspectors%20for%20Scapegoat%20-%20Copy/</guid>
         
         <category>Lab</category>
         
@@ -414,42 +547,6 @@
         <pubDate>Fri, 07 Aug 2015 00:00:00 +0800</pubDate>
         <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.7%20-%20Copy/</link>
         <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.7%20-%20Copy/</guid>
-        
-        <category>Lab</category>
-        
-        <category>Report</category>
-        
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Daily Report - 8.6</title>
-        <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;剧=坑&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;需要做的&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;尼玛这两天真是弃疗的...&lt;/li&gt;
-&lt;li&gt;晚上回去不能下剧&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-          <description>&lt;h3&gt;完成的任务&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;剧=坑&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        
-        <pubDate>Thu, 06 Aug 2015 00:00:00 +0800</pubDate>
-        <link>https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.6/</link>
-        <guid isPermaLink="true">https://github.com/pwwpche/blog/a.Daily%20Report%20-%208.6/</guid>
         
         <category>Lab</category>
         
