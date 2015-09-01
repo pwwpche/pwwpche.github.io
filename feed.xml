@@ -5,13 +5,13 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 01 Sep 2015 12:20:11 +0800</pubDate>
-    <lastBuildDate>Tue, 01 Sep 2015 12:20:11 +0800</lastBuildDate>
+    <pubDate>Tue, 01 Sep 2015 21:49:40 +0800</pubDate>
+    <lastBuildDate>Tue, 01 Sep 2015 21:49:40 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       
       <item>
-        <title>Github commit spider + code spider</title>
+        <title>Github commit spider &amp; code spider</title>
         <description>&lt;h4&gt;Spider intro&lt;/h4&gt;
 
 &lt;ul&gt;
@@ -278,13 +278,13 @@
 &lt;h5&gt;Success&lt;/h5&gt;
 
 &lt;ul&gt;
-&lt;li&gt;adamw_macwire     56s&lt;/li&gt;
+&lt;li&gt;adamw_macwire                     56s&lt;/li&gt;
 &lt;li&gt;AsyncttpClient-async...&lt;br&gt;&lt;/li&gt;
 &lt;li&gt;daniel-trinh_scalariform&lt;/li&gt;
-&lt;li&gt;p2t2_figaro           122s&lt;/li&gt;
-&lt;li&gt;dickwall_subcut       13s&lt;/li&gt;
-&lt;li&gt;dispatch_reboot       25s&lt;/li&gt;
-&lt;li&gt;dylemma_scala-frp 13s&lt;/li&gt;
+&lt;li&gt;p2t2_figaro                           122s&lt;/li&gt;
+&lt;li&gt;dickwall_subcut                       13s&lt;/li&gt;
+&lt;li&gt;dispatch_reboot                       25s&lt;/li&gt;
+&lt;li&gt;dylemma_scala-frp                 13s&lt;/li&gt;
 &lt;li&gt;etaty_rediscala       50s&lt;/li&gt;
 &lt;li&gt;fehmicansaglam_tepkin     54s&lt;/li&gt;
 &lt;li&gt;finagle_finch     80s&lt;/li&gt;
