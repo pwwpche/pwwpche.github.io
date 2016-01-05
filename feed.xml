@@ -5,8 +5,8 @@
     <description>No description here</description>
     <link>https://github.com/pwwpche/</link>
     <atom:link href="https://github.com/pwwpche/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 01 Sep 2015 21:49:40 +0800</pubDate>
-    <lastBuildDate>Tue, 01 Sep 2015 21:49:40 +0800</lastBuildDate>
+    <pubDate>Mon, 28 Sep 2015 22:29:14 +0800</pubDate>
+    <lastBuildDate>Mon, 28 Sep 2015 22:29:14 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       
@@ -278,30 +278,36 @@
 &lt;h5&gt;Success&lt;/h5&gt;
 
 &lt;ul&gt;
-&lt;li&gt;adamw_macwire                     56s&lt;/li&gt;
+&lt;li&gt;adamw_macwire         56s&lt;/li&gt;
 &lt;li&gt;AsyncttpClient-async...&lt;br&gt;&lt;/li&gt;
 &lt;li&gt;daniel-trinh_scalariform&lt;/li&gt;
-&lt;li&gt;p2t2_figaro                           122s&lt;/li&gt;
-&lt;li&gt;dickwall_subcut                       13s&lt;/li&gt;
-&lt;li&gt;dispatch_reboot                       25s&lt;/li&gt;
-&lt;li&gt;dylemma_scala-frp                 13s&lt;/li&gt;
-&lt;li&gt;etaty_rediscala       50s&lt;/li&gt;
-&lt;li&gt;fehmicansaglam_tepkin     54s&lt;/li&gt;
-&lt;li&gt;finagle_finch     80s&lt;/li&gt;
-&lt;li&gt;maxcellent_lamma  24s&lt;/li&gt;
-&lt;li&gt;mesosphere_chaos  45s&lt;/li&gt;
-&lt;li&gt;ngocdaothanh&lt;em&gt;netcaty&lt;/em&gt;master   4s&lt;/li&gt;
-&lt;li&gt;nafg&lt;em&gt;reactive&lt;/em&gt;v0.4.0  98s&lt;/li&gt;
-&lt;li&gt;novus&lt;em&gt;salat&lt;/em&gt;_master   29s&lt;/li&gt;
-&lt;li&gt;ReactiveMongo&lt;em&gt;ReactiveMongo&lt;/em&gt;master    58s&lt;/li&gt;
-&lt;li&gt;ReactiveX&lt;em&gt;RxScala&lt;/em&gt;0.x 32s&lt;/li&gt;
-&lt;li&gt;romainreuillon&lt;em&gt;mgo&lt;/em&gt;master 98s&lt;/li&gt;
-&lt;li&gt;SandroGrzicic&lt;em&gt;ScalaBuff&lt;/em&gt;master    28s&lt;/li&gt;
-&lt;li&gt;scala&lt;em&gt;async&lt;/em&gt;master    33s&lt;/li&gt;
-&lt;li&gt;scala&lt;em&gt;pickling&lt;/em&gt;0.10.x 104s&lt;/li&gt;
-&lt;li&gt;scala&lt;em&gt;scala-parser-combinators&lt;/em&gt;master 27s&lt;/li&gt;
-&lt;li&gt;sirthias&lt;em&gt;scala-ssh&lt;/em&gt;master 23s&lt;/li&gt;
-&lt;li&gt;sksamuel&lt;em&gt;elastic4s&lt;/em&gt;master 105s&lt;/li&gt;
+&lt;li&gt;p2t2_figaro           122s(done, with some bugs)&lt;/li&gt;
+&lt;li&gt;dickwall_subcut       13s(done)&lt;/li&gt;
+&lt;li&gt;dispatch_reboot       25s(done, with some bugs, should clean before running scapegoat)&lt;/li&gt;
+&lt;li&gt;dylemma_scala-frp     13s(done)&lt;/li&gt;
+&lt;li&gt;etaty_rediscala       50s(compile failed, wtf)&lt;/li&gt;
+&lt;li&gt;fehmicansaglam_tepkin     54s(compile error, with some bugs)&lt;/li&gt;
+&lt;li&gt;finagle_finch     80s (done, found nothing)&lt;/li&gt;
+&lt;li&gt;maxcellent_lamma  24s (done, found nothing)&lt;/li&gt;
+&lt;li&gt;mesosphere_chaos  45s (done, found something)&lt;/li&gt;
+&lt;li&gt;ngocdaothanh&lt;em&gt;netcaty&lt;/em&gt;master   4s&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;nafg&lt;em&gt;reactive&lt;/em&gt;v0.4.0  98s(found an actual bug(well...seems not a bug))&lt;/li&gt;
+&lt;li&gt;novus&lt;em&gt;salat&lt;/em&gt;_master   29s(found some bugs)&lt;/li&gt;
+&lt;li&gt;ReactiveMongo&lt;em&gt;ReactiveMongo&lt;/em&gt;master    58s(find some bugs)&lt;/li&gt;
+&lt;li&gt;ReactiveX&lt;em&gt;RxScala&lt;/em&gt;0.x 32s(lots of recursion false positives)&lt;/li&gt;
+&lt;li&gt;romainreuillon&lt;em&gt;mgo&lt;/em&gt;master 98s(find some bugs)&lt;/li&gt;
+&lt;li&gt;SandroGrzicic&lt;em&gt;ScalaBuff&lt;/em&gt;master    28s(found some bugs)&lt;/li&gt;
+&lt;li&gt;scala&lt;em&gt;async&lt;/em&gt;master    33s(still some false positives)
+ [Path] : E:\Scala\Codes\scala&lt;em&gt;async&lt;/em&gt;master\async-master\src\main\scala\scala\async\internal\Lifter.scala:29: 
+ [Desc] : Unused pattern matching variable not solved&lt;/li&gt;
+&lt;li&gt;scala&lt;em&gt;pickling&lt;/em&gt;0.10.x 104s
+ [Path] : scala&lt;em&gt;pickling&lt;/em&gt;0.10.x.pickling-0.10.x.core.src.main.scala.scala.pickling.util.Externalizables.scala:41:
+ [Desc] : lots of unused variables
+ [Path] :  E:\Scala\Codes\scala&lt;em&gt;pickling&lt;/em&gt;0.10.x\pickling-0.10.x\benchmark\GeoTrellis.scala:22: 
+ [Desc] : Variable scala.pickling.internal.&lt;code&gt;package&lt;/code&gt;.cachedMirror is null in If block&lt;/li&gt;
+&lt;li&gt;scala&lt;em&gt;scala-parser-combinators&lt;/em&gt;master 27s (some bugs, false positive eliminated)&lt;/li&gt;
+&lt;li&gt;sirthias&lt;em&gt;scala-ssh&lt;/em&gt;master 23s(found a false positive)&lt;/li&gt;
+&lt;li&gt;sksamuel&lt;em&gt;elastic4s&lt;/em&gt;master 105s(found one bug)&lt;/li&gt;
 &lt;li&gt;squeryl&lt;em&gt;squeryl&lt;/em&gt;master    74s&lt;/li&gt;
 &lt;li&gt;stephenmcd&lt;em&gt;curiodb&lt;/em&gt;master 162s, most time on compiling java sources&lt;/li&gt;
 &lt;li&gt;xitrum-framework&lt;em&gt;scala-xgettext&lt;/em&gt;master    4s(only one file)&lt;/li&gt;

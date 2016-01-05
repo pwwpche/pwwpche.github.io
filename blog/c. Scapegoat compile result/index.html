@@ -97,30 +97,36 @@ ga('send', 'pageview');
 <h5>Success</h5>
 
 <ul>
-<li>adamw_macwire                     56s</li>
+<li>adamw_macwire         56s</li>
 <li>AsyncttpClient-async...<br></li>
 <li>daniel-trinh_scalariform</li>
-<li>p2t2_figaro                           122s</li>
-<li>dickwall_subcut                       13s</li>
-<li>dispatch_reboot                       25s</li>
-<li>dylemma_scala-frp                 13s</li>
-<li>etaty_rediscala       50s</li>
-<li>fehmicansaglam_tepkin     54s</li>
-<li>finagle_finch     80s</li>
-<li>maxcellent_lamma  24s</li>
-<li>mesosphere_chaos  45s</li>
-<li>ngocdaothanh<em>netcaty</em>master   4s</li>
-<li>nafg<em>reactive</em>v0.4.0  98s</li>
-<li>novus<em>salat</em>_master   29s</li>
-<li>ReactiveMongo<em>ReactiveMongo</em>master    58s</li>
-<li>ReactiveX<em>RxScala</em>0.x 32s</li>
-<li>romainreuillon<em>mgo</em>master 98s</li>
-<li>SandroGrzicic<em>ScalaBuff</em>master    28s</li>
-<li>scala<em>async</em>master    33s</li>
-<li>scala<em>pickling</em>0.10.x 104s</li>
-<li>scala<em>scala-parser-combinators</em>master 27s</li>
-<li>sirthias<em>scala-ssh</em>master 23s</li>
-<li>sksamuel<em>elastic4s</em>master 105s</li>
+<li>p2t2_figaro           122s(done, with some bugs)</li>
+<li>dickwall_subcut       13s(done)</li>
+<li>dispatch_reboot       25s(done, with some bugs, should clean before running scapegoat)</li>
+<li>dylemma_scala-frp     13s(done)</li>
+<li>etaty_rediscala       50s(compile failed, wtf)</li>
+<li>fehmicansaglam_tepkin     54s(compile error, with some bugs)</li>
+<li>finagle_finch     80s (done, found nothing)</li>
+<li>maxcellent_lamma  24s (done, found nothing)</li>
+<li>mesosphere_chaos  45s (done, found something)</li>
+<li>ngocdaothanh<em>netcaty</em>master   4s<br></li>
+<li>nafg<em>reactive</em>v0.4.0  98s(found an actual bug(well...seems not a bug))</li>
+<li>novus<em>salat</em>_master   29s(found some bugs)</li>
+<li>ReactiveMongo<em>ReactiveMongo</em>master    58s(find some bugs)</li>
+<li>ReactiveX<em>RxScala</em>0.x 32s(lots of recursion false positives)</li>
+<li>romainreuillon<em>mgo</em>master 98s(find some bugs)</li>
+<li>SandroGrzicic<em>ScalaBuff</em>master    28s(found some bugs)</li>
+<li>scala<em>async</em>master    33s(still some false positives)
+ [Path] : E:\Scala\Codes\scala<em>async</em>master\async-master\src\main\scala\scala\async\internal\Lifter.scala:29: 
+ [Desc] : Unused pattern matching variable not solved</li>
+<li>scala<em>pickling</em>0.10.x 104s
+ [Path] : scala<em>pickling</em>0.10.x.pickling-0.10.x.core.src.main.scala.scala.pickling.util.Externalizables.scala:41:
+ [Desc] : lots of unused variables
+ [Path] :  E:\Scala\Codes\scala<em>pickling</em>0.10.x\pickling-0.10.x\benchmark\GeoTrellis.scala:22: 
+ [Desc] : Variable scala.pickling.internal.<code>package</code>.cachedMirror is null in If block</li>
+<li>scala<em>scala-parser-combinators</em>master 27s (some bugs, false positive eliminated)</li>
+<li>sirthias<em>scala-ssh</em>master 23s(found a false positive)</li>
+<li>sksamuel<em>elastic4s</em>master 105s(found one bug)</li>
 <li>squeryl<em>squeryl</em>master    74s</li>
 <li>stephenmcd<em>curiodb</em>master 162s, most time on compiling java sources</li>
 <li>xitrum-framework<em>scala-xgettext</em>master    4s(only one file)</li>
