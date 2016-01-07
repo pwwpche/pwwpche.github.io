@@ -2105,7 +2105,7 @@
 
 	#header {
 		position: relative;
-		background-image: url("../../images/header.jpg");
+		background-image: url("images/overlay2.png"), url("images/overlay3.svg"), linear-gradient(45deg, #9dc66b 5%, #4fa49a 30%, #4361c2);
 		background-size: cover;
 		background-position: center center;
 		background-attachment: fixed;
@@ -2177,7 +2177,7 @@
 
 	body.homepage #header {
 		height: 100vh;
-		min-height: 40em;
+		min-height: 0em;
 	}
 
 		body.homepage #header h1 {
@@ -2186,7 +2186,7 @@
 
 		body.homepage #header:after {
 			content: '';
-			background: #1C0920;
+			background: #4361c2;
 			display: block;
 			position: absolute;
 			left: 0;
@@ -2777,6 +2777,27 @@
 				line-height: 3em;
 				width: 100%;
 			}
+			
+			.transparent-button {
+				transition: all 0.25s ease-in-out;
+				-webkit-appearance: none;
+				position: relative;
+				display: inline-block;
+				background: #3d3d3d;
+				padding: 0em 0em 0em;
+				border-radius: 0.25em;
+				cursor: pointer;
+				width: 8em;
+				height: 3em;
+				line-height: 3em;
+				border: 0;
+				color: #fff;
+				text-align: center;
+				text-decoration: none;
+				background: rgba(255, 255, 255, 0.15);
+				box-shadow: inset 0 0 0 1px #fff;
+				color: #fff;
+			}
 
 		/* Off-Canvas Navigation */
 
@@ -2959,6 +2980,28 @@
 			}
 
 		/* Header */
+			.lt-ie9 header.change, .no-js header.change, header.change.fixed, header.change.mobile_open {
+				background-color: #fff;
+				background-color: rgba(255,255,255,.96);
+				border-bottom: 1px solid #ccc;
+			}
+			@media (min-width: 60em)
+			header {
+				height: 44px;
+			}
+			header {
+				height: 56px;
+			}
+			header {
+				position: fixed;
+				z-index: 9999;
+				width: 100%;
+				top: 0;
+				transition: background-color .5s;
+			}
+
+		
+		
 
 			#header {
 				background-attachment: scroll;
