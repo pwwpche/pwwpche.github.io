@@ -287,7 +287,7 @@ nav a#pull {
 	padding: 0;
 	background: url(../images/expert.jpg) no-repeat 0px 0px;
 	background-size: cover;
-	min-height: 656px;
+	min-height: 726px;
 }
 .expertise-head h3{
 	font-weight: 900;
@@ -458,7 +458,7 @@ a.leran-more:hover{
 	top: 0;
 	background: rgba(153, 153, 153, 0.8);
 	text-align: center;
-	padding: 6em 2em 0em 2em;
+	padding: 3em 1em 0em 1em;
 	bottom: 0;
 }
 .portfolio-work-grid-caption h4{
