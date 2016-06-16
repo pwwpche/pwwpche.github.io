@@ -229,7 +229,7 @@ nav a#pull {
 }
 /*---- services ----*/
 .services{
-	padding:3em 0;
+	padding:5em 5em 5em 5em;
 	background: #F9F9F9;
 }
 .service-head h2{
@@ -512,7 +512,7 @@ a.leran-more:hover{
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	width: 3px;
+	width: 0px;
 	background: #F1F1F1;
 	left: 49%;
 	margin-left: -10px;
@@ -528,7 +528,7 @@ a.leran-more:hover{
 	display: block;
 	text-align: right;
 }
-.about-time-line > li .cbp_tmicon,.cbp_tmicon1,.cbp_tmicon2,.cbp_tmicon3,.cbp_tmicon2,.cbp_tmicon4{
+.about-time-line > li .cbp_tmicon,.cbp_tmicon1,.cbp_tmicon2,.cbp_tmicon3,.cbp_tmicon2,.cbp_tmicon4, .cbp_tmicon5, .cbp_tmicon6{
 	width: 170px;
 	height: 170px;
 	speak: none;
@@ -549,44 +549,58 @@ a.leran-more:hover{
 }
 .cbp_tmicon1{
 	left: 41%;
-	top: 27%;
+	top: 18%;
 }
 .cbp_tmicon2{
 	left: 41%;
-	top: 52%;
+	top: 35%;
 }
 .cbp_tmicon3{
 	left: 41%;
-	top: 77%;
+	top: 51%;
 }
 .cbp_tmicon4{
+	left: 41%;
+	top: 68%;
+}
+
+.cbp_tmicon5{
+	left: 41%;
+	top: 84%;
+}
+
+.cbp_tmicon6{
 	left: 41%;
 	top: 100%;
 }
 .img1{
-	background:url(../images/time-line-img.jpg) no-repeat;
+	background:url(../images/x1.jpg) no-repeat;
 	background-size: 100% 100%;
 }
 .img2{
-	background:url(../images/time-line-img1.jpg) no-repeat;
+	background:url(../images/x2.jpg) no-repeat;
 	background-size: 100% 100%;
 }
 .img3{
-	background:url(../images/time-line-img2.jpg) no-repeat;
+	background:url(../images/x3.jpg) no-repeat;
 	background-size: 100% 100%;
 }
 .img4{
-	background:url(../images/time-line-img4.jpg) no-repeat;
+	background:url(../images/x4.jpg) no-repeat;
 	background-size: 100% 100%;
 }
 .img5{
-	background:url(../images/time-line-img5.png) no-repeat #7CC576;
+	background:url(../images/x5.jpg) no-repeat #7CC576;
+	background-size: 100% 100%;
+}
+.img6{
+	background:url(../images/x6.jpg) no-repeat #7CC576;
 	background-size: 100% 100%;
 }
 .about-time-line > li .cbp_tmlabel {
 	margin: 0 0 0px -8%;
 	color: #fff;
-	padding: 1em 0em 0em 0;
+	padding: 0em 0em 0em 0;
 	font-size: 1.2em;
 	font-weight: 300;
 	line-height: 1.4;
@@ -594,7 +608,7 @@ a.leran-more:hover{
 	border-radius: 5px;
 	width: 40%;
 	text-align: right;
-	min-height: 250px;
+	min-height: 320px;
 }
 .about-time-line > li .cbp_tmlabel1 {
 	margin: 0 0 15px 64%;
@@ -1005,7 +1019,7 @@ a.leran-more:hover{
 		width: 100%;
 		margin: 0;
 	}
-	.about-time-line > li .cbp_tmicon, .cbp_tmicon1, .cbp_tmicon2, .cbp_tmicon3, .cbp_tmicon2, .cbp_tmicon4 {
+	.about-time-line > li .cbp_tmicon, .cbp_tmicon1, .cbp_tmicon2, .cbp_tmicon3, .cbp_tmicon2, .cbp_tmicon4, .cbp_tmicon5, .cbp_tmicon6 {
 		left: 10%;
 	}
 	.tm-head h3 {
@@ -1096,7 +1110,7 @@ a.leran-more:hover{
 		width: 100%;
 		margin: 0;
 	}
-	.about-time-line > li .cbp_tmicon, .cbp_tmicon1, .cbp_tmicon2, .cbp_tmicon3, .cbp_tmicon2, .cbp_tmicon4 {
+	.about-time-line > li .cbp_tmicon, .cbp_tmicon1, .cbp_tmicon2, .cbp_tmicon3, .cbp_tmicon2, .cbp_tmicon4 ,.6, .cbp_tmicon4 {
 		left: 10%;
 		width: 140px;
 		height: 140px;
@@ -1155,11 +1169,11 @@ a.leran-more:hover{
 	}
 	.about-time-line > li .cbp_tmlabel {
 		width: 54%;
-		margin: 0% 100% 0px 37%;
+		margin: 0% 100% 0px 40%;
 		text-align: left;
 	}
 	.about-time-line > li .cbp_tmlabel1 {
-		margin: 0 0 15px 35%;
+		margin: 0 0 15px 40%;
 	}
 	.about-time-line:before {
 		left: 19.5%;
@@ -1189,7 +1203,7 @@ a.leran-more:hover{
 		width: 100%;
 		margin: 0;
 	}
-	.about-time-line > li .cbp_tmicon, .cbp_tmicon1, .cbp_tmicon2, .cbp_tmicon3, .cbp_tmicon2, .cbp_tmicon4 {
+	.about-time-line > li .cbp_tmicon, .cbp_tmicon1, .cbp_tmicon2, .cbp_tmicon3, .cbp_tmicon2, .cbp_tmicon4, .cbp_tmicon5 {
 		left: 10%;
 		width: 120px;
 		height: 120px;
@@ -1319,7 +1333,7 @@ a.leran-more:hover{
 		width: 100%;
 		margin: 0;
 	}
-	.about-time-line > li .cbp_tmicon, .cbp_tmicon1, .cbp_tmicon2, .cbp_tmicon3, .cbp_tmicon2, .cbp_tmicon4 {
+	.about-time-line > li .cbp_tmicon, .cbp_tmicon1, .cbp_tmicon2, .cbp_tmicon3, .cbp_tmicon2, .cbp_tmicon4, .cbp_tmicon5, .cbp_tmicon6 {
 		left: 10%;
 		width: 70px;
 		height: 70px;
