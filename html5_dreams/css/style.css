@@ -353,7 +353,7 @@ a.leran-more{
 	text-transform:uppercase;
 	text-decoration:none;
 	font-weight:600;
-	padding:0.9em 2em; 
+	padding:0.8em 0.8em; 
 	display:inline-block;
 	font-size:1.1em;
 	border-radius: 3em;
@@ -364,7 +364,7 @@ a.leran-more{
 	border:1px solid #CBEEFA;
 }
 a.leran-more:hover{
-	background:#222222;
+	background:#EEEEEE;
 	color:#FFFFFF;
 }
 .expertice-left-grid{
@@ -501,7 +501,7 @@ a.leran-more:hover{
 	list-style: none;
 	position: relative;
 	width: 60%;
-	margin: 6em auto 15em;
+	margin: 6em auto 3em;
 }
 .about-time-line li{
 	display: inline;
@@ -553,20 +553,20 @@ a.leran-more:hover{
 }
 .cbp_tmicon2{
 	left: 41%;
-	top: 35%;
+	top: 34%;
 }
 .cbp_tmicon3{
 	left: 41%;
-	top: 51%;
+	top: 50%;
 }
 .cbp_tmicon4{
 	left: 41%;
-	top: 68%;
+	top: 67%;
 }
 
 .cbp_tmicon5{
 	left: 41%;
-	top: 84%;
+	top: 82%;
 }
 
 .cbp_tmicon6{
@@ -777,7 +777,7 @@ a.leran-more:hover{
 	width: 28px;
 	height: 32px;
 	display: inline-block;
-	background: url(../images/contact-icons1.png) no-repeat 0px 0px;
+	background: url(../images/white.png) no-repeat 0px 0px;
 	vertical-align: middle;
 	margin-right: 0.3em;
 }
