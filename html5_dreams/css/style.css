@@ -497,11 +497,12 @@ a.leran-more:hover{
 }
 /*--about-time-line--*/
 .about-time-line{
-	width : 80%;
 	margin: 3.3em 2.5em 3.3em 3.3em;
+    padding: 0 3em 3em 5em;
 }
 .about-time-line ul{
 	min-height: 200px;
+    padding-left: 0px;
 }
 #prev_projects li {
 	width: 200px;
@@ -516,6 +517,10 @@ a.leran-more:hover{
 #prev_projects li img{
 	max-width: 200px;
 	height : auto;
+}
+
+.time-line-tabs img {
+    max-width : 200px;
 }
 
 /*--//about-time-line--*/
@@ -903,13 +908,11 @@ a.leran-more:hover{
 	.about {
 		padding: 1em 0 14em;
 	}
-	.about-time-line {
-		width: 100%;
-		margin: 0;
-	}
+
 	.about-time-line > li .cbp_tmicon, .cbp_tmicon1, .cbp_tmicon2, .cbp_tmicon3, .cbp_tmicon2, .cbp_tmicon4, .cbp_tmicon5, .cbp_tmicon6 {
 		left: 10%;
 	}
+
 	.tm-head h3 {
 		font-size: 3em;
 	}
@@ -1090,6 +1093,7 @@ a.leran-more:hover{
 	.about-time-line {
 		width: 100%;
 		margin: 0;
+        padding: 0 3em 3em 5em;
 	}
 	.about-time-line > li .cbp_tmicon, .cbp_tmicon1, .cbp_tmicon2, .cbp_tmicon3, .cbp_tmicon2, .cbp_tmicon4, .cbp_tmicon5 {
 		left: 10%;

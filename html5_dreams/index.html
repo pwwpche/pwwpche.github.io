@@ -268,18 +268,26 @@
 				</ul>
 			</div>
 
+            <div class="time-line-tabs">
+
 
 			<div class="tab">
-				<div class="cbp_tmicon img1"> </div>
-				<div class="cbp_tmlabel" data-wow-delay="0.4s">
-					<h2>蜂窝微服</h2>
-					<p>“蜂窝微服”是一家精耕于“最后一公里”恒温及时送服务商。借助O2O外送市场需求发展大势，在全国范围内快速网格化扩建“3公里，1小时送达”服务网格，以优质的服务迅速成为国内各大品牌餐饮、外卖平台、生鲜电商的配送业务战略合作伙伴。</p>
-					<p>2014年获得澎湃资本的天使投资。</p>
-					<p>2014年12月获得由联创投资的1500万人民币的A轮融资</p>
-				</div>
+                <div class="row">
+                    <div class="col-lg-3">
+                            <img src="images/c1.jpg" alt="" />
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="cbp_tmlabel" data-wow-delay="0.4s">
+                            <h2>蜂窝微服</h2>
+                            <p>“蜂窝微服”是一家精耕于“最后一公里”恒温及时送服务商。借助O2O外送市场需求发展大势，在全国范围内快速网格化扩建“3公里，1小时送达”服务网格，以优质的服务迅速成为国内各大品牌餐饮、外卖平台、生鲜电商的配送业务战略合作伙伴。</p>
+                            <p>2014年获得澎湃资本的天使投资。</p>
+                            <p>2014年12月获得由联创投资的1500万人民币的A轮融资</p>
+                        </div>
+                    </div>
+                </div>
 			</div>
 			<div class="tab">
-				<div class="cbp_tmicon1 img2"> </div>
+				<div class="cbp_tmicon img2"> </div>
 				<div class="cbp_tmlabel" data-wow-delay="0.4s">
 					<h2>助理来也</h2>
 					<p>“助理来也”目标做每个用户最有爱贴心的私人助理，并通过对话和推荐等智能交互技术人性化地连接人和本地商业。产品上线半年多，已经成为这个创业方向上的业界标杆。
@@ -289,7 +297,7 @@
 				</div>
 			</div>
 			<div class="tab">
-				<div class="cbp_tmicon2 img3"> </div>
+				<div class="cbp_tmicon img3"> </div>
 				<div class="cbp_tmlabel" data-wow-delay="0.4s">
 					<h2>够赞</h2>
 					<p>“够赞”是一款面向消费升级的精品垂直电商平台。为用户提供高性价比的D+F商品（设计师和供应链对接商品）、热门IP商品；并通过话题引导和游戏性玩法，完成C2B定制化销售.</p>
@@ -297,7 +305,7 @@
 				</div>
 			</div>
 			<div class="tab">
-				<div class="cbp_tmicon3 img4"> </div>
+				<div class="cbp_tmicon img4"> </div>
 				<div class="cbp_tmlabel" data-wow-delay="0.4s">
 					<h2>alphace玉颜</h2>
 					<p>Alphace玉颜，全球首款智能测肤护肤仪，采用alphace scan技术随时随地了解肌肤状况；alphace sonic声波导入技术，帮助精华吸收，抚平细小皱纹。匠心打造alphace时尚科技品牌，为用户提供更多智能化的产品与服务。</p>
@@ -305,7 +313,7 @@
 				</div>
 			</div>
 			<div class="tab">
-				<div class="cbp_tmicon4 img5"> </div>
+				<div class="cbp_tmicon img5"> </div>
 				<div class="cbp_tmlabel" data-wow-delay="0.4s">
 					<h2>帝先实业</h2>
 					<p>立足于优化农产品流通，以系统化运营的手段，为零售环节提升人流并降低采购成本；从而为农产品供应链流通降低流通成本，提升流通 效率。现阶段在上海市迅速拓展市场。以自营交易闭环入手，完成信息整合，并逐步实现互联网化。</p>
@@ -313,7 +321,7 @@
 				</div>
 			</div>
 			<div class="tab">
-				<div class="cbp_tmicon5 img6"> </div>
+				<div class="cbp_tmicon img6"> </div>
 				<div class="cbp_tmlabel" data-wow-delay="0.4s">
 					<h2>奇思</h2>
 					<p>奇思是移动视频领域的领军企业，旗下产品线覆盖逾三成 iOS 活跃用户，视频产品形式涵盖VR、聚合、直播及垂直细分等多个领域，秉承“移动视频+”的战略理念，逐渐形成一套完善的移动视频生态系统。</p>
@@ -321,9 +329,9 @@
 					<p>2015年8月获得澎湃资本Pre-A轮融资</p>
 				</div>
 			</div>
+            </div>
 
-
-			<div class="clearfix" style="text-align:center"> 
+            <div class="clearfix" style="text-align:center">
 				<a class="leran-more scroll" href="#contacts"><img src="images/to-next.png"></img></a>
 			</div>
 		</div>
@@ -392,7 +400,26 @@
 						var index = i;
 						$(this).mouseenter(function () {
 							$(".about-time-line .tab").eq(index).show().siblings(".tab").hide();
+                            $('#prev_projects ul').carouFredSel({
+                                auto: false,
+                                mousewheel: true,
+                                swipe: {
+                                    onMouse : true,
+                                    onTouch: true
+                                }
+                            });
 						})
+
+                        $(this).mouseleave(function(){
+                            $('#prev_projects ul').carouFredSel({
+                                auto: true,
+                                mousewheel: true,
+                                swipe: {
+                                    onMouse : true,
+                                    onTouch: true
+                                }
+                            });
+                        });
 					});
 
 
