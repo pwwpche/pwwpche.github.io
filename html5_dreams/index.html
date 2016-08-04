@@ -16,6 +16,11 @@
 	<!---- start-smoth-scrolling---->
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
+	<script src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+
+
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){
@@ -30,8 +35,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	</script>
-	<!---//webfonts--->
-	<!----start-top-nav-script---->
+
 	<script>
 	$(function() {
 		var pull 		= $('#pull');
@@ -128,7 +132,7 @@
 				</div>
 			</div>
 			<div class="clearfix">
-				<a class="leran-more scroll" href="#team"><img src="images/to-next.png"></img></a>
+				<a class="leran-more scroll" href="#team"><img src="images/to-next.png"/></a>
 			</div>
 		</div>
 		<!--- services-grids --->
@@ -251,59 +255,72 @@
 		</div>
 		<!---start-about-time-line---->
 		<div class="about-time-line">
-			<li>
+
+			<div id="prev_projects">
+
+				<ul>
+					<li><img src="images/c1.jpg" alt="" /></li>
+					<li><img src="images/c2.jpg" alt="" /></li>
+					<li><img src="images/c3.jpg" alt="" /></li>
+					<li><img src="images/c4.jpg" alt="" /></li>
+					<li><img src="images/c5.jpg" alt="" /></li>
+					<li><img src="images/c6.jpg" alt="" /></li>
+				</ul>
+			</div>
+
+
+			<div class="tab">
 				<div class="cbp_tmicon img1"> </div>
-				<div class="cbp_tmlabel wow fadeInLeft" data-wow-delay="0.4s">
+				<div class="cbp_tmlabel" data-wow-delay="0.4s">
 					<h2>蜂窝微服</h2>
 					<p>“蜂窝微服”是一家精耕于“最后一公里”恒温及时送服务商。借助O2O外送市场需求发展大势，在全国范围内快速网格化扩建“3公里，1小时送达”服务网格，以优质的服务迅速成为国内各大品牌餐饮、外卖平台、生鲜电商的配送业务战略合作伙伴。</p>
 					<p>2014年获得澎湃资本的天使投资。</p>
 					<p>2014年12月获得由联创投资的1500万人民币的A轮融资</p>
 				</div>
-			</li>
-			<li>
+			</div>
+			<div class="tab">
 				<div class="cbp_tmicon1 img2"> </div>
-				<div class="cbp_tmlabel cbp_tmlabel1 wow fadeInRight" data-wow-delay="0.4s">
+				<div class="cbp_tmlabel" data-wow-delay="0.4s">
 					<h2>助理来也</h2>
 					<p>“助理来也”目标做每个用户最有爱贴心的私人助理，并通过对话和推荐等智能交互技术人性化地连接人和本地商业。产品上线半年多，已经成为这个创业方向上的业界标杆。
 					</p>
 					<p>								2015年8月获得由光速创投，红杉资本，澎湃资本和真格投资联合投资的400万美金天使融资。</p>
 					<p>2016年3月完成由光速创投及微软创投联合投资的A轮融资</p>
 				</div>
-			</li><br />
-			<li>
+			</div>
+			<div class="tab">
 				<div class="cbp_tmicon2 img3"> </div>
-				<div class="cbp_tmlabel wow fadeInLeft" data-wow-delay="0.4s">
+				<div class="cbp_tmlabel" data-wow-delay="0.4s">
 					<h2>够赞</h2>
 					<p>“够赞”是一款面向消费升级的精品垂直电商平台。为用户提供高性价比的D+F商品（设计师和供应链对接商品）、热门IP商品；并通过话题引导和游戏性玩法，完成C2B定制化销售.</p>
 					<p>2016年4月获澎湃资本天使投资</p>
 				</div>
-			</li>
-			<li>
+			</div>
+			<div class="tab">
 				<div class="cbp_tmicon3 img4"> </div>
-				<div class="cbp_tmlabel cbp_tmlabel1 wow fadeInRight" data-wow-delay="0.4s">
+				<div class="cbp_tmlabel" data-wow-delay="0.4s">
 					<h2>alphace玉颜</h2>
 					<p>Alphace玉颜，全球首款智能测肤护肤仪，采用alphace scan技术随时随地了解肌肤状况；alphace sonic声波导入技术，帮助精华吸收，抚平细小皱纹。匠心打造alphace时尚科技品牌，为用户提供更多智能化的产品与服务。</p>
 					<p>2015年5月获得澎湃资本300万元天使融资。</p>
 				</div>
-			</li>
-			<li>
+			</div>
+			<div class="tab">
 				<div class="cbp_tmicon4 img5"> </div>
-				<div class="cbp_tmlabel wow fadeInLeft" data-wow-delay="0.4s">
+				<div class="cbp_tmlabel" data-wow-delay="0.4s">
 					<h2>帝先实业</h2>
 					<p>立足于优化农产品流通，以系统化运营的手段，为零售环节提升人流并降低采购成本；从而为农产品供应链流通降低流通成本，提升流通 效率。现阶段在上海市迅速拓展市场。以自营交易闭环入手，完成信息整合，并逐步实现互联网化。</p>
 					<p>2015年12月获得澎湃资本投资的400万天使融资。</p>
 				</div>
-			</li>
-
-			<li>
+			</div>
+			<div class="tab">
 				<div class="cbp_tmicon5 img6"> </div>
-				<div class="cbp_tmlabel cbp_tmlabel1 wow fadeInRight" data-wow-delay="0.4s">
+				<div class="cbp_tmlabel" data-wow-delay="0.4s">
 					<h2>奇思</h2>
 					<p>奇思是移动视频领域的领军企业，旗下产品线覆盖逾三成 iOS 活跃用户，视频产品形式涵盖VR、聚合、直播及垂直细分等多个领域，秉承“移动视频+”的战略理念，逐渐形成一套完善的移动视频生态系统。</p>
 					<p>2014年10月获得天使轮融资</p>
 					<p>2015年8月获得澎湃资本Pre-A轮融资</p>
 				</div>
-			</li>
+			</div>
 
 
 			<div class="clearfix" style="text-align:center"> 
@@ -346,19 +363,38 @@
 		</div>
 		<!--- copy-right ---->
 		<div class="copy-right text-center">
-			<p>Copyright &copy; 2014.Pros & Partners name All rights reserved.</p>
+			<p>Copyright &copy; 2016.Pros & Partners name All rights reserved.</p>
 			<script type="text/javascript">
 				$(document).ready(function() {
-					/*
-					 var defaults = {
-					 containerID: 'toTop', // fading element id
-					 containerHoverID: 'toTopHover', // fading element hover id
-					 scrollSpeed: 1200,
-					 easingType: 'linear'
-					 };
-					 */
 
 					$().UItoTop({ easingType: 'easeOutQuart' });
+					$('#prev_projects ul').carouFredSel({
+						auto: true,
+						mousewheel: true,
+						swipe: {
+							onMouse : true,
+							onTouch: true
+						}
+					});
+
+					var imgs = $("#prev_projects > img");
+					imgs.each(function() {
+						$(this).on('load', function(){
+							$(this).css({
+								left: (200 - $(this).width()) / 2,
+								top: (200 - $(this).height()) / 2,
+								position : 'relative'
+							})
+						});
+					});
+
+					$("#prev_projects li").each(function (i) {
+						var index = i;
+						$(this).mouseenter(function () {
+							$(".about-time-line .tab").eq(index).show().siblings(".tab").hide();
+						})
+					});
+
 
 				});
 			</script>
