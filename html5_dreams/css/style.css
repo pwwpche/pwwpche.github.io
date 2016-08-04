@@ -146,6 +146,8 @@ nav a#pull {
 	  	text-align: left;
 	  	width: 100%;
   	}
+
+
 }
 /*Styles for screen 515px and lower*/
 @media only screen and (max-width : 768px) {
@@ -184,6 +186,15 @@ nav a#pull {
 		color: #2C3E50;
 		padding: 0.4em 0;
 	}
+
+    .tab .col-lg-3{
+        display: none;
+    }
+
+    .time-line-tabs .col-lg-9 {
+        padding-right: 0em;
+    }
+
 }
 /*Smartphone*/
 @media only screen and (max-width : 320px) {
@@ -198,6 +209,15 @@ nav a#pull {
 	nav li a {
 		border-bottom: 1px solid #EEE;
 	}
+
+    .tab .col-lg-3{
+        display: none;
+    }
+
+    .time-line-tabs .col-lg-9 {
+        padding-right: 0em;
+    }
+
 }
 /*---- benner ----*/
 .banner-info{
@@ -1157,7 +1177,7 @@ a.leran-more:hover{
 	.about-time-line {
 		width: 100%;
 		margin: 0;
-        padding: 0 3em 3em 5em;
+        padding: 0 3em 3em 3em;
 	}
 	.about-time-line > li .cbp_tmicon, .cbp_tmicon1, .cbp_tmicon2, .cbp_tmicon3, .cbp_tmicon2, .cbp_tmicon4, .cbp_tmicon5 {
 		left: 10%;
@@ -1223,8 +1243,19 @@ a.leran-more:hover{
 		width: 100%;
 		outline:none;
 	}
+
 }
-@media (max-width:320px){
+
+@media only screen and (max-width: 768px){
+    .time-line-tabs .col-lg-9 {
+        padding-right: 0em;
+    }
+}
+
+
+
+
+    @media (max-width:320px){
 	.container{
 		width:90%;
 	}
@@ -1367,6 +1398,11 @@ a.leran-more:hover{
 		font-size: 0.875em;
 		margin: 0;
 	}
+
+    .tab .col-lg-3{
+        display: none;
+    }
+
 	.tm-head p {
 		width: 80%;
 		margin: 0 auto;

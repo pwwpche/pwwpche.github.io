@@ -17,7 +17,7 @@
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
     <script src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
-    <script src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
     <script src="js/jquery.mousewheel.min.js"></script>
 
 
@@ -388,15 +388,42 @@
         <div class="copy-right text-center">
             <p>Copyright &copy; 2016.Pros & Partners name All rights reserved.</p>
             <script type="text/javascript">
+
+
                 $(document).ready(function() {
+                    function afterEvent(){
+                        var current = $("#prev_projects li").eq(0).children("img");
+                        var index = images.index(current);
+                        console.log(index);
+                        $(".about-time-line .tab").eq(index).show().siblings(".tab").hide();
+                    }
 
                     $().UItoTop({ easingType: 'easeOutQuart' });
                     $('#prev_projects ul').carouFredSel({
-                        auto: true,
+                        auto: false,
                         mousewheel: true,
                         swipe: {
                             onMouse : true,
                             onTouch: true
+                        },
+                        scroll: {
+                            pauseOnHover: true,
+                            onAfter : function(data){
+                                console.log("after");
+                                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                                    var current = $("#prev_projects li").eq(0);
+                                    //current.addClass("selected-project").siblings().removeClass("selected-project");
+                                    var index = images.index(current.children("img"));
+                                    console.log(index);
+                                    $(".about-time-line .tab").eq(index).show().siblings(".tab").hide();
+                                }
+                            }
+                        }
+                    });
+
+                    $('#prev_projects ul').swipe({
+                        tap: function(event, target) {
+                            console.log("aaa");
                         }
                     });
 
@@ -427,31 +454,18 @@
                         $(this).mouseenter(function () {
                             $(".about-time-line .tab").eq(index).show().siblings(".tab").hide();
                             $(this).addClass("selected-project").siblings().removeClass("selected-project");
-
-                            $('#prev_projects ul').carouFredSel({
-                                auto: false,
-                                mousewheel: true,
-                                swipe: {
-                                    onMouse : true,
-                                    onTouch: true
-                                }
-                            });
-                        })
-
-                        $(this).mouseleave(function(){
-                            $('#prev_projects ul').carouFredSel({
-                                auto: true,
-                                mousewheel: true,
-                                swipe: {
-                                    onMouse : true,
-                                    onTouch: true
-                                }
-                            });
                         });
+                    });
+                    var images = $("#prev_projects li img");
+
+                    $("#prev_projects").on('touchend', 'li', function(){
+
                     });
 
 
+
                 });
+
             </script>
             <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
         </div>
