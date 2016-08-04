@@ -244,6 +244,14 @@ nav a#pull {
 	background:#35C2F8;
 	display:inline-block;
 }
+
+.about > .span-line{
+    width:5%;
+    height:1px;
+    background:#35C2F8;
+    display:inline-block;
+}
+
 .service-grid span{
 	width:64px;
 	height:64px;
@@ -378,8 +386,22 @@ a.leran-more:hover{
 	padding:3em 3em 3em 5em;
 	background: url(../images/portbg-1.png) no-repeat 68% 69%;
 }
+
+.pf-info{
+    padding-top: 2em;
+}
+
+.pf-info-sm{
+    padding-top: 3em;
+    padding-left: 0em;
+}
+
+.pf-center{
+    text-align: center;
+}
+
 .portfolio-top-left h3{
-	font-weight: 900;
+	font-weight: 700;
 	font-size: 2.5em;
 	color: #222222;
 	text-transform: uppercase;
@@ -391,6 +413,29 @@ a.leran-more:hover{
 	line-height: 1.7em;
 	color: #777777;
 }
+
+.pf-info p{
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.7em;
+    color: #777777;
+}
+
+.pf-info-sm p{
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.7em;
+    color: #777777;
+}
+
+.pf-info h5{
+    text-transform:uppercase;
+    color:#222222;
+    font-size:1.3em;
+    margin:0;
+    padding:0 0 0.5em 0;
+}
+
 .portfolio-top-left-grid-left{
 	float:left;
 	width:10%;
@@ -490,7 +535,7 @@ a.leran-more:hover{
 	text-transform: uppercase;
 }
 .about-head span{
-	width: 8%;
+	width: 5%;
 	height: 1px;
 	background: #35C2F8;
 	display: inline-block;
@@ -500,6 +545,12 @@ a.leran-more:hover{
 	margin: 3.3em 2.5em 3.3em 3.3em;
     padding: 0 3em 3em 5em;
 }
+
+.selected-project {
+    background-image : url("../images/circle.png");
+    background-size : 100%;
+}
+
 .about-time-line ul{
 	min-height: 200px;
     padding-left: 0px;
@@ -523,6 +574,12 @@ a.leran-more:hover{
     max-width : 200px;
 }
 
+.time-line-tabs .col-lg-9{
+    padding-right: 5em;
+}
+
+
+
 /*--//about-time-line--*/
 /*---team-members--*/
 .team-members{
@@ -531,6 +588,13 @@ a.leran-more:hover{
 }
 .tm-head{
 	text-align:center;
+}
+
+.tm-head span {
+    width:10%;
+    height:1px;
+    background:#35C2F8;
+    display:inline-block;
 }
 .tm-head h3{
 	font-size: 3.3em;
