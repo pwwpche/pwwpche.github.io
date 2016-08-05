@@ -409,7 +409,6 @@
                         scroll: {
                             pauseOnHover: true,
                             onAfter : function(data){
-                                console.log("after");
                                 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
                                     var current = $("#prev_projects li").eq(0);
                                     //current.addClass("selected-project").siblings().removeClass("selected-project");
@@ -418,12 +417,6 @@
                                     $(".about-time-line .tab").eq(index).show().siblings(".tab").hide();
                                 }
                             }
-                        }
-                    });
-
-                    $('#prev_projects ul').swipe({
-                        tap: function(event, target) {
-                            console.log("aaa");
                         }
                     });
 
