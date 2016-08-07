@@ -938,7 +938,7 @@ a.leran-more:hover{
 }
 @media (max-width:768px){
 	.container{
-		width:80%;
+		width:100%;
 	}
 	.portfolio-work-grid-caption {
 		padding: 2.4em 1em 0em 1em;
@@ -1023,7 +1023,7 @@ a.leran-more:hover{
 }
 @media (max-width:640px){
 	.container{
-		width:80%;
+		width:100%;
 	}
 	.portfolio-work-grid-caption {
 		padding: 2.4em 1em 0em 1em;
@@ -1116,7 +1116,7 @@ a.leran-more:hover{
 }
 @media (max-width:480px){
 	.container{
-		width:80%;
+		width:100%;
 	}
 	.portfolio-work-grid-caption {
 		padding: 2.4em 1em 0em 1em;
