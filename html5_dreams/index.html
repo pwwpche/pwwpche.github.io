@@ -3,24 +3,24 @@
 <head>
     <title>澎湃资本 Pros & Partners</title>
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/jquery.fullPage.css" rel="stylesheet" type="text/css" media="all">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
     <!-- Custom Theme files -->
     <!---- animated-css ---->
     <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
-    <link href="css/jquery.fullPage.css" rel="stylesheet" type="text/css" media="all">
     <script src="js/wow.min.js"></script>
     <script>
         new WOW().init();
     </script>
     <!---- animated-css ---->
+
     <!---- start-smoth-scrolling---->
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
     <script src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
     <script src="js/jquery.touchSwipe.min.js"></script>
     <script src="js/jquery.mousewheel.min.js"></script>
-    <script src="js/jquery.fullPage.min.js"></script>
 
 
     <script type="text/javascript">
@@ -31,9 +31,11 @@
             });
         });
     </script>
-    <!---- start-smoth-scrolling---->
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!---- end-smoth-scrolling---->
+
     <!-- Custom Theme files -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="application/x-javascript">
         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
@@ -61,13 +63,7 @@
 
 
         $(document).ready(function() {
-            function afterEvent(){
-                var current = $("#prev_projects li").eq(0).children("img");
-                var index = images.index(current);
-                console.log(index);
-                $(".about-time-line .tab").eq(index).show().siblings(".tab").hide();
-            }
-
+            var images = $("#prev_projects li img");
             $().UItoTop({ easingType: 'easeOutQuart' });
             $('#prev_projects ul').carouFredSel({
                 auto: true,
@@ -83,17 +79,14 @@
                             var current = $("#prev_projects li").eq(0);
                             //current.addClass("selected-project").siblings().removeClass("selected-project");
                             var index = images.index(current.children("img"));
-                            console.log(index);
                             $(".about-time-line .tab").eq(index).show().siblings(".tab").hide();
                         }
                     }
                 }
             });
 
-            var imgs = $("#prev_projects li img");
-            console.log(imgs);
-            imgs.each(function() {
-                //This works for png files.
+            $("#prev_projects li img").each(function() {
+                //This works for .png files.
                 if($(this).width() != 0) {
                     $(this).css({
                         'left' : (200 - $(this).width()) / 2,
@@ -101,6 +94,7 @@
                         'position' : 'relative'
                     });
                 }else{
+                    //This works for .jpg files.
                     $(this).on('load', function(){
                         $(this).css({
                             'left' : (200 - $(this).width()) / 2,
@@ -109,8 +103,15 @@
                         });
                     });
                 }
-
             });
+            $("#prev_projects").on('tap', function(){
+                var current = $("#prev_projects li").eq(0);
+                var index = images.index(current.children("img"));
+                alert(index);
+                console.log(index);
+                $(".about-time-line .tab").eq(index).show().siblings(".tab").hide();
+            });
+
 
             $("#prev_projects li").each(function (i) {
                 var index = i;
@@ -119,15 +120,6 @@
                     $(this).addClass("selected-project").siblings().removeClass("selected-project");
                 });
             });
-            var images = $("#prev_projects li img");
-
-            $("#prev_projects").on('touchend', 'li', function(){
-
-            });
-
-            $("#fullpage").fullPage();
-
-
         });
 
     </script>
@@ -234,34 +226,19 @@
                 <img src="images/002.jpg" alt="">
                 <h4>靖雷</h4>
                 <h5>澎湃资本创始人，有逾8年的基金管理、PE/VC投资及天使投资的管理经验，对互联网行业与资本市场的趋势与融合有独到认知。</h5>
-                <ul class="top-social-icons">
-                    <li><a class="twitter" href="#"> </a></li>
-                    <li><a class="facebook" href="#"> </a></li>
-                    <li><a class="pin" href="#"> </a></li>
-                    <div class="clear"> </div>
-                </ul>
+                <br>
             </div>
             <div class="tm-head-grid wow fadeInUp" data-wow-delay="0.4s">
                 <img src="images/001.jpg" alt="">
                 <h4>童杰</h4>
                 <h5>致力于互联网相关的早期投资基金，主导并参与投资了InTV融云科技、Colomo奇集科技等项目，曾任职于维思资本和罗仕证券。</h5>
-                <ul class="top-social-icons">
-                    <li><a class="twitter" href="#"> </a></li>
-                    <li><a class="facebook" href="#"> </a></li>
-                    <li><a class="pin" href="#"> </a></li>
-                    <div class="clear"> </div>
-                </ul>
+                <br>
             </div>
             <div class="tm-head-grid wow fadeInRight" data-wow-delay="0.4s">
                 <img src="images/team-member2.jpg" alt="">
                 <h4>陈伟稼、方诗魂、</h4>
                 <h5>合伙人</h5>
-                <ul class="top-social-icons">
-                    <li><a class="twitter" href="#"> </a></li>
-                    <li><a class="facebook" href="#"> </a></li>
-                    <li><a class="pin" href="#"> </a></li>
-                    <div class="clear"> </div>
-                </ul>
+                <br>
             </div>
             <div class="clearfix"> </div>
         </div>
@@ -331,8 +308,8 @@
 
 
 <!---start-about---->
-<div class="about" >
-    <div class="wrap" id="projects">
+<div class="about" id="projects" >
+    <div class="wrap">
         <div class="about-head">
             <h1>已投项目</h1>
             <span class="span-line"> </span>
@@ -349,6 +326,8 @@
                     <li><img src="images/c4.png" alt="" /></li>
                     <li><img src="images/c5.png" alt="" /></li>
                     <li><img src="images/c6.png" alt="" /></li>
+                    <li><img src="images/c7.png" alt="" /></li>
+                    <li><img src="images/c8.png" alt="" /></li>
                 </ul>
             </div>
 
@@ -392,8 +371,8 @@
                         <p>2016年4月获澎湃资本天使投资</p>
                     </div>
                 </div>
-                <div class="tab">
-                    <div class="col-lg-3" hidden="hidden">
+                <div class="tab" hidden="hidden">
+                    <div class="col-lg-3" >
                         <img src="images/c4.jpg" alt="" />
                     </div>
                     <div class="col-lg-9" data-wow-delay="0.4s">
@@ -423,9 +402,34 @@
                         <p>2015年8月获得澎湃资本Pre-A轮融资</p>
                     </div>
                 </div>
+
+
+                <div class="tab" hidden="hidden">
+                    <div class="col-lg-3">
+                        <img src="images/c7.png" alt="" />
+                    </div>
+                    <div class="col-lg-9" data-wow-delay="0.4s">
+                        <h2>览意科技</h2>
+                        <p>览意科技，是一家国际一流的无人机提供商，拥有6年以上无人机研发经验，10年R&D与运作经验团队，且获得100多项审批专利。</p>
+                    </div>
+                </div>
+
+                <div class="tab" hidden="hidden">
+                    <div class="col-lg-2">
+                        <img src="images/c8.png" alt="" />
+                    </div>
+                    <div class="col-lg-8" data-wow-delay="0.4s">
+                        <h2>海居汇</h2>
+                        <p>海居汇是一家高端进口家具电商，以互联网作为平台将消费者和国外近百家世界一线家具品牌直接对接，全程解决从选货、下单、物流和售后服务，包括负责物流清关、为外汇额度管制等搭配解决方案。</p>
+                        <p>2016年获得澎湃资本天使轮投资。</p>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+
             </div>
 
-            <div class="clearfix" style="text-align:center">
+            <div class="clearfix"></div>
+            <div class="clearfix" style="text-align:center; padding-top: 3em;">
                 <a class="leran-more scroll" href="#contacts"><img src="images/to-next.png"></a>
             </div>
         </div>

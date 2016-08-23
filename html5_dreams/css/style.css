@@ -124,6 +124,12 @@ nav a:hover{
 nav a#pull {
 	display: none;
 }
+@media screen and (max-width: 1280px) {
+	.tab .col-lg-3{
+		display: none;
+	}
+}
+
 /*Styles for screen 600px and lower*/
 @media screen and (max-width: 768px) {
 	nav { 
@@ -146,8 +152,9 @@ nav a#pull {
 	  	text-align: left;
 	  	width: 100%;
   	}
-
-
+	.tab .col-lg-3{
+		display: none;
+	}
 }
 /*Styles for screen 515px and lower*/
 @media only screen and (max-width : 768px) {
@@ -250,7 +257,7 @@ nav a#pull {
 /*---- services ----*/
 .services{
 	padding:5em 5em 5em 5em;
-	background: #F9F9F9;
+	background: #F0F0F0;
 }
 .service-head h2{
 	font-weight:900;
@@ -402,6 +409,11 @@ a.leran-more:hover{
 	padding:2em 0;
 }
 /*---- portflio ----*/
+.portfolio {
+	padding: 2em 0 2em 0;
+	background-color: #F0F0F0;
+}
+
 .portfolio-top-left{
 	padding:3em 3em 3em 5em;
 	background: url(../images/portbg-1.png) no-repeat 68% 69%;
@@ -598,10 +610,21 @@ a.leran-more:hover{
     padding-right: 5em;
 }
 
+.tab .col-lg-3{
+	max-width : 20%
+}
+
+.tab .col-lg-9{
+	max-width : 80%
+}
 
 
 /*--//about-time-line--*/
 /*---team-members--*/
+#team {
+	padding:2em 0 2em 0;
+}
+
 .team-members{
 	padding: 3em 0 4em 0;
 	background: url(../images/portbg-1.png) no-repeat 68% 69%;
@@ -1172,7 +1195,7 @@ a.leran-more:hover{
 		padding: 1.5em 3em 1.5em 3em;
 	}
 	.about {
-		padding: 1em 0 14em;
+		padding: 1em 0 8em;
 	}
 	.about-time-line {
 		width: 100%;
@@ -1314,7 +1337,7 @@ a.leran-more:hover{
 		padding: 1.5em 2em 1.5em 2em;
 	}
 	.about {
-		padding: 1em 0 14em;
+		padding: 1em 0 8em;
 	}
 	.about-time-line {
 		width: 100%;
