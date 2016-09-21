@@ -2390,6 +2390,11 @@
 		ul.major-icons {
 			list-style: none;
 			padding-left: 0;
+			padding-top: 0em;
+		}
+
+		div.function-intro{
+			padding-top:4em;
 		}
 
 			ul.major-icons li {
@@ -2397,6 +2402,10 @@
 				padding: 2.5em;
 				text-align: center;
 			}
+
+				ul.major-icons li img{
+					padding-top:0.5em;
+				}
 
 				ul.major-icons li .icon {
 					-moz-transform: rotate(45deg);
@@ -3212,6 +3221,7 @@
 			#one {
 				text-align: center;
 			}
+
 
 		/* Two */
 
