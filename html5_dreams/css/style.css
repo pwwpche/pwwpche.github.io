@@ -607,15 +607,11 @@ a.leran-more:hover{
 }
 
 .time-line-tabs .col-lg-9{
-    padding-right: 5em;
+    padding-right: 0em;
 }
 
 .tab .col-lg-3{
 	max-width : 20%
-}
-
-.tab .col-lg-9{
-	max-width : 80%
 }
 
 
