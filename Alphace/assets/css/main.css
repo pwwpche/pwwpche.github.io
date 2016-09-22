@@ -85,6 +85,7 @@
 		width: 60em;
 	}
 
+
 	@media screen and (max-width: 1680px) {
 
 		.container.\31 25\25 {
@@ -2394,7 +2395,7 @@
 		}
 
 		div.function-intro{
-			padding-top:4em;
+			background-color: rgba(240, 240, 240, 0.15);
 		}
 
 			ul.major-icons li {
@@ -2719,7 +2720,7 @@
 			background-color: #333;
 			color: rgba(255, 255, 255, 0.75);
 			background-attachment: fixed,							fixed;
-			background-image: url("images/overlay1.png"), url("../../images/header.jpg");
+			background-image: url("images/overlay1.png"), url("../../images/background.jpg");
 			background-size: auto,							cover;
 		}
 
