@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Che Liu</title>
+		<description>This is a blog</description>
+		<link>/</link>
+		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Hello from the New Site!</title>
+				<description>&lt;p&gt;Hello, World! The new site is ready, and the old one was archived into another repository.&lt;/p&gt;
+
+&lt;p&gt;There is a same copy currently stored in UCSD CSE server, but later on there will be only a redirection to my github site.&lt;/p&gt;
+
+&lt;p&gt;And…Happy National Day when I am not having a single day for vacation :) Cheers!&lt;/p&gt;
+</description>
+				<pubDate>Sat, 01 Oct 2016 00:00:00 -0700</pubDate>
+				<link>/uncategoried/2016/10/01/Hello-World.html</link>
+				<guid isPermaLink="true">/uncategoried/2016/10/01/Hello-World.html</guid>
+			</item>
+		
+	</channel>
+</rss>

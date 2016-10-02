@@ -1,0 +1,36 @@
+# visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+
+paginate: 10 # pagination based on number of posts
+paginate_path: "page:num"
+exclude: ["README.md"] # files to exclude
+highlighter: pygments
+markdown: kramdown
+disqus: pwwpche
+google_analytics: pwwpche
+title: Che Liu
+
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      title: TALK IS CHEAP, SHOW ME CODE!
+
+description: This is a blog
+author:
+  name: Che Liu
+  email: pwwpche@gmail.com
+  github: pwwpche
+  linkedin: che-liu-02038591
+  bio: Master student @ UCSD CSE
+
+rss_path: feed.xml
+categories_path: categories.html
+tags_path: tags.html
+avatar: assets/media/avatar.jpg
+# sidebar_background_image: assets/media/avatar.jpg
+
+BASE_PATH:
+
+gems:
+  - jekyll-paginate
