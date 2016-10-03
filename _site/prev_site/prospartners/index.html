@@ -1,0 +1,491 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <title>澎湃资本 Pros & Partners</title>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/jquery.fullPage.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <!---- animated-css ---->
+    <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!---- animated-css ---->
+
+    <!---- start-smoth-scrolling---->
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+            });
+        });
+    </script>
+    <!---- end-smoth-scrolling---->
+
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+
+    <script>
+        $(function() {
+            var pull 		= $('#pull');
+            menu 		= $('nav ul');
+            menuHeight	= menu.height();
+            $(pull).on('click', function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+            $(window).resize(function(){
+                var w = $(window).width();
+                if(w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).on("pageinit","#contact",function(){
+
+            $(this).on('tap', function(){
+                console.log($(this));
+                /*
+                 var current = $("#prev_projects li").eq(0);
+                 var index = images.index(current.children("img"));
+                 alert(index);
+                 console.log(index);
+                 $(".about-time-line .tab").eq(index).show().siblings(".tab").hide();
+                 */
+            });
+
+        });
+
+        $(document).ready(function() {
+            var images = $("#prev_projects li img");
+            $().UItoTop({ easingType: 'easeOutQuart' });
+            $('#prev_projects ul').carouFredSel({
+                auto: true,
+                mousewheel: true,
+                swipe: {
+                    onMouse : true,
+                    onTouch: true
+                },
+                scroll: {
+                    items : 1,
+                    pauseOnHover: true,
+                    onAfter : function(data){
+                        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                            var current = $("#prev_projects li").eq(0);
+                            //current.addClass("selected-project").siblings().removeClass("selected-project");
+                            var index = images.index(current.children("img"));
+                            $(".about-time-line .tab").eq(index).show().siblings(".tab").hide();
+                        }
+                    }
+                }
+            });
+
+            $("#prev_projects li img").each(function() {
+                //This works for .png files.
+                if($(this).width() != 0) {
+                    $(this).css({
+                        'left' : (200 - $(this).width()) / 2,
+                        'top' : (200 - $(this).height()) / 2,
+                        'position' : 'relative'
+                    });
+                }else{
+                    //This works for .jpg files.
+                    $(this).on('load', function(){
+                        $(this).css({
+                            'left' : (200 - $(this).width()) / 2,
+                            'top' : (200 - $(this).height()) / 2,
+                            'position' : 'relative'
+                        });
+                    });
+                }
+            });
+
+
+            $("#prev_projects li").each(function (i) {
+                var index = i;
+                $(this).mouseenter(function () {
+                    $(".about-time-line .tab").eq(index).show().siblings(".tab").hide();
+                    $(this).addClass("selected-project").siblings().removeClass("selected-project");
+                });
+            });
+        });
+
+    </script>
+
+    <!----//End-top-nav-script---->
+</head>
+<body>
+
+
+<div class="bg">
+    <!----- start-header---->
+    <div id="home" class="header wow bounceInDown" data-wow-delay="0.4s">
+        <div class="top-header">
+            <div class="container">
+                <!--
+                <div class="logo">
+                    <img src="images/logo-only.png" title="dreams" />
+                </div>
+                -->
+                <!----start-top-nav---->
+                <nav class="top-nav">
+                    <ul class="top-nav">
+                        <li><a href="#home" class="scroll">主页</a></li>
+                        <li class="active"><a href="#services" class="scroll">服务</a></li>
+                        <li><a href="#team" class="scroll">团队</a></li>
+                        <li><a href="#portfolio" class="scroll">简介</a></li>
+                        <li><a href="#projects" class="scroll">已投项目</a></li>
+                        <li><a href="./articles/index.html">新闻</a></li>
+                        <li><a href="#contact" class="scroll">联系我们</a></li>
+                    </ul>
+
+                </nav>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!----- //End-header---->
+    <!---- banner ---->
+    <div class="banner wow fadeIn" data-wow-delay="0.5s">
+        <div class="container">
+            <div class="banner-info text-center">
+                <h1>澎湃资本</h1><br>
+                <h2>Pros & Partners</h2><br>
+                <span> </span>
+                <h3>
+                    <br><br>
+                    <a href="#services" class="transparent-button scroll">了解我们</a>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+<!---- banner ---->
+
+<!--- services --->
+<div id="services" class="services">
+    <div class="container">
+        <div class="service-head text-center">
+            <h2>我们寻找并协助有潜力的企业家</h2>
+            <span> </span>
+        </div>
+        <!--- services-grids --->
+        <div class="services-grids text-center">
+            <div class="col-md-4">
+                <div class="service-grid wow bounceIn" data-wow-delay="0.4s">
+                    <span class=" icon fa-clock-o service-icon1"> </span>
+                    <h3><a href="#">行业</a></h3>
+                    <p>专注于新消费+互联网的方向，用互联网改造传统行业</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-grid wow bounceIn" data-wow-delay="0.4s">
+                    <span class=" icon fa-clock-o service-icon2"> </span>
+                    <h3><a href="#">轮次</a></h3>
+                    <p>天使投资之后的Pre-A轮投资</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-grid wow bounceIn" data-wow-delay="0.4s">
+                    <span class=" icon fa-clock-o service-icon3"> </span>
+                    <h3><a href="#">资金</a></h3>
+                    <p>2016年我们将会募集<br/>5至10亿的二期基金</p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <a class="leran-more scroll" href="#team"><img src="images/to-next.png"/></a>
+            </div>
+        </div>
+        <!--- services-grids --->
+    </div>
+</div>
+<!--- services --->
+
+<!---- team --->
+<div id="team" class="" >
+    <div class="wrap" class="team-members">
+        <div class="tm-head">
+            <h3>我们的合伙人</h3>
+            <p>我们选择并坚持合伙人在一线工作</p>
+            <span class="span-line"> </span>
+        </div>
+        <div class="tm-head-grids">
+            <div class="tm-head-grid wow fadeInLeft" data-wow-delay="0.4s">
+                <img src="images/002.jpg" alt="">
+                <h4>靖雷</h4>
+                <h5>澎湃资本创始人，有逾8年的基金管理、PE/VC投资及天使投资的管理经验，对互联网行业与资本市场的趋势与融合有独到认知。</h5>
+                <br>
+            </div>
+            <div class="tm-head-grid wow fadeInUp" data-wow-delay="0.4s">
+                <img src="images/001.jpg" alt="">
+                <h4>童杰</h4>
+                <h5>致力于互联网相关的早期投资基金，主导并参与投资了InTV融云科技、Colomo奇集科技等项目，曾任职于维思资本和罗仕证券。</h5>
+                <br>
+            </div>
+            <div class="tm-head-grid wow fadeInRight" data-wow-delay="0.4s">
+                <img src="images/team-member2.jpg" alt="">
+                <h4>陈伟稼、方诗魂、</h4>
+                <h5>合伙人</h5>
+                <br>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <p class="team-info"><a class="leran-more scroll" href="#portfolio"><img src="images/to-next.png"></img></a></p>
+    </div>
+</div>
+<!---- team --->
+
+<!---- portfolio --->
+<div class="portfolio" id="portfolio">
+    <div class="container ">
+
+        <div class="col-md-12" >
+            <div class="tm-head">
+                <h3>关于我们</h3>
+                <span class="span-line"> </span>
+            </div>
+
+
+            <div class="rows pf-info">
+                <div class="col-lg-12">
+                    <p>澎湃资本，是一个由中国优秀的第二代投资人组成的专业股权投资管理平台。面对经济增长放缓、传统行业转型、创新创业涌起的特殊历史阶段，澎湃团队坚定看好“新经济+”的投资主体，坚持采用“价值重塑”的投资方法，坚决推动“黄金接力”的资本路径，坚信培育“生态孵化”的企业价值，坚守承诺“共赢分享”的合作原则，不断发现、培育和支持第二代明星企业家和优秀投资人的成长和成功，致力于为中国专业基金投资人带来良好的、可持续的与相对可控的投资回报。
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-6 pf-info-sm">
+                    <div class="portfolio-top-left-grid-right">
+                        <h5>澎湃</h5>
+                        <p>“澎湃”恰如其分地反映了投资活动中流动性的形态，在新经济、新技术和信息高度对称的今天，所谓 “静水深流式”的价值发现日益渺茫，而兼容对水位、流向和力量的把握和判定是更为理想的投资方法。
+
+                        </p>
+                    </div>
+                    <div class="clearfix "> </div>
+                </div>
+                <div class="col-lg-6 pf-info-sm">
+
+                    <div class="portfolio-top-left-grid-right">
+                        <h5>Pros &amp; Partners</h5>
+                        <p>取自英语“pros &amp; cons”即利与弊一说，“Pros”体现我们偏好站在有利因素和既有优势上(而非挑战投资对象现实短板的角度)，推动成长，提升价值，成为实现增值(&amp;)的长期伙伴(Partners)。</p>
+
+                    </div>
+
+
+                    <div class="clearfix">
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="clearfix pf-center">
+                <a class="leran-more scroll" href="#projects"><img src="images/to-next.png"></a>
+            </div>
+        </div>
+
+        <div class="clearfix">
+
+        </div>
+        <!---- portfolio-works ---->
+
+
+    </div>
+
+</div>
+<!---- portfolio --->
+
+
+
+<!---start-about---->
+<div class="about" id="projects" >
+    <div class="wrap">
+        <div class="about-head">
+            <h1>已投项目</h1>
+            <span class="span-line"> </span>
+        </div>
+        <!---start-about-time-line---->
+        <div class="about-time-line">
+
+            <div id="prev_projects">
+
+                <ul>
+                    <li><img src="images/c1.png" alt="" /></li>
+                    <li><img src="images/c2.png" alt="" /></li>
+                    <li><img src="images/c3.png" alt="" /></li>
+                    <li><img src="images/c4.png" alt="" /></li>
+                    <li><img src="images/c5.png" alt="" /></li>
+                    <li><img src="images/c6.png" alt="" /></li>
+                    <li><img src="images/c7.png" alt="" /></li>
+                    <li><img src="images/c8.png" alt="" /></li>
+                </ul>
+            </div>
+
+            <div class="time-line-tabs">
+
+
+                <div class="tab" >
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <img src="images/c1.jpg" alt="" />
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="cbp_tmlabel" data-wow-delay="0.4s">
+                                <h2>蜂窝微服</h2>
+                                <p>“蜂窝微服”是一家精耕于“最后一公里”恒温及时送服务商。借助O2O外送市场需求发展大势，在全国范围内快速网格化扩建“3公里，1小时送达”服务网格，以优质的服务迅速成为国内各大品牌餐饮、外卖平台、生鲜电商的配送业务战略合作伙伴。</p>
+                                <p>2014年获得澎湃资本的天使投资。</p>
+                                <p>2014年12月获得由联创投资的1500万人民币的A轮融资</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab" hidden="hidden">
+                    <div class="col-lg-3">
+                        <img src="images/c2.jpg" alt="" />
+                    </div>
+                    <div class="col-lg-9" data-wow-delay="0.4s">
+                        <h2>助理来也</h2>
+                        <p>“助理来也”目标做每个用户最有爱贴心的私人助理，并通过对话和推荐等智能交互技术人性化地连接人和本地商业。产品上线半年多，已经成为这个创业方向上的业界标杆。
+                        </p>
+                        <p>								2015年8月获得由光速创投，红杉资本，澎湃资本和真格投资联合投资的400万美金天使融资。</p>
+                        <p>2016年3月完成由光速创投及微软创投联合投资的A轮融资</p>
+                    </div>
+                </div>
+                <div class="tab" hidden="hidden">
+                    <div class="col-lg-3">
+                        <img src="images/c3.jpg" alt="" />
+                    </div>
+                    <div class="col-lg-9" data-wow-delay="0.4s">
+                        <h2>够赞</h2>
+                        <p>“够赞”是一款面向消费升级的精品垂直电商平台。为用户提供高性价比的D+F商品（设计师和供应链对接商品）、热门IP商品；并通过话题引导和游戏性玩法，完成C2B定制化销售.</p>
+                        <p>2016年4月获澎湃资本天使投资</p>
+                    </div>
+                </div>
+                <div class="tab" hidden="hidden">
+                    <div class="col-lg-3" >
+                        <img src="images/c4.jpg" alt="" />
+                    </div>
+                    <div class="col-lg-9" data-wow-delay="0.4s">
+                        <h2>alphace玉颜</h2>
+                        <p>Alphace玉颜，全球首款智能测肤护肤仪，采用alphace scan技术随时随地了解肌肤状况；alphace sonic声波导入技术，帮助精华吸收，抚平细小皱纹。匠心打造alphace时尚科技品牌，为用户提供更多智能化的产品与服务。</p>
+                        <p>2015年5月获得澎湃资本300万元天使融资。</p>
+                    </div>
+                </div>
+                <div class="tab" hidden="hidden">
+                    <div class="col-lg-3">
+                        <img src="images/c5.jpg" alt="" />
+                    </div>
+                    <div class="col-lg-9" data-wow-delay="0.4s">
+                        <h2>帝先实业</h2>
+                        <p>立足于优化农产品流通，以系统化运营的手段，为零售环节提升人流并降低采购成本；从而为农产品供应链流通降低流通成本，提升流通 效率。现阶段在上海市迅速拓展市场。以自营交易闭环入手，完成信息整合，并逐步实现互联网化。</p>
+                        <p>2015年12月获得澎湃资本投资的400万天使融资。</p>
+                    </div>
+                </div>
+                <div class="tab" hidden="hidden">
+                    <div class="col-lg-3">
+                        <img src="images/c6.jpg" alt="" />
+                    </div>
+                    <div class="col-lg-9" data-wow-delay="0.4s">
+                        <h2>奇思</h2>
+                        <p>奇思是移动视频领域的领军企业，旗下产品线覆盖逾三成 iOS 活跃用户，视频产品形式涵盖VR、聚合、直播及垂直细分等多个领域，秉承“移动视频+”的战略理念，逐渐形成一套完善的移动视频生态系统。</p>
+                        <p>2014年10月获得天使轮融资</p>
+                        <p>2015年8月获得澎湃资本Pre-A轮融资</p>
+                    </div>
+                </div>
+
+
+                <div class="tab" hidden="hidden">
+                    <div class="col-lg-3">
+                        <img src="images/c7.png" alt="" />
+                    </div>
+                    <div class="col-lg-9" data-wow-delay="0.4s">
+                        <h2>览意科技</h2>
+                        <p>览意科技，是一家国际一流的无人机提供商，拥有6年以上无人机研发经验，10年R&D与运作经验团队，且获得100多项审批专利。</p>
+                    </div>
+                </div>
+
+                <div class="tab" hidden="hidden">
+                    <div class="col-lg-3">
+                        <img src="images/c8.png" alt="" />
+                    </div>
+                    <div class="col-lg-8" data-wow-delay="0.4s">
+                        <h2>海居汇</h2>
+                        <p>海居汇是一家高端进口家具电商，以互联网作为平台将消费者和国外近百家世界一线家具品牌直接对接，全程解决从选货、下单、物流和售后服务，包括负责物流清关、为外汇额度管制等搭配解决方案。</p>
+                        <p>2016年获得澎湃资本天使轮投资。</p>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="clearfix" style="text-align:center; padding-top: 3em;">
+                <a class="leran-more scroll" href="#contacts"><img src="images/to-next.png"></a>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <!---//End-about-time-line---->
+    <!---- about ---->
+</div>
+<!---end-about---->
+
+<!---- contact --->
+<div id="contact" class="contact">
+    <div class="container">
+        <div class="contact-grids">
+            <div class="col-md-12">
+                <div class="contact-left wow fadeInRight" data-wow-delay="0.4s" id="contacts">
+                    <h3>联系我们</h3>
+                    <label></label>
+                    <div class="contact-left-grids">
+                        <div class="col-md-6">
+                            <div class="contact-left-grid">
+                                <p><span class="c-house"> </span>中国上海市徐汇区淮海中路1010号嘉华中心3505室</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact-right-grid">
+                                <p><span class="c-msg"> </span><a href="mailto:bp@prospartners.com">bp@prospartners.com</a></p>
+
+                            </div>
+                        </div>
+
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+        <!--- copy-right ---->
+        <div class="copy-right text-center">
+            <p>Copyright &copy; 2016.Pros & Partners name All rights reserved.</p>
+
+            <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+            <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="loaopacity: 1;"> </span></a>
+        </div>
+        <!--- copy-right ---->
+    </div>
+</div>
+<!---- contact --->
+
+</body>
+</html>

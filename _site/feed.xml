@@ -7,10 +7,43 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Complexity Analysis is somehow Complex</title>
+				<description>&lt;p&gt;There is a problem, called “132 pattern” in Homework1 of CSE202. Here is the description:&lt;/p&gt;
+
+&lt;h5 id=&quot;pattern&quot;&gt;132 Pattern&lt;/h5&gt;
+
+&lt;dl&gt;
+Given a sequence of n distinct positive integers a[1], . . . , a[n], a 132-pattern is a subsequence a[i], a[j], a[k] such that i &amp;lt; j &amp;lt; k and a[i] &amp;lt; a[k] &amp;lt; a[j] . For example: the sequence 31, 24, 15, 22, 33, 4, 18, 5, 3, 26 has several 132-patterns including 15, 33, 18 among others. Design an algorithm that takes as input a list of n number and checks whether there is a 132-pattern in the list
+&lt;/dl&gt;
+
+&lt;p&gt;Naive solution takes O(n^2) time, which is pretty obvious. Somehow it is also quite easy to come to a much better solution. Since we are going to find a nubmer that lies between previous larger value a[j] and previous smaller value a[i], this problem looks similar to a interval problem, which goes to :&lt;/p&gt;
+
+&lt;h5 id=&quot;similar-problem&quot;&gt;Similar problem&lt;/h5&gt;
+&lt;dl&gt;
+Given a sequence of n intervals, find if they overlap.
+&lt;/dl&gt;
+
+&lt;p&gt;At the first glance to this similar problem, we might come to the conclusion that this is a O(n) problem by instinct, because many if-exist problem have O(n) solutions. So after some consideration, we came to this better solution:&lt;/p&gt;
+
+&lt;p&gt;#####Better solution
+    * Store all the intervals formed by previous smaller numbers and larger numbers into a stack.
+    * For every new number:
+        * Find if it belongs to some interval.
+            * If it belongs to an interval, return true.
+            * If not,&lt;/p&gt;
+</description>
+				<pubDate>Sun, 02 Oct 2016 00:00:00 -0700</pubDate>
+				<link>/algorithm/2016/10/02/Complexity-Analysis-Is-Complex.html</link>
+				<guid isPermaLink="true">/algorithm/2016/10/02/Complexity-Analysis-Is-Complex.html</guid>
+			</item>
+		
+			<item>
 				<title>Hello from the New Site!</title>
 				<description>&lt;p&gt;Hello, World! The new site is ready, and the old one was archived into another repository.&lt;/p&gt;
 
-&lt;p&gt;There is a same copy currently stored in UCSD CSE server, but later on there will be only a redirection to my github site.&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;There is a same copy currently stored in UCSD CSE server, but later on there will be only a redirection to my github site. &lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s done. There is only a main page in UCSD CSE server now.&lt;/p&gt;
 
 &lt;p&gt;And…Happy National Day when I am not having a single day for vacation :) Cheers!&lt;/p&gt;
 </description>
