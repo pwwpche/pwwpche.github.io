@@ -30,4 +30,4 @@ At the first glance to this similar problem, we might come to the conclusion tha
     * For every new number:
         * Find if it belongs to some interval.
             * If it belongs to an interval, return true.
-            * If not, 
+            * If not,
